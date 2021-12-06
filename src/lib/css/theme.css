@@ -1,0 +1,44 @@
+:root {
+  --color-grey-000: hsl(210, 36%, 96%);
+  --color-grey-100: hsl(212, 33%, 89%);
+  --color-grey-200: hsl(210, 31%, 80%);
+  --color-grey-300: hsl(211, 27%, 70%);
+  --color-grey-400: hsl(209, 23%, 60%);
+  --color-grey-500: hsl(210, 22%, 49%);
+  --color-grey-600: hsl(209, 28%, 39%);
+  --color-grey-700: hsl(209, 34%, 30%);
+  --color-grey-800: hsl(211, 39%, 23%);
+  --color-grey-900: hsl(209, 61%, 16%);
+
+
+  --color-main-bg: var(--color-grey-100);
+
+
+  --color-light-shadow: var(--color-grey-000);
+  --color-dark-shadow: var(--color-grey-300);
+
+  --color-border: var(--color-grey-200);
+
+  --color-text: var(--color-grey-700);
+
+  --shadow-outset-100:
+    -2px -2px 4px var(--color-light-shadow),
+    2px 2px 4px var(--color-dark-shadow);
+
+  --shadow-outset-200:
+    -5px -5px 6px var(--color-light-shadow),
+    5px 5px 6px var(--color-dark-shadow);
+
+  --shadow-inset-100:
+    inset 1px 1px 2px var(--color-dark-shadow),
+    inset -1px -1px 2px var(--color-light-shadow);
+
+  --shadow-inset-200:
+    inset 2px 2px 5px var(--color-dark-shadow),
+    inset -3px -3px 7px var(--color-light-shadow);
+
+  --border-radius: 8px;
+
+  --font-heading: Roboto, san-serif;
+  --font-article: Roboto, san-serif;
+}
