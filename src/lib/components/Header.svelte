@@ -16,7 +16,11 @@
 </script>
 
 <header>
-	<div>test</div>
+	<div class="avatar">
+		<a href="/">
+			<img src="/assets/imgs/avatar.png" alt="avatar" />
+		</a>
+	</div>
 	<Button class="toggle-btn" on:click={onToggle}>+</Button>
 	<nav>
 		<ul id="navigation" class="navigation" class:hide={!isToggled}>
@@ -30,11 +34,12 @@
 
 <style>
 	header {
+		--header-height: 4rem;
 		box-shadow: var(--shadow-outset-200);
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		height: 4rem;
+		height: var(--header-height);
 		border-radius: var(--border-radius);
 		position: relative;
 		--padding-x: 1rem;
@@ -49,6 +54,29 @@
 		z-index: 9999;
 	}
 
+	.avatar {
+		width: calc(var(--header-height) - 0.5rem);
+		height: calc(var(--header-height) - 0.5rem);
+		border-radius: 50%;
+		padding: 0.5rem;
+		box-shadow: var(--shadow-inset-200);
+		box-sizing: border-box;
+	}
+
+	.avatar a {
+		display: flex;
+		width: 100%;
+		height: 100%;
+		border: 1px solid var(--color-border);
+		overflow: hidden;
+		border-radius: 50%;
+	}
+
+	.avatar img {
+		width: 100%;
+		height: 100%;
+	}
+
 	.navigation {
 		transition: opacity 0.3s linear;
 		background-color: var(--color-main-bg);
@@ -58,6 +86,8 @@
 		padding: min(10vh, 10rem) 1em;
 		font-size: 1.125rem;
 		box-shadow: var(--shadow-outset-200);
+		display: flex;
+		flex-direction: column;
 		gap: 0.75em;
 		min-width: 6rem;
 		width: 30%;
@@ -72,7 +102,7 @@
 
 	.navigation li {
 		list-style: none;
-		padding: 0.5rem 1.5rem;
+		padding: 1rem 1.5rem;
 		border-radius: var(--border-radius);
 	}
 
@@ -99,9 +129,14 @@
 
 	.backdrop.hide {
 		opacity: 0;
+		z-index: -1;
 	}
 
 	@media only screen and (min-width: 40em) {
+		header {
+			--header-height: 6rem;
+		}
+
 		header :global(.toggle-btn) {
 			display: none;
 		}
@@ -114,6 +149,7 @@
 
 		.navigation li {
 			transition: box-shadow 0.2s linear;
+			padding: 1.5rem 1.5rem;
 		}
 
 		.backdrop {
