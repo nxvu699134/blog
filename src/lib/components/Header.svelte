@@ -1,10 +1,18 @@
 <script>
+	import { page } from '$app/stores';
 	import Button from '../ui/Button.svelte';
 	let isToggled = false;
+	$: curPath = $page.path;
 
 	const onToggle = () => {
 		isToggled = !isToggled;
 	};
+
+	const items = [
+		{ path: '/', label: 'Home' },
+		{ path: '/posts', label: 'Posts' },
+		{ path: '/about', label: 'About' }
+	];
 </script>
 
 <header>
@@ -12,10 +20,9 @@
 	<Button class="toggle-btn" on:click={onToggle}>+</Button>
 	<nav>
 		<ul id="navigation" class="navigation" class:hide={!isToggled}>
-			<li><a href="/">Home</a></li>
-			<li><a href="/posts">Posts</a></li>
-			<li><a href="/projects">Projects</a></li>
-			<li><a href="/about">About</a></li>
+			{#each items as { path, label }}
+				<li class:active={curPath == path} on:click={onToggle}><a href={path}>{label}</a></li>
+			{/each}
 		</ul>
 	</nav>
 </header>
@@ -27,7 +34,6 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		margin: 1rem;
 		height: 4rem;
 		border-radius: var(--border-radius);
 		position: relative;
@@ -46,13 +52,10 @@
 	.navigation {
 		transition: opacity 0.3s linear;
 		background-color: var(--color-main-bg);
-		display: flex;
-		flex-direction: column;
 		position: fixed;
 		top: 0;
 		right: 1rem;
 		padding: min(10vh, 10rem) 1em;
-		list-style: none;
 		font-size: 1.125rem;
 		box-shadow: var(--shadow-outset-200);
 		gap: 0.75em;
@@ -68,7 +71,17 @@
 	}
 
 	.navigation li {
-		padding: 0.5em 0;
+		list-style: none;
+		padding: 0.5rem 1.5rem;
+		border-radius: var(--border-radius);
+	}
+
+	.navigation li.active {
+		box-shadow: var(--shadow-inset-200);
+	}
+
+	.navigation li a {
+		display: block;
 	}
 
 	.backdrop {
@@ -86,5 +99,25 @@
 
 	.backdrop.hide {
 		opacity: 0;
+	}
+
+	@media only screen and (min-width: 40em) {
+		header :global(.toggle-btn) {
+			display: none;
+		}
+
+		.navigation,
+		.navigation.hide {
+			all: unset;
+			display: flex;
+		}
+
+		.navigation li {
+			transition: box-shadow 0.2s linear;
+		}
+
+		.backdrop {
+			display: none;
+		}
 	}
 </style>
