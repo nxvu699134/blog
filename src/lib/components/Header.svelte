@@ -25,12 +25,12 @@
 	<nav>
 		<ul id="navigation" class="navigation" class:hide={!isToggled}>
 			{#each items as { path, label }}
-				<li class:active={curPath == path} on:click={onToggle}><a href={path}>{label}</a></li>
+				<a class:active={curPath == path} on:click={onToggle} href={path}>{label}</a>
 			{/each}
 		</ul>
 	</nav>
 </header>
-<div class="backdrop" class:hide={!isToggled} />
+<div class="backdrop" class:hide={!isToggled} on:click={onToggle} />
 
 <style>
 	header {
@@ -42,8 +42,9 @@
 		height: var(--header-height);
 		border-radius: var(--border-radius);
 		position: relative;
-		--padding-x: 1rem;
+		--padding-x: var(--spacing-400);
 		padding: 0 var(--padding-x);
+		margin-bottom: var(--spacing-500);
 	}
 
 	header :global(.toggle-btn) {
@@ -58,9 +59,8 @@
 		width: calc(var(--header-height) - 0.5rem);
 		height: calc(var(--header-height) - 0.5rem);
 		border-radius: 50%;
-		padding: 0.5rem;
+		padding: var(--spacing-100);
 		box-shadow: var(--shadow-inset-200);
-		box-sizing: border-box;
 	}
 
 	.avatar a {
@@ -78,12 +78,11 @@
 	}
 
 	.navigation {
-		transition: opacity 0.3s linear;
 		background-color: var(--color-main-bg);
 		position: fixed;
 		top: 0;
 		right: 1rem;
-		padding: min(10vh, 10rem) 1em;
+		padding: min(10vh, 10rem) var(--spacing-400);
 		font-size: 1.125rem;
 		box-shadow: var(--shadow-outset-200);
 		display: flex;
@@ -93,25 +92,22 @@
 		width: 30%;
 		z-index: 9000;
 		opacity: 1;
+		transition: opacity 0.3s linear, z-index 0.3s linear;
 	}
 
 	.navigation.hide {
 		opacity: 0;
 		box-shadow: var(--shadow-inset-200);
+		z-index: -1;
 	}
 
-	.navigation li {
-		list-style: none;
-		padding: 1rem 1.5rem;
+	.navigation a {
+		padding: 0.75rem 1.5rem;
 		border-radius: var(--border-radius);
 	}
 
-	.navigation li.active {
+	.navigation a.active {
 		box-shadow: var(--shadow-inset-200);
-	}
-
-	.navigation li a {
-		display: block;
 	}
 
 	.backdrop {
@@ -124,7 +120,7 @@
 		z-index: 2000;
 		filter: blur(1rem);
 		opacity: 0.8;
-		transition: opacity 0.3s linear;
+		transition: opacity 0.3s linear, z-index 0.3s linear;
 	}
 
 	.backdrop.hide {
@@ -133,10 +129,6 @@
 	}
 
 	@media only screen and (min-width: 40em) {
-		header {
-			--header-height: 6rem;
-		}
-
 		header :global(.toggle-btn) {
 			display: none;
 		}
@@ -147,9 +139,8 @@
 			display: flex;
 		}
 
-		.navigation li {
+		.navigation a {
 			transition: box-shadow 0.2s linear;
-			padding: 1.5rem 1.5rem;
 		}
 
 		.backdrop {
