@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { page } from '$app/stores';
 	import Button from '$lib/ui/Button.svelte';
 	import meta from '$lib/meta/site_info';
@@ -16,11 +16,15 @@
 		{ path: '/posts', label: 'Posts' },
 		{ path: '/about', label: 'About' }
 	];
+
+	const getRandom = (max: number) => {
+		return Math.floor(Math.random() * (max - 1)) + 1;
+	};
 </script>
 
 <header>
 	<a class="site-name" href={meta.siteUrl}>
-		<Domino left={4} right={3} size={0.5} />
+		<Domino left={getRandom(6)} right={getRandom(6)} size={0.5} />
 	</a>
 	<Button class="toggle-btn" on:click={onToggle}>+</Button>
 	<nav>
