@@ -104,6 +104,7 @@
 	.navigation a {
 		padding: 0.75rem 1.5rem;
 		border-radius: var(--border-radius);
+		font-size: var(--font-size-500);
 	}
 
 	.navigation a.active {
