@@ -1,6 +1,9 @@
 <script>
 	import { page } from '$app/stores';
-	import Button from '../ui/Button.svelte';
+	import Button from '$lib/ui/Button.svelte';
+	import meta from '$lib/meta/site_info';
+	import Domino from '$lib/components/Domino.svelte';
+
 	let isToggled = false;
 	$: curPath = $page.path;
 
@@ -16,11 +19,9 @@
 </script>
 
 <header>
-	<div class="avatar">
-		<a href="/">
-			<img src="/assets/imgs/avatar.png" alt="avatar" />
-		</a>
-	</div>
+	<a class="site-name" href={meta.siteUrl}>
+		<Domino left={4} right={3} size={0.5} />
+	</a>
 	<Button class="toggle-btn" on:click={onToggle}>+</Button>
 	<nav>
 		<ul id="navigation" class="navigation" class:hide={!isToggled}>
@@ -55,26 +56,12 @@
 		z-index: 9999;
 	}
 
-	.avatar {
-		width: calc(var(--header-height) - 0.5rem);
-		height: calc(var(--header-height) - 0.5rem);
-		border-radius: 50%;
-		padding: var(--spacing-100);
-		box-shadow: var(--shadow-inset-200);
-	}
-
-	.avatar a {
-		display: flex;
-		width: 100%;
-		height: 100%;
-		border: 1px solid var(--color-border);
-		overflow: hidden;
-		border-radius: 50%;
-	}
-
-	.avatar img {
-		width: 100%;
-		height: 100%;
+	.site-name {
+		text-shadow: -1px 0 var(--color-border), 0 1px var(--color-border), 1px 0 var(--color-border),
+			0 -1px var(--color-border), var(--shadow-outset-200);
+		color: var(--color-main-bg);
+		font-style: italic;
+		letter-spacing: 0.25rem;
 	}
 
 	.navigation {
