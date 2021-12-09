@@ -10,6 +10,27 @@
   --color-grey-800: hsl(211, 39%, 23%);
   --color-grey-900: hsl(209, 61%, 16%);
 
+  --color-blue-000: hsl(204, 96%, 27%);
+  --color-blue-100: hsl(203, 87%, 34%);
+  --color-blue-200: hsl(202, 83%, 41%);
+  --color-blue-300: hsl(201, 79%, 46%);
+  --color-blue-400: hsl(199, 84%, 55%);
+  --color-blue-500: hsl(197, 92%, 61%);
+  --color-blue-600: hsl(196, 94%, 67%);
+  --color-blue-700: hsl(195, 97%, 75%);
+  --color-blue-800: hsl(195, 100%, 85%);
+  --color-blue-900: hsl(195, 100%, 95%);
+
+  --color-red-000: hsl(360, 94%, 20%);
+  --color-red-100: hsl(360, 94%, 28%);
+  --color-red-200: hsl(360, 90%, 35%);
+  --color-red-300: hsl(360, 85%, 44%);
+  --color-red-400: hsl(360, 75%, 53%);
+  --color-red-500: hsl(360, 83%, 62%);
+  --color-red-600: hsl(360, 91%, 69%);
+  --color-red-700: hsl(360, 100%, 80%);
+  --color-red-800: hsl(360, 100%, 87%);
+  --color-red-900: hsl(360, 100%, 95%);
 
   --color-main-bg: var(--color-grey-100);
 
@@ -19,6 +40,7 @@
   --color-border: var(--color-grey-200);
 
   --color-text: var(--color-grey-700);
+  --color-text-alt: var(--color-grey-500);
 
   --shadow-outset-100:
     -2px -2px 4px var(--color-light-shadow),
@@ -61,4 +83,35 @@
   --font-size-700: 1.5rem;
   --font-size-800: 2rem;
   --font-size-900: 3rem;
+  --font-size-1000: 3.75rem;
+  --font-size-1100: 4.5rem;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  margin: 0;
+  font-family: var(--font-heading);
+}
+
+h1 {
+  font-size: var(--font-size-1000);
+}
+
+h2 {
+  font-size: var(--font-size-900);
+}
+
+h3 {
+  font-size: var(--font-size-800);
+}
+
+h4 {
+  font-size: var(--font-size-700);
+}
+
+h5 {
+  font-size: var(--font-size-600);
+}
+
+h6 {
+  font-size: var(--font-size-500);
 }
