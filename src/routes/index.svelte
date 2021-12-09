@@ -127,6 +127,7 @@
 			align-items: center;
 			padding: var(--spacing-300);
 			border-radius: 50%;
+			transition: box-shadow 0.3s ease-in-out;
 		}
 
 		.social-link a:hover {
