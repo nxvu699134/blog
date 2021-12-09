@@ -50,6 +50,10 @@
     -5px -5px 6px var(--color-light-shadow),
     5px 5px 6px var(--color-dark-shadow);
 
+  --shadow-outset-000:
+    0 0 0 var(--color-light-shadow),
+    0 0 0 var(--color-dark-shadow);
+
   --shadow-inset-100:
     inset 1px 1px 2px var(--color-dark-shadow),
     inset -1px -1px 2px var(--color-light-shadow);
@@ -57,6 +61,10 @@
   --shadow-inset-200:
     inset 2px 2px 5px var(--color-dark-shadow),
     inset -3px -3px 7px var(--color-light-shadow);
+
+  --shadow-inset-000:
+    inset 0 0 0 var(--color-dark-shadow),
+    inset 0 0 0 var(--color-light-shadow);
 
   --border-radius: 8px;
 
