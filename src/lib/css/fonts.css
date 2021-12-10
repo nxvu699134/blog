@@ -3,6 +3,7 @@
   font-style: normal;
   font-weight: 300;
   src: url("/assets/fonts/Roboto/Roboto-300.woff") format("woff");
+  font-display: swap;
 }
 
 @font-face {
@@ -10,6 +11,7 @@
   font-style: italic;
   font-weight: 300;
   src: url("/assets/fonts/Roboto/Roboto-300italic.woff") format("woff");
+  font-display: swap;
 }
 
 @font-face {
@@ -17,6 +19,7 @@
   font-style: normal;
   font-weight: normal;
   src: url("/assets/fonts/Roboto/Roboto-regular.woff") format("woff");
+  font-display: swap;
 }
 
 @font-face {
@@ -24,6 +27,7 @@
   font-style: italic;
   font-weight: normal;
   src: url("/assets/fonts/Roboto/Roboto-italic.woff") format("woff");
+  font-display: swap;
 }
 
 @font-face {
@@ -31,6 +35,7 @@
   font-style: normal;
   font-weight: 700;
   src: url("/assets/fonts/Roboto/Roboto-700.woff") format("woff");
+  font-display: swap;
 }
 
 @font-face {
@@ -38,6 +43,7 @@
   font-style: italic;
   font-weight: 700;
   src: url("/assets/fonts/Roboto/Roboto-700italic.woff") format("woff");
+  font-display: swap;
 }
 
 @font-face {
@@ -45,6 +51,7 @@
   font-style: normal;
   font-weight: 900;
   src: url("/assets/fonts/Roboto/Roboto-900.woff") format("woff");
+  font-display: swap;
 }
 
 @font-face {
@@ -52,6 +59,7 @@
   font-style: italic;
   font-weight: 900;
   src: url("/assets/fonts/Roboto/Roboto-900italic.woff") format("woff");
+  font-display: swap;
 }
 
 /* =========================================================================== */
@@ -61,6 +69,7 @@
   font-style: normal;
   font-weight: normal;
   src: url("/assets/fonts/Adelle/Adelle-regular.woff") format("woff");
+  font-display: swap;
 }
 
 @font-face {
@@ -68,6 +77,7 @@
   font-style: italic;
   font-weight: normal;
   src: url("/assets/fonts/Adelle/Adelle-italic.woff") format("woff");
+  font-display: swap;
 }
 
 @font-face {
@@ -75,6 +85,7 @@
   font-style: normal;
   font-weight: 700;
   src: url("/assets/fonts/Adelle/Adelle-700.woff") format("woff");
+  font-display: swap;
 }
 
 @font-face {
@@ -82,6 +93,7 @@
   font-style: italic;
   font-weight: 700;
   src: url("/assets/fonts/Adelle/Adelle-700italic.woff") format("woff");
+  font-display: swap;
 }
 
 @font-face {
@@ -89,6 +101,7 @@
   font-style: normal;
   font-weight: 900;
   src: url("/assets/fonts/Adelle/Adelle-900.woff") format("woff");
+  font-display: swap;
 }
 
 @font-face {
@@ -96,4 +109,5 @@
   font-style: italic;
   font-weight: 900;
   src: url("/assets/fonts/Adelle/Adelle-900italic.woff") format("woff");
+  font-display: swap;
 }
