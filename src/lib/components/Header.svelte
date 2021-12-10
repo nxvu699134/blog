@@ -23,7 +23,7 @@
 </script>
 
 <header>
-	<a class="site-name" href={meta.siteUrl}>
+	<a href={meta.siteUrl}>
 		<Domino left={getRandom(6)} right={getRandom(6)} size={0.5} />
 	</a>
 	<Button class="toggle-btn" on:click={onToggle}>+</Button>
@@ -58,14 +58,6 @@
 		bottom: auto;
 		right: var(--padding-x);
 		z-index: 9999;
-	}
-
-	.site-name {
-		text-shadow: -1px 0 var(--color-border), 0 1px var(--color-border), 1px 0 var(--color-border),
-			0 -1px var(--color-border), var(--shadow-outset-200);
-		color: var(--color-main-bg);
-		font-style: italic;
-		letter-spacing: 0.25rem;
 	}
 
 	.navigation {
