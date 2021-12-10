@@ -39,7 +39,8 @@
 
   --color-border: var(--color-grey-200);
 
-  --color-text: var(--color-grey-700);
+  --color-text-bold: var(--color-grey-700);
+  --color-text: var(--color-grey-600);
   --color-text-alt: var(--color-grey-500);
 
   --shadow-outset-100:
@@ -95,31 +96,3 @@
   --font-size-1100: 4.5rem;
 }
 
-h1,h2,h3,h4,h5,h6 {
-  margin: 0;
-  font-family: var(--font-heading);
-}
-
-h1 {
-  font-size: var(--font-size-1000);
-}
-
-h2 {
-  font-size: var(--font-size-900);
-}
-
-h3 {
-  font-size: var(--font-size-800);
-}
-
-h4 {
-  font-size: var(--font-size-700);
-}
-
-h5 {
-  font-size: var(--font-size-600);
-}
-
-h6 {
-  font-size: var(--font-size-500);
-}
