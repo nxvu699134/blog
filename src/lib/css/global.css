@@ -62,3 +62,9 @@ h5 {
 h6 {
   font-size: var(--font-size-500);
 }
+
+.flex-center {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+}
