@@ -1,5 +1,6 @@
 <script lang="ts">
 	import meta from '$lib/meta/site_info';
+	import ButtonIcon from '$lib/ui/ButtonIcon.svelte';
 </script>
 
 <div class="profile-card">
@@ -10,19 +11,13 @@
 	<div class="role">Full-stuck Developer</div>
 	<ul class="social-link">
 		<li>
-			<a href={meta.github}>
-				<i class="fab fa-facebook-f" />
-			</a>
+			<ButtonIcon class="fb" icon="fab fa-facebook-f" href={meta.facebook} size="lg" />
 		</li>
 		<li>
-			<a href={meta.github}>
-				<i class="fab fa-github" />
-			</a>
+			<ButtonIcon icon="fab fa-github" href={meta.github} size="lg" />
 		</li>
 		<li>
-			<a href={`mailto:${meta.github}`}>
-				<i class="far fa-envelope" />
-			</a>
+			<ButtonIcon class="email" icon="far fa-envelope" href={`mailto:${meta.email}`} size="lg" />
 		</li>
 	</ul>
 	<div class="description">
@@ -87,15 +82,11 @@
 		margin: var(--spacing-400) 0;
 	}
 
-	.social-link i {
-		font-size: var(--font-size-600);
-	}
-
-	.social-link i.fa-facebook-f {
+	.social-link :global(.fb) {
 		color: var(--color-blue-200);
 	}
 
-	.social-link i.fa-envelope {
+	.social-link :global(.email) {
 		color: var(--color-red-600);
 	}
 
@@ -120,21 +111,6 @@
 
 		.social-link {
 			gap: var(--spacing-300);
-		}
-
-		.social-link a {
-			width: 1rem;
-			height: 1rem;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			padding: var(--spacing-300);
-			border-radius: 50%;
-			transition: box-shadow 0.3s ease-in-out;
-		}
-
-		.social-link a:hover {
-			box-shadow: var(--shadow-inset-200);
 		}
 	}
 </style>
