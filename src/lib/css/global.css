@@ -18,6 +18,13 @@ div {
   box-sizing: border-box;
 }
 
+button {
+  background-color: var(--color-main-bg);
+  display: block;
+  border: none;
+	color: var(--color-text);
+}
+
 a {
   color: var(--color-text);
   text-decoration: none;

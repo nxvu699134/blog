@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import Button from '$lib/ui/Button.svelte';
+	import ButtonIcon from '$lib/ui/ButtonIcon.svelte';
 	import meta from '$lib/meta/site_info';
 	import Domino from '$lib/components/Domino.svelte';
 
@@ -26,7 +26,11 @@
 	<a href={meta.siteUrl}>
 		<Domino left={getRandom(6)} right={getRandom(6)} size={0.5} />
 	</a>
-	<Button class="toggle-btn" on:click={onToggle}>+</Button>
+	{#if !isToggled}
+		<ButtonIcon class="toggle-btn" icon="fas fa-bars" on:click={onToggle} size="lg" soft="up" />
+	{:else}
+		<ButtonIcon class="toggle-btn" icon="fas fa-times" on:click={onToggle} size="lg" />
+	{/if}
 	<nav>
 		<ul id="navigation" class="navigation" class:hide={!isToggled}>
 			{#each items as { path, label }}

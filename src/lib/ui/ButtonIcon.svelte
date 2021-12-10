@@ -16,7 +16,9 @@
 			softClass = `soft-${soft}-200`;
 		}
 		const circleClass = circle ? 'circle' : '';
-		return `${size} ${softClass} ${circleClass} flex-center soft-transition`;
+		return `${size} ${softClass} ${circleClass} flex-center soft-transition ${
+			soft == 'up' ? 'soft-border' : ''
+		}`;
 	};
 
 	let outsideClass = '';
@@ -39,15 +41,10 @@
 {/if}
 
 <style>
-	button {
-		all: unset;
-	}
-
 	button,
 	a {
-		width: var(--font-size-400);
-		height: var(--font-size-400);
-		padding: 0.5em;
+		width: 1.75em;
+		height: 1.75em;
 		border-radius: var(--border-radius);
 		cursor: pointer;
 	}
