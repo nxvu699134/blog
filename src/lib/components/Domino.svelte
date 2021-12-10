@@ -17,22 +17,22 @@
 		<div class="side">
 			<div class="row" class:sketch={sides[i].top % 2 == 0}>
 				{#each Array(sides[i].top) as _}
-					<div class="dot" />
+					<div class="dot soft-transition" />
 				{/each}
 			</div>
 			<div class="row" class:sketch={sides[i].mid % 2 == 0} class:mid={sides[i].mid % 2 != 0}>
 				{#each Array(sides[i].mid) as _}
-					<div class="dot" />
+					<div class="dot soft-transition" />
 				{/each}
 			</div>
 			<div class="row reverse" class:sketch={sides[i].top % 2 == 0}>
 				{#each Array(sides[i].top) as _}
-					<div class="dot" />
+					<div class="dot soft-transition" />
 				{/each}
 			</div>
 		</div>
 		{#if i == 0}
-			<div class="divider" />
+			<div class="divider soft-transition" />
 		{/if}
 	{/each}
 </div>
@@ -101,7 +101,6 @@
 		.dot,
 		.divider {
 			box-shadow: var(--shadow-outset-100), var(--shadow-inset-000);
-			transition: box-shadow 0.3s ease-in-out;
 		}
 
 		.container:hover .dot,
