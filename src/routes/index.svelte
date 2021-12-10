@@ -26,11 +26,13 @@
 		</li>
 	</ul>
 	<div class="description">
-		Hi there! <br />
-		I like to write code and study new things everyday. This site is created to note about what I learn
-		and my experience. I'm a Vimmer and Starcraft player.<br />
-		Feel free to contact me! <br />
-		Have a nice day. 🍺 <br />
+		<div>Hi there!</div>
+		<div>
+			I like to write code and study new things everyday. This site is created to note about what I
+			learn and my experience. I'm a Vimmer and Starcraft player.
+		</div>
+		<div>Feel free to contact me!</div>
+		<div>Have a nice day. 🍺</div>
 	</div>
 </div>
 
@@ -74,6 +76,7 @@
 
 	.role {
 		font-size: var(--font-size-500);
+		color: var(--color-text-bold);
 	}
 
 	.social-link {
