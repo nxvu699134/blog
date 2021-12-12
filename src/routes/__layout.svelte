@@ -5,19 +5,10 @@
 	import '$lib/css/theme.css';
 </script>
 
-<div class="page-wrapper">
-	<Header />
-	<main>
-		<slot />
-	</main>
-</div>
+<Header />
+<main>
+	<slot />
+</main>
 
 <style>
-	.page-wrapper {
-		max-width: 1080px;
-		width: 100%;
-		height: 100%;
-		margin: 0 auto;
-		padding: var(--spacing-400);
-	}
 </style>
