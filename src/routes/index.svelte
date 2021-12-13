@@ -4,7 +4,7 @@
 	import Section from '$lib/components/Section.svelte';
 	import PostCard from '$lib/components/PostCard.svelte';
 
-	const posts: IPostCard[] = [
+	const posts: IMetaPost[] = [
 		{
 			title: 'Title',
 			description: 'some description',

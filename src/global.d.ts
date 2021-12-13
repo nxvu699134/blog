@@ -1,6 +1,6 @@
 /// <reference types="@sveltejs/kit" />
 
-interface IPostCard {
+interface IMetaPost {
 	title: string;
 	description: string;
 	date: string;

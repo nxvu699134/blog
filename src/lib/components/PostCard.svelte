@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let data: IPostCard = null;
+	export let data: IMetaPost = null;
 
 	let outsideClass = '';
 	export { outsideClass as class };
