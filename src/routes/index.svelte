@@ -1,6 +1,25 @@
 <script lang="ts">
 	import meta from '$lib/meta/site_info';
 	import ButtonIcon from '$lib/ui/ButtonIcon.svelte';
+	import Section from '$lib/components/Section.svelte';
+	import PostCard from '$lib/components/PostCard.svelte';
+
+	const posts: IPostCard[] = [
+		{
+			title: 'Title',
+			description: 'some description',
+			date: '3/5/2021',
+			tags: ['algo', 'test'],
+			link: '/'
+		},
+		{
+			title: 'Title',
+			description: 'some description',
+			date: '3/5/2021',
+			tags: ['algo', 'test'],
+			link: '/'
+		}
+	];
 </script>
 
 <div class="profile-card">
@@ -30,6 +49,12 @@
 		<div>Have a nice day. 🍺</div>
 	</div>
 </div>
+
+<Section name="Recent posts">
+	{#each posts as post}
+		<PostCard data={post} />
+	{/each}
+</Section>
 
 <style>
 	.profile-card {

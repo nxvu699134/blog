@@ -8,7 +8,6 @@ html, body {
 
 body {
 	color: var(--color-text);
-	margin: 0;
 	box-sizing: border-box;
   font-family: var(--font-article);
   max-width: 1080px;
