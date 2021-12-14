@@ -22,6 +22,7 @@
 	import ButtonIcon from '$lib/ui/ButtonIcon.svelte';
 	import Section from '$lib/components/Section.svelte';
 	import PostCard from '$lib/components/PostCard.svelte';
+	import Hoverable from '$lib/components/Hoverable.svelte';
 
 	export let posts: IMetaPost[] = [];
 </script>
@@ -34,13 +35,19 @@
 	<div class="role">Full-stuck Developer</div>
 	<ul class="social-link">
 		<li>
-			<ButtonIcon class="fb" icon="fab fa-facebook-f" href={meta.facebook} size="lg" />
+			<Hoverable end="down-200" shape="square">
+				<ButtonIcon class="fb" icon="fab fa-facebook-f" href={meta.facebook} size="lg" />
+			</Hoverable>
 		</li>
 		<li>
-			<ButtonIcon icon="fab fa-github" href={meta.github} size="lg" />
+			<Hoverable end="down-200" shape="square">
+				<ButtonIcon icon="fab fa-github" href={meta.github} size="lg" />
+			</Hoverable>
 		</li>
 		<li>
-			<ButtonIcon class="email" icon="far fa-envelope" href={`mailto:${meta.email}`} size="lg" />
+			<Hoverable end="down-200" shape="square">
+				<ButtonIcon class="email" icon="far fa-envelope" href={`mailto:${meta.email}`} size="lg" />
+			</Hoverable>
 		</li>
 	</ul>
 	<div class="description">

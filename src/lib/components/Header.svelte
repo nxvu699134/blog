@@ -27,14 +27,16 @@
 		<Domino left={getRandom(6)} right={getRandom(6)} size={0.5} />
 	</a>
 	{#if !isToggled}
-		<ButtonIcon class="toggle-btn" icon="fas fa-bars" on:click={onToggle} size="lg" soft="up" />
+		<ButtonIcon class="toggle-btn soft-up-200" icon="fas fa-bars" on:click={onToggle} size="lg" />
 	{:else}
 		<ButtonIcon class="toggle-btn" icon="fas fa-times" on:click={onToggle} size="lg" />
 	{/if}
 	<nav>
-		<ul id="navigation" class="navigation" class:hide={!isToggled}>
+		<ul id="navigation" class:hide={!isToggled}>
 			{#each items as { path, label }}
-				<a class:active={curPath == path} on:click={onToggle} href={path}>{label}</a>
+				<a class="soft-transition" class:active={curPath == path} on:click={onToggle} href={path}>
+					{label}
+				</a>
 			{/each}
 		</ul>
 	</nav>
@@ -64,7 +66,7 @@
 		z-index: 9999;
 	}
 
-	.navigation {
+	#navigation {
 		background-color: var(--color-main-bg);
 		position: fixed;
 		top: 0;
@@ -82,19 +84,19 @@
 		transition: opacity 0.3s linear, z-index 0.3s linear;
 	}
 
-	.navigation.hide {
+	#navigation.hide {
 		opacity: 0;
 		box-shadow: var(--shadow-inset-200);
 		z-index: -1;
 	}
 
-	.navigation a {
+	#navigation a {
 		padding: 0.75rem 1.5rem;
 		border-radius: var(--border-radius);
 		font-size: var(--font-size-500);
 	}
 
-	.navigation a.active {
+	#navigation a.active {
 		box-shadow: var(--shadow-inset-200);
 	}
 
@@ -121,14 +123,10 @@
 			display: none;
 		}
 
-		.navigation,
-		.navigation.hide {
+		#navigation,
+		#navigation.hide {
 			all: unset;
 			display: flex;
-		}
-
-		.navigation a {
-			transition: box-shadow 0.2s linear;
 		}
 
 		.backdrop {

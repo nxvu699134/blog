@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { formatDate } from '$lib/utils/time';
+	import Hoverable from '$lib/components/Hoverable.svelte';
 
 	export let data: IMetaPost = null;
 
@@ -9,17 +10,20 @@
 	const className = `${outsideClass}`;
 </script>
 
-<a href={data.href} class={`post-card ${className} soft-up-200 soft-transition`}>
-	<h5 class="title">{data.title}</h5>
-	<div class="date">
-		<i class="far fa-calendar-minus" />
-		<span> {formatDate(data.date)} </span>
-	</div>
-	<div class="description">{data.desc}</div>
-</a>
+<Hoverable start="up-200" end="up-100" shape="square">
+	<a href={data.href} class={`post-card ${className}`}>
+		<h5 class="title">{data.title}</h5>
+		<div class="date">
+			<i class="far fa-calendar-minus" />
+			<span> {formatDate(data.date)} </span>
+		</div>
+		<div class="description">{data.desc}</div>
+	</a>
+</Hoverable>
 
 <style>
 	.post-card {
+		display: block;
 		cursor: pointer;
 		border-radius: var(--border-radius);
 		text-align: left;
@@ -42,10 +46,6 @@
 
 	.description {
 		color: var(--color-text-alt);
-	}
-
-	.post-card:hover {
-		box-shadow: var(--shadow-outset-100), var(--shadow-inset-000);
 	}
 
 	@media only screen and (min-width: 60em) {
