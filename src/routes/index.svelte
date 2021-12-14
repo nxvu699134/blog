@@ -27,8 +27,8 @@
 	export let posts: IMetaPost[] = [];
 </script>
 
-<div class="profile-card">
-	<div class="profile-img">
+<div class="profile-card soft-up-200">
+	<div class="profile-img soft-down-200">
 		<img src="/assets/imgs/avatar.png" alt="avatar" />
 	</div>
 	<h4 class="name">Vu Nguyen Xuan</h4>
@@ -70,7 +70,6 @@
 <style>
 	.profile-card {
 		width: 100%;
-		box-shadow: var(--shadow-outset-200);
 		border-radius: var(--border-radius);
 		position: relative;
 		padding: var(--spacing-400);
@@ -84,7 +83,6 @@
 		width: var(--img-size);
 		height: var(--img-size);
 		border-radius: 50%;
-		box-shadow: var(--shadow-inset-200);
 		overflow: hidden;
 		padding: 1rem;
 		border: 1px solid var(--color-border);
