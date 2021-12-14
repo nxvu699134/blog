@@ -1,7 +1,6 @@
 <script context="module">
 	export async function load({ fetch }) {
 		const res = await fetch('/api/posts.json?limit=4');
-		console.log(res);
 
 		if (res.status == 200) {
 			return {
@@ -25,7 +24,6 @@
 	import PostCard from '$lib/components/PostCard.svelte';
 
 	export let posts: IMetaPost[] = [];
-	console.log(posts);
 </script>
 
 <div class="profile-card">
