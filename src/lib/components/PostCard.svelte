@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { formatDate } from '$lib/utils/time';
+
 	export let data: IMetaPost = null;
 
 	let outsideClass = '';
@@ -11,7 +13,7 @@
 	<h5 class="title">{data.title}</h5>
 	<div class="date">
 		<i class="far fa-calendar-minus" />
-		<span> {data.date} </span>
+		<span> {formatDate(data.date)} </span>
 	</div>
 	<div class="description">{data.desc}</div>
 </a>
@@ -31,7 +33,7 @@
 	.date {
 		display: flex;
 		font-size: var(--font-size-300);
-		margin-bottom: var(--spacing-400);
+		margin-bottom: var(--spacing-500);
 	}
 
 	.date i {
