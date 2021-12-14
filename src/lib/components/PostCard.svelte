@@ -7,13 +7,13 @@
 	const className = `${outsideClass}`;
 </script>
 
-<a href={data.link} class={`post-card ${className} soft-up-200 soft-transition`}>
+<a href={data.href} class={`post-card ${className} soft-up-200 soft-transition`}>
 	<h5 class="title">{data.title}</h5>
 	<div class="date">
 		<i class="far fa-calendar-minus" />
 		<span> {data.date} </span>
 	</div>
-	<div class="description">{data.description}</div>
+	<div class="description">{data.desc}</div>
 </a>
 
 <style>

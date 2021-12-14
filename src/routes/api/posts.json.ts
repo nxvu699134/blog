@@ -1,14 +1,27 @@
-import type { RequestHandler } from '@sveltejs/kit';
-import { getAllPosts } from '$lib/data/internalResource';
+import type { EndpointOutput, RequestHandler } from '@sveltejs/kit';
+import { getAllPostNames, getMetaPosts } from '$lib/data/internalResource';
 
-export const get: RequestHandler<Array<string>> = async (request) => {
+const Header = {
+	'content-type': 'application/json'
+};
+export const get: RequestHandler = async ({ query }): Promise<EndpointOutput> => {
 	// request.locals.userid comes from src/hooks.js
-	const posts = await getAllPosts();
-	console.log(posts);
+	let postNames = await getAllPostNames();
 
-	if (!posts) {
-		return { body: [] };
+	const limit = parseInt(query.get('limit'));
+	if (limit) {
+		postNames = postNames.slice(-limit);
 	}
 
-	return { body: posts };
+	const metas = await getMetaPosts(postNames);
+
+	if (!metas) {
+		return {
+			status: 500,
+			headers: Header,
+			body: 'Fetch posts failed successful!'
+		};
+	}
+
+	return { status: 200, headers: Header, body: JSON.stringify(metas) };
 };

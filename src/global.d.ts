@@ -2,8 +2,8 @@
 
 interface IMetaPost {
 	title: string;
-	description: string;
+	desc: string;
 	date: string;
 	tags: Array<string>;
-	link: string;
+	href: string;
 }

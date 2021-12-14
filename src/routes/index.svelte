@@ -1,25 +1,31 @@
+<script context="module">
+	export async function load({ fetch }) {
+		const res = await fetch('/api/posts.json?limit=4');
+		console.log(res);
+
+		if (res.status == 200) {
+			return {
+				props: {
+					posts: await res.json()
+				}
+			};
+		}
+
+		return {
+			status: res.status,
+			error: new Error(await res.json())
+		};
+	}
+</script>
+
 <script lang="ts">
 	import meta from '$lib/meta/site_info';
 	import ButtonIcon from '$lib/ui/ButtonIcon.svelte';
 	import Section from '$lib/components/Section.svelte';
 	import PostCard from '$lib/components/PostCard.svelte';
 
-	const posts: IMetaPost[] = [
-		{
-			title: 'Title',
-			description: 'some description',
-			date: '3/5/2021',
-			tags: ['algo', 'test'],
-			link: '/'
-		},
-		{
-			title: 'Title',
-			description: 'some description',
-			date: '3/5/2021',
-			tags: ['algo', 'test'],
-			link: '/'
-		}
-	];
+	export let posts: IMetaPost[] = [];
+	console.log(posts);
 </script>
 
 <div class="profile-card">
