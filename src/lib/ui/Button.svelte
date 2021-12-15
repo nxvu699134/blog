@@ -7,6 +7,8 @@
 
 	export let size: Size = 'md';
 	export let href: string = null;
+	export let leftIcon: string = null;
+	export let rightIcon: string = null;
 
 	const dispatch = createEventDispatcher();
 	const onClick = () => dispatch('click');
@@ -16,11 +18,23 @@
 
 {#if !href}
 	<button class={classNames} on:click={onClick}>
+		{#if leftIcon}
+			<i class={`left-icon ${leftIcon}`} />
+		{/if}
 		<slot />
+		{#if rightIcon}
+			<i class={`right-icon ${rightIcon}`} />
+		{/if}
 	</button>
 {:else}
 	<a {href} class={classNames}>
+		{#if leftIcon}
+			<i class={`left-icon ${leftIcon}`} />
+		{/if}
 		<slot />
+		{#if rightIcon}
+			<i class={`right-icon ${rightIcon}`} />
+		{/if}
 	</a>
 {/if}
 
@@ -55,5 +69,15 @@
 	a.lg {
 		padding: 0.5em 1em;
 		font-size: var(--font-size-600);
+	}
+
+	button i.left-icon,
+	a i.left-icon {
+		margin-right: var(--spacing-200);
+	}
+
+	button i.right-icon,
+	a i.right-icon {
+		margin-left: var(--spacing-200);
 	}
 </style>
