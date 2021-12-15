@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { formatDate } from '$lib/utils/time';
 	import Hoverable from '$lib/components/Hoverable.svelte';
+	import Tag from '$lib/ui/Tag.svelte';
 
 	export let data: IMetaPost = null;
 
@@ -18,6 +19,11 @@
 			<span> {formatDate(data.date)} </span>
 		</div>
 		<div class="description">{data.desc}</div>
+		<div class="tags">
+			{#each data.tags as tag}
+				<Tag>{tag}</Tag>
+			{/each}
+		</div>
 	</a>
 </Hoverable>
 
@@ -37,7 +43,7 @@
 	.date {
 		display: flex;
 		font-size: var(--font-size-300);
-		margin-bottom: var(--spacing-500);
+		margin-bottom: var(--spacing-400);
 	}
 
 	.date i {
@@ -46,11 +52,20 @@
 
 	.description {
 		color: var(--color-text-alt);
+		height: 3em;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		margin-bottom: var(--spacing-400);
+	}
+
+	.tags {
+		display: flex;
+		column-gap: var(--spacing-300);
 	}
 
 	@media only screen and (min-width: 60em) {
 		.post-card {
-			padding: var(--spacing-500);
+			padding: var(--spacing-400);
 		}
 	}
 </style>
