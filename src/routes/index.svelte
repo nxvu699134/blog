@@ -20,6 +20,7 @@
 <script lang="ts">
 	import meta from '$lib/meta/site_info';
 	import ButtonIcon from '$lib/ui/ButtonIcon.svelte';
+	import Button from '$lib/ui/Button.svelte';
 	import Section from '$lib/components/Section.svelte';
 	import PostCard from '$lib/components/PostCard.svelte';
 	import Hoverable from '$lib/components/Hoverable.svelte';
@@ -61,11 +62,12 @@
 	</div>
 </div>
 
-<Section name="Recent posts">
+<Section name="Recent Posts">
 	{#each posts as post}
 		<PostCard data={post} />
 	{/each}
 </Section>
+<Button href="/posts" class="more-btn" size="lg">More Posts</Button>
 
 <style>
 	.profile-card {
@@ -128,7 +130,10 @@
 		color: var(--color-text-alt);
 		word-wrap: break-word;
 		max-width: 40em;
-		line-height: 1.5;
+	}
+
+	:global(.more-btn) {
+		margin: var(--spacing-600) auto;
 	}
 
 	@media only screen and (min-width: 60em) {

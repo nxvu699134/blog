@@ -1,9 +1,6 @@
-<script context="module" lang="ts">
-	type Size = 'sm' | 'md' | 'lg' | 'xl';
-</script>
-
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
+	import type { Size } from '$lib/ui/ui';
 
 	export let icon: string = ''; // based on class name of font-awesome
 	export let href: string = null;
@@ -45,10 +42,5 @@
 	button.lg,
 	a.lg {
 		font-size: var(--font-size-600);
-	}
-
-	button.xl,
-	a.xl {
-		font-size: var(--font-size-800);
 	}
 </style>

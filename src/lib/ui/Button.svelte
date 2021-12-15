@@ -1,56 +1,59 @@
-<script>
+<script lang="ts">
 	import { createEventDispatcher } from 'svelte';
+	import type { Size } from '$lib/ui/ui';
+
 	let outsideClass = '';
 	export { outsideClass as class };
 
-	let size = 'md-size';
-
-	const className = `${size} ${outsideClass}`;
+	export let size: Size = 'md';
+	export let href: string = null;
 
 	const dispatch = createEventDispatcher();
 	const onClick = () => dispatch('click');
+
+	const classNames = `soft-transition soft-up-200 flex-center ${size} ${outsideClass}`;
 </script>
 
-<button class={className} on:click={onClick}>
-	<slot />
-</button>
+{#if !href}
+	<button class={classNames} on:click={onClick}>
+		<slot />
+	</button>
+{:else}
+	<a {href} class={classNames}>
+		<slot />
+	</a>
+{/if}
 
 <style>
-	button {
-		background-color: var(--color-main-bg);
-		transition: all 0.2s ease-in-out;
-		outline: 0;
+	button,
+	a {
 		border-radius: var(--border-radius);
-		border: 1px solid var(--color-border);
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		color: var(--color-text);
-		box-shadow: var(--shadow-outset-200);
-		cursor: pointer;
+		width: fit-content;
 	}
 
-	button:not(:disabled):active {
-		box-shadow: var(--shadow-inset-200);
+	button:not(:disabled):active,
+	a:not(:disabled):active {
+		box-shadow: var(--shadow-outset-000), var(--shadow-inset-200);
+	}
+
+	button:not(:disabled):hover,
+	a:not(:disabled):hover {
+		box-shadow: var(--shadow-outset-100), var(--shadow-inset-000);
 	}
 
 	button:focus {
 		outline: 0;
 	}
 
-	button.md-size {
-		padding: 0.375rem 0.5rem;
+	button.md,
+	a.md {
+		padding: 0.375em 0.5em;
 		font-size: var(--font-size-400);
 	}
 
-	button.lg-size {
-		padding: 0.5rem 1rem;
-		font-size: var(--font-size-500);
-	}
-
-	button.sm-size {
-		padding: 0.25rem 0.5rem;
-		font-size: var(--font-size-300);
-		font-weight: normal;
+	button.lg,
+	a.lg {
+		padding: 0.5em 1em;
+		font-size: var(--font-size-600);
 	}
 </style>

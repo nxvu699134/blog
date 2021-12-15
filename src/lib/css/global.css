@@ -19,15 +19,21 @@ div {
   box-sizing: border-box;
 }
 
+div, span {
+  line-height: 1.5;
+}
+
 button {
   background-color: var(--color-main-bg);
   display: block;
   border: none;
-	color: var(--color-text);
+	color: var(--color-text-alt);
+  outline: 0;
+  cursor: pointer;
 }
 
 a {
-  color: var(--color-text);
+  color: var(--color-text-alt);
   text-decoration: none;
   cursor: pointer;
 }
