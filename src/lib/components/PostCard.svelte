@@ -47,7 +47,7 @@
 	}
 
 	.date i {
-		margin-right: var(--spacing-200);
+		margin-right: var(--spacing-100);
 	}
 
 	.description {
