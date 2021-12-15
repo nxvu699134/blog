@@ -67,7 +67,9 @@
 		<PostCard data={post} />
 	{/each}
 </Section>
-<Button href="/posts" class="more-btn" size="lg">More Posts</Button>
+<Button href="/posts" class="more-btn" size="lg" rightIcon="fas fa-angle-double-right">
+	More Posts
+</Button>
 
 <style>
 	.profile-card {
