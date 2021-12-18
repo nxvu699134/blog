@@ -20,7 +20,10 @@
 	const getRandom = (max: number) => {
 		return Math.floor(Math.random() * (max - 1)) + 1;
 	};
+	let yPosition: number;
 </script>
+
+<svelte:window bind:scrollY={yPosition} />
 
 <header>
 	<a href={meta.siteUrl}>
@@ -32,7 +35,7 @@
 		<ButtonIcon class="toggle-btn" icon="fas fa-times" on:click={onToggle} size="lg" />
 	{/if}
 	<nav>
-		<ul id="navigation" class:hide={!isToggled}>
+		<ul id="navigation" class:stick={yPosition >= 16} class:hide={!isToggled}>
 			{#each items as { path, label }}
 				<a class="soft-transition" class:active={curPath == path} on:click={onToggle} href={path}>
 					{label}
@@ -46,16 +49,19 @@
 <style>
 	header {
 		--header-height: 4rem;
+		--padding-x: var(--spacing-400);
+		background-color: var(--color-main-bg);
 		box-shadow: var(--shadow-outset-200);
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		height: var(--header-height);
 		border-radius: var(--border-radius);
-		position: relative;
-		--padding-x: var(--spacing-400);
 		padding: 0 var(--padding-x);
 		margin-bottom: var(--spacing-500);
+		position: sticky;
+		top: 0;
+		z-index: 9000;
 	}
 
 	header :global(.toggle-btn) {
@@ -84,6 +90,10 @@
 		transition: opacity 0.3s linear, z-index 0.3s linear;
 	}
 
+	#navigation.stick {
+		margin-top: 0;
+	}
+
 	#navigation.hide {
 		opacity: 0;
 		box-shadow: var(--shadow-inset-200);
@@ -104,8 +114,8 @@
 		position: absolute;
 		top: 0;
 		left: 0;
-		width: 100vw;
-		height: 100vh;
+		width: 100%;
+		height: 100%;
 		background-color: var(--color-main-bg);
 		z-index: 2000;
 		filter: blur(1rem);
