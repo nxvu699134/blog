@@ -21,9 +21,9 @@
 	import meta from '$lib/meta/site_info';
 	import ButtonIcon from '$lib/ui/ButtonIcon.svelte';
 	import Button from '$lib/ui/Button.svelte';
-	import Section from '$lib/components/Section.svelte';
 	import PostCard from '$lib/components/PostCard.svelte';
 	import Hoverable from '$lib/components/Hoverable.svelte';
+	import CardsLayout from '$lib/components/CardsLayout.svelte';
 
 	export let posts: IMetaPost[] = [];
 </script>
@@ -52,21 +52,23 @@
 		</li>
 	</ul>
 	<div class="description">
-		<div>Hi there!</div>
-		<div>
-			I like to write code and study new things everyday. This site is created to note about what I
-			learn and my experience. I'm a Vimmer and Starcraft player.
-		</div>
-		<div>Feel free to contact me!</div>
-		<div>Have a nice day. 🍺</div>
+		<p>
+			Hi there! I like to write code and study new things everyday. This site is created to note
+			about what I learn and my experience. I'm a Vimmer and Starcraft player.<br />
+			Feel free to contact me!<br />
+			Have a nice day. 🍺
+		</p>
 	</div>
 </div>
 
-<Section name="Recent Posts">
-	{#each posts as post}
-		<PostCard data={post} />
-	{/each}
-</Section>
+<section title="Recent Posts">
+	<h3>Recent Post</h3>
+	<CardsLayout class="post-list">
+		{#each posts as post}
+			<PostCard data={post} />
+		{/each}
+	</CardsLayout>
+</section>
 <Button href="/posts" class="more-btn" size="lg" rightIcon="fas fa-angle-double-right">
 	More Posts
 </Button>
@@ -132,6 +134,16 @@
 		color: var(--color-text-alt);
 		word-wrap: break-word;
 		max-width: 40em;
+	}
+
+	section {
+		margin-top: var(--spacing-700);
+		text-align: center;
+		width: 100%;
+	}
+
+	section :global(.post-list) {
+		margin-top: var(--spacing-500);
 	}
 
 	:global(.more-btn) {
