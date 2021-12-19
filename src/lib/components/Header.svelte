@@ -98,6 +98,7 @@
 		opacity: 0;
 		box-shadow: var(--shadow-inset-200);
 		z-index: -1;
+		visibility: hidden;
 	}
 
 	#navigation a {
