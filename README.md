@@ -1,38 +1,14 @@
-# create-svelte
+# Development notes
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte);
+## 21 Dec 2021
 
-## Creating a project
+- Figure out How I was fucked up. The current work is [here](https://github.com/nxvu699134/blog/tree/54aca4dfe518635df3f2927283fc4611cda4d045)
 
-If you're seeing this, you've probably already done this step. Congrats!
+- The first idea is create md files in route folder then sveltekit (file-based system route) will make posts url live. So the way to get all available postsis read all files in route/posts folder (just read front-matter of md file) then make array of meta data return to an endpoint.
 
-```bash
-# create a new project in the current directory
-npm init svelte@next
+- All things work in my local. The problem come out when I tried to deploy to somewhere. I called to endpoint to fetch all posts but the response is error about "Hey, there is no fucking file here" and return 500 status.
 
-# create a new project in my-app
-npm init svelte@next my-app
-```
+- The reason is when upload build to cloud they dont have full structure of project thats just a bunch of build files.
 
-> Note: the `@next` is temporary
+- After re read [docs](https://kit.svelte.dev/docs#ssr-and-javascript-prerender) I put my all pages to [prerender](https://github.com/nxvu699134/blog/blob/54aca4dfe518635df3f2927283fc4611cda4d045/src/routes/index.svelte#L2) at build time. Everything work but I hate this cheat cuz it will cause many problem in the future.
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-Before creating a production version of your app, install an [adapter](https://kit.svelte.dev/docs#adapters) for your target environment. Then:
-
-```bash
-npm run build
-```
-
-> You can preview the built app with `npm run preview`, regardless of whether you installed an adapter. This should _not_ be used to serve your app in production.
