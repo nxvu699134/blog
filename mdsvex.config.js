@@ -3,5 +3,5 @@ export default {
 		// _: './src/lib/layouts/post.svelte',
 		post: './src/lib/layouts/post.svelte'
 	},
-	extensions: ['.svx']
+	extensions: ['.md']
 };

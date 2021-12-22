@@ -1,5 +1,4 @@
 <script context="module">
-	export const prerender = true;
 	export async function load({ fetch }) {
 		const res = await fetch('/api/posts.json?limit=4');
 
@@ -26,7 +25,7 @@
 	import Hoverable from '$lib/components/Hoverable.svelte';
 	import CardsLayout from '$lib/components/CardsLayout.svelte';
 
-	export let posts: IMetaPost[] = [];
+	export let posts: IPostMeta[] = [];
 </script>
 
 <div class="profile-card soft-up-200">

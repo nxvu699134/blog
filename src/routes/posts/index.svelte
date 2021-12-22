@@ -22,7 +22,7 @@
 	import PostCard from '$lib/components/PostCard.svelte';
 	import CardsLayout from '$lib/components/CardsLayout.svelte';
 
-	export let posts: IMetaPost[] = [];
+	export let posts: IPost[] = [];
 	let searchText: string;
 </script>
 
