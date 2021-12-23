@@ -4,7 +4,6 @@
 	export function load({ page }) {
 		const { id } = page.params;
 		const post = postMetas.find((p) => p.id === id);
-		console.log(post);
 		if (post) {
 			return {
 				props: {
