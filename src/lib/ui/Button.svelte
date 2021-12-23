@@ -45,14 +45,14 @@
 		width: fit-content;
 	}
 
-	button:not(:disabled):active,
-	a:not(:disabled):active {
-		box-shadow: var(--shadow-outset-000), var(--shadow-inset-200);
-	}
-
 	button:not(:disabled):hover,
 	a:not(:disabled):hover {
 		box-shadow: var(--shadow-outset-100), var(--shadow-inset-000);
+	}
+
+	button:not(:disabled):active,
+	a:not(:disabled):active {
+		box-shadow: var(--shadow-outset-000), var(--shadow-inset-200);
 	}
 
 	button:focus {
