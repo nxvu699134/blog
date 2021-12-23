@@ -6,8 +6,9 @@ type IPost = {
 	date: string;
 	tags: Array<string>;
 	href: string;
+	id: string;
 };
 
 interface IPostMeta extends IPost {
-	render: Function;
+	component: SvelteComponent;
 }
