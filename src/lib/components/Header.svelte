@@ -83,8 +83,8 @@
 		display: flex;
 		flex-direction: column;
 		gap: 0.75em;
-		min-width: 6rem;
-		width: 30%;
+		min-width: 10rem;
+		width: min(48%, 12rem);
 		z-index: 9000;
 		opacity: 1;
 		transition: opacity 0.3s linear, z-index 0.3s linear;
