@@ -25,22 +25,25 @@
 	</a>
 {/if}
 
-<style>
+<style lang="scss">
 	button,
 	a {
 		width: 1.75em;
 		height: 1.75em;
 		border-radius: var(--border-radius);
 		cursor: pointer;
-	}
+		transition: color 0.2s ease-in-out;
 
-	button.md,
-	a.md {
-		font-size: var(--font-size-400);
-	}
+		&.md {
+			font-size: var(--font-size-400);
+		}
 
-	button.lg,
-	a.lg {
-		font-size: var(--font-size-600);
+		&.lg {
+			font-size: var(--font-size-600);
+		}
+
+		&:hover {
+			color: var(--color-primary-300);
+		}
 	}
 </style>

@@ -16,7 +16,6 @@ body {
 	font-family: var(--font-article);
 	max-width: 1080px;
 	margin: 0 auto;
-	padding: var(--spacing-400);
 }
 
 * {
@@ -32,13 +31,13 @@ button {
 	background-color: var(--color-main-bg);
 	display: block;
 	border: none;
-	color: var(--color-text-alt);
+	color: var(--color-text);
 	outline: 0;
 	cursor: pointer;
 }
 
 a {
-	color: var(--color-text-alt);
+	color: var(--color-text);
 	text-decoration: none;
 	cursor: pointer;
 }

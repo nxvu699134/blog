@@ -1,11 +1,9 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import ButtonIcon from '$lib/ui/ButtonIcon.svelte';
 	import meta from '$lib/meta/site_info';
-	import Domino from '$lib/components/Domino.svelte';
+	import ButtonIcon from '$lib/ui/ButtonIcon.svelte';
 
 	let isToggled = false;
-	$: curPath = $page.path;
 
 	const onToggle = () => {
 		isToggled = !isToggled;
@@ -13,50 +11,40 @@
 
 	const items = [
 		{ path: '/', label: 'Home' },
-		{ path: '/posts', label: 'Posts' },
+		{ path: '/blog', label: 'Blog' },
 		{ path: '/about', label: 'About' }
 	];
-
-	const getRandom = (max: number) => {
-		return Math.floor(Math.random() * (max - 1)) + 1;
-	};
-	let yPosition: number;
 </script>
 
-<svelte:window bind:scrollY={yPosition} />
-
 <header>
-	<a href={meta.siteUrl}>
-		<Domino left={getRandom(6)} right={getRandom(6)} size={0.5} />
-	</a>
-	{#if !isToggled}
-		<ButtonIcon class="toggle-btn soft-up-200" icon="fas fa-bars" on:click={onToggle} size="lg" />
-	{:else}
-		<ButtonIcon class="toggle-btn" icon="fas fa-times" on:click={onToggle} size="lg" />
-	{/if}
+	<a class="page-logo" href={meta.siteUrl}> Home </a>
+	<i class={`${isToggled ? 'fas fa-times' : 'fas fa-bars'} toggle-btn`} on:click={onToggle} />
 	<nav>
-		<ul id="navigation" class:stick={yPosition >= 16} class:hide={!isToggled}>
+		<ul id="navigation" class:hide={!isToggled}>
 			{#each items as { path, label }}
-				<a class="soft-transition" class:active={curPath == path} on:click={onToggle} href={path}>
+				<a class:active={$page.path == path} on:click={onToggle} href={path}>
 					{label}
 				</a>
 			{/each}
 		</ul>
 	</nav>
+	<div class="social-links">
+		<ButtonIcon icon="fab fa-facebook-f" href={meta.facebook} size="lg" />
+		<ButtonIcon icon="fab fa-github" href={meta.github} size="lg" />
+		<ButtonIcon icon="far fa-envelope" href={`mailto:${meta.email}`} size="lg" />
+	</div>
 </header>
 <div class="backdrop" class:hide={!isToggled} on:click={onToggle} />
 
-<style>
+<style lang="scss">
+	@use '../css/responsive' as *;
+
 	header {
 		--header-height: 4rem;
 		--padding-x: var(--spacing-400);
-		background-color: var(--color-main-bg);
-		box-shadow: var(--shadow-outset-200);
 		display: flex;
 		align-items: center;
-		justify-content: space-between;
 		height: var(--header-height);
-		border-radius: var(--border-radius);
 		padding: 0 var(--padding-x);
 		margin-bottom: var(--spacing-500);
 		position: sticky;
@@ -64,11 +52,16 @@
 		z-index: 9000;
 	}
 
-	header :global(.toggle-btn) {
+	.page-logo {
+		display: none;
+	}
+
+	header .toggle-btn {
 		position: absolute;
 		top: auto;
 		bottom: auto;
 		right: var(--padding-x);
+		font-size: var(--font-size-700);
 		z-index: 9999;
 	}
 
@@ -76,39 +69,31 @@
 		background-color: var(--color-main-bg);
 		position: fixed;
 		top: 0;
-		right: 1rem;
+		right: 0;
 		padding: min(10vh, 10rem) var(--spacing-400);
-		font-size: 1.125rem;
-		box-shadow: var(--shadow-outset-200);
 		display: flex;
 		flex-direction: column;
 		gap: 0.75em;
 		min-width: 10rem;
 		width: min(48%, 12rem);
-		z-index: 9000;
-		opacity: 1;
-		transition: opacity 0.3s linear, z-index 0.3s linear;
-	}
+		height: 100%;
+		margin: 0;
+		transition: transform 0.3s ease-in-out;
+		transform: translateX(0);
 
-	#navigation.stick {
-		margin-top: 0;
-	}
-
-	#navigation.hide {
-		opacity: 0;
-		box-shadow: var(--shadow-inset-200);
-		z-index: -1;
-		visibility: hidden;
+		&.hide {
+			transform: translateX(100%);
+		}
 	}
 
 	#navigation a {
-		padding: 0.75rem 1.5rem;
+		padding: var(--spacing-300) var(--spacing-400);
 		border-radius: var(--border-radius);
 		font-size: var(--font-size-500);
-	}
 
-	#navigation a.active {
-		box-shadow: var(--shadow-inset-200);
+		&.active {
+			background-color: var(--color-grey-100);
+		}
 	}
 
 	.backdrop {
@@ -117,27 +102,57 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background-color: var(--color-main-bg);
+		background-color: var(--color-grey-400);
 		z-index: 2000;
 		filter: blur(1rem);
 		opacity: 0.8;
 		transition: opacity 0.3s linear, z-index 0.3s linear;
+
+		&.hide {
+			opacity: 0;
+			z-index: -1;
+		}
 	}
 
-	.backdrop.hide {
-		opacity: 0;
-		z-index: -1;
+	.social-links {
+		display: flex;
+		column-gap: var(--spacing-200);
 	}
 
-	@media only screen and (min-width: 40em) {
+	@include for-tablet-and-desktop {
+		header {
+			justify-content: space-between;
+		}
+
 		header :global(.toggle-btn) {
 			display: none;
+		}
+
+		.page-logo {
+			display: block;
 		}
 
 		#navigation,
 		#navigation.hide {
 			all: unset;
 			display: flex;
+			column-gap: var(--spacing-400);
+		}
+
+		#navigation a {
+			border-bottom: 2px dashed var(--color-border);
+			border-radius: 0;
+			padding: var(--spacing-300) var(--spacing-200);
+			transition: border-color 0.2s ease-in-out;
+
+			&.active {
+				background-color: transparent;
+				border-bottom-color: var(--color-primary-400);
+			}
+
+			&:hover {
+				border-bottom-color: var(--color-primary-400);
+			}
 		}
 
 		.backdrop {
