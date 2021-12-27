@@ -18,7 +18,31 @@
 </script>
 
 <script lang="ts">
+	import Button from '$lib/ui/Button.svelte';
 </script>
 
-<style>
+<div class="banner">
+	<h2 class="greeting">Hi there, I'm Vu !</h2>
+	<h4 class="quote">
+		I like coding. I like beauty. <br /> I like coding to make beautiful things.
+	</h4>
+	<div class="action-container">
+		<Button>test</Button>
+	</div>
+</div>
+
+<style lang="scss">
+	.banner {
+		color: var(--color-primary-800);
+		margin-top: var(--spacing-800);
+	}
+
+	.greeting {
+		text-align: center;
+	}
+
+	.quote {
+		margin-top: var(--spacing-400);
+		text-align: center;
+	}
 </style>
