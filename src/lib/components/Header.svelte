@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import meta from '$lib/meta/site_info';
-	import ButtonIcon from '$lib/ui/ButtonIcon.svelte';
 
 	let isToggled = false;
 
@@ -17,7 +16,6 @@
 </script>
 
 <header>
-	<a class="page-logo" href={meta.siteUrl}> Home </a>
 	<i class={`${isToggled ? 'fas fa-times' : 'fas fa-bars'} toggle-btn`} on:click={onToggle} />
 	<nav>
 		<ul id="navigation" class:hide={!isToggled}>
@@ -29,9 +27,15 @@
 		</ul>
 	</nav>
 	<div class="social-links">
-		<ButtonIcon icon="fab fa-facebook-f" href={meta.facebook} size="lg" />
-		<ButtonIcon icon="fab fa-github" href={meta.github} size="lg" />
-		<ButtonIcon icon="far fa-envelope" href={`mailto:${meta.email}`} size="lg" />
+		<a href={`mailto:${meta.email}`}>
+			<i class="far fa-envelope" />
+		</a>
+		<a href={meta.github}>
+			<i class="fab fa-github" />
+		</a>
+		<a href={meta.facebook}>
+			<i class="fab fa-facebook-f" />
+		</a>
 	</div>
 </header>
 <div class="backdrop" class:hide={!isToggled} on:click={onToggle} />
@@ -46,7 +50,6 @@
 		align-items: center;
 		height: var(--header-height);
 		padding: 0 var(--padding-x);
-		margin-bottom: var(--spacing-500);
 		position: sticky;
 		top: 0;
 		z-index: 9000;
@@ -62,6 +65,7 @@
 		bottom: auto;
 		right: var(--padding-x);
 		font-size: var(--font-size-700);
+		color: var(--color-primary-700);
 		z-index: 9999;
 	}
 
@@ -96,6 +100,27 @@
 		}
 	}
 
+	.social-links {
+		display: flex;
+		column-gap: var(--spacing-200);
+
+		a {
+			width: 1.75em;
+			height: 1.75em;
+			transition: border-color 0.3s ease-in-out;
+			color: var(--color-primary-700);
+			font-size: var(--font-size-600);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border: 2px dashed transparent;
+
+			&:hover {
+				border-color: var(--color-primary-700);
+			}
+		}
+	}
+
 	.backdrop {
 		position: absolute;
 		top: 0;
@@ -112,11 +137,6 @@
 			opacity: 0;
 			z-index: -1;
 		}
-	}
-
-	.social-links {
-		display: flex;
-		column-gap: var(--spacing-200);
 	}
 
 	@include for-tablet-and-desktop {
@@ -140,18 +160,19 @@
 		}
 
 		#navigation a {
-			border-bottom: 2px dashed var(--color-border);
 			border-radius: 0;
 			padding: var(--spacing-300) var(--spacing-200);
 			transition: border-color 0.2s ease-in-out;
+			color: var(--color-primary-700);
+			border-bottom: 2px dashed var(--color-primary-200);
 
 			&.active {
 				background-color: transparent;
-				border-bottom-color: var(--color-primary-400);
+				border-bottom-color: var(--color-primary-700);
 			}
 
 			&:hover {
-				border-bottom-color: var(--color-primary-400);
+				border-bottom-color: var(--color-primary-700);
 			}
 		}
 
