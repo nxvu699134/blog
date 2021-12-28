@@ -32,7 +32,7 @@
 	@use '../css/responsive.scss' as *;
 
 	.background-container {
-		position: fixed;
+		position: absolute;
 		top: 0;
 		left: 0;
 		height: 460px;
