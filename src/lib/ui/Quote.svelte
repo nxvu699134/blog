@@ -15,6 +15,8 @@
 </blockquote>
 
 <style lang="scss">
+	@use '../css/responsive.scss' as *;
+
 	blockquote {
 		font-family: var(--font-heading);
 		font-size: var(--font-size-500);
@@ -38,6 +40,17 @@
 		&:before {
 			content: '\2015';
 			margin-right: var(--spacing-200);
+		}
+	}
+
+	@include for-tablet-and-desktop {
+		blockquote {
+			max-width: 666px;
+			font-size: var(--font-size-600);
+		}
+
+		cite {
+			font-size: var(--font-size-400);
 		}
 	}
 </style>
