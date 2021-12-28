@@ -1,25 +1,26 @@
 <script context="module">
-	export async function load({ fetch }) {
-		const res = await fetch('/api/posts.json?limit=4');
-
-		if (res.status == 200) {
-			return {
-				props: {
-					posts: await res.json()
-				}
-			};
-		}
-
-		return {
-			status: res.status,
-			error: new Error(await res.json())
-		};
-	}
+	/* export async function load({ fetch }) { */
+	/*   const res = await fetch('/api/posts.json?limit=4'); */
+	/*  */
+	/*   if (res.status == 200) { */
+	/*     return { */
+	/*       props: { */
+	/*         posts: await res.json() */
+	/*       } */
+	/*     }; */
+	/*   } */
+	/*  */
+	/*   return { */
+	/*     status: res.status, */
+	/*     error: new Error(await res.json()) */
+	/*   }; */
+	/* } */
 </script>
 
 <script lang="ts">
 	import LandingButton from '$lib/ui/LandingButton.svelte';
 	import Quote from '$lib/ui/Quote.svelte';
+	import Blob from '$lib/ui/Blob.svelte';
 </script>
 
 <div class="banner">
@@ -33,12 +34,12 @@
 	</div>
 </div>
 
-<div class="profile">
-	<Quote class="public-quote" author="Abathur">
+<div class="introduction">
+	<Quote author="Abathur">
 		Never perfect. Perfection goal that changes. Never stops moving. Can chase, cannot catch.
 	</Quote>
 
-	<div class="description">
+	<div id="profile">
 		<div class="content">
 			<h4>I'm a Full-stuck developer, who aim to build things that perfect</h4>
 			<p>
@@ -47,7 +48,10 @@
 				Have a nice day. 🍺
 			</p>
 		</div>
-		<div class="avatar-container">
+		<div class="avatar">
+			<Blob option={1} opacity={0.3} class="blob" />
+			<Blob option={3} opacity={0.3} class="blob" />
+			<Blob option={5} opacity={0.3} class="blob" />
 			<img src="/assets/imgs/avatar.png" alt="avatar" />
 		</div>
 	</div>
@@ -80,24 +84,63 @@
 		margin-top: var(--spacing-600);
 	}
 
-	.profile {
+	.introduction {
 		display: flex;
 		flex-flow: column;
 		align-items: center;
 		margin-top: var(--spacing-400);
+	}
 
-		.description {
-			display: flex;
-			flex-flow: column;
-			align-items: center;
-			margin: var(--spacing-400) var(--spacing-200);
+	#profile {
+		display: flex;
+		flex-flow: column;
+		align-items: center;
+		margin: var(--spacing-400) 0;
+		padding: 0 var(--spacing-400);
+		width: 100%;
+		overflow: hidden; /* cuz when avatar spin thats overflow the profile container */
+	}
+
+	$blobSize: 256px;
+
+	#profile .avatar {
+		position: relative;
+		width: $blobSize;
+		height: $blobSize;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		:global(.blob) {
+			width: $blobSize;
+			fill: var(--color-primary-200);
+			position: absolute;
+			z-index: -1;
+
+			&:nth-of-type(3) {
+				animation: spin 8s linear infinite;
+			}
+
+			&:nth-of-type(2) {
+				animation: spin 6s linear infinite;
+			}
+
+			&:nth-of-type(1) {
+				animation: spin 4s reverse linear infinite;
+			}
 		}
 
-		.avatar-container {
-			margin-top: var(--spacing-400);
-			img {
-				height: 96px;
-			}
+		img {
+			height: calc($blobSize/2);
+		}
+	}
+
+	@keyframes spin {
+		from {
+			transform: rotate(0deg);
+		}
+		to {
+			transform: rotate(360deg);
 		}
 	}
 
@@ -110,6 +153,15 @@
 			flex-flow: row;
 			justify-content: center;
 			column-gap: var(--spacing-400);
+		}
+
+		#profile {
+			flex-flow: row;
+			justify-content: space-between;
+		}
+
+		#profile .content {
+			max-width: 512px;
 		}
 	}
 </style>
