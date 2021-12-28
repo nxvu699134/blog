@@ -1,5 +1,10 @@
 <div class="background-container">
-	<svg viewBox="0 0 800 88.7" xmlns="http://www.w3.org/2000/svg">
+	<svg
+		viewBox="0 0 800 88.7"
+		xmlns="http://www.w3.org/2000/svg"
+		preserveAspectRatio="none"
+		shape-rendering="auto"
+	>
 		<defs>
 			<path
 				id="wave-pattern"
@@ -30,7 +35,7 @@
 		position: fixed;
 		top: 0;
 		left: 0;
-		height: 512px;
+		height: 460px;
 		width: 100%;
 		background: linear-gradient(45deg, var(--color-primary-100) 0%, var(--color-primary-000) 100%);
 		z-index: -1;
@@ -39,6 +44,13 @@
 	svg {
 		position: absolute;
 		bottom: -2px;
+		min-height: 64px;
+		max-height: 144px;
+		width: 100%;
+
+		* {
+			max-height: 144px;
+		}
 	}
 
 	.wave-group-0 {
@@ -62,6 +74,12 @@
 		}
 		100% {
 			transform: translateX(100%);
+		}
+	}
+
+	@include for-tablet-and-desktop {
+		.background-container {
+			height: 512px;
 		}
 	}
 </style>
