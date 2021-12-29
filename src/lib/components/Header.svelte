@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import meta from '$lib/meta/site_info';
+	import ColorSchemeButton from '$lib/ui/ColorSchemeButton.svelte';
 
 	let isToggled = false;
 
@@ -36,6 +37,7 @@
 		<a href={meta.facebook}>
 			<i class="fab fa-facebook-f" />
 		</a>
+		<ColorSchemeButton />
 	</div>
 </header>
 <div class="backdrop" class:hide={!isToggled} on:click={onToggle} />
@@ -65,7 +67,7 @@
 		bottom: auto;
 		right: var(--padding-x);
 		font-size: var(--font-size-700);
-		color: var(--color-primary-700);
+		color: var(--color-text-primary);
 		z-index: 9999;
 	}
 
@@ -97,7 +99,7 @@
 		font-size: var(--font-size-500);
 
 		&.active {
-			background-color: var(--color-grey-100);
+			background-color: var(--color-highlight);
 		}
 	}
 
@@ -109,7 +111,7 @@
 			width: 1.75em;
 			height: 1.75em;
 			transition: border-color 0.3s ease-in-out;
-			color: var(--color-primary-700);
+			color: var(--color-text-primary);
 			font-size: var(--font-size-600);
 			display: flex;
 			justify-content: center;
@@ -117,7 +119,7 @@
 			border: 2px dashed transparent;
 
 			&:hover {
-				border-color: var(--color-primary-700);
+				border-color: var(--color-text-primary);
 			}
 		}
 	}
@@ -128,7 +130,7 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background-color: var(--color-grey-400);
+		background-color: var(--color-backdrop);
 		z-index: 2000;
 		filter: blur(1rem);
 		opacity: 0.8;
@@ -164,16 +166,16 @@
 			border-radius: 0;
 			padding: var(--spacing-300) var(--spacing-200);
 			transition: border-color 0.2s ease-in-out;
-			color: var(--color-primary-700);
-			border-bottom: 2px dashed var(--color-primary-200);
+			color: var(--color-text-primary);
+			border-bottom: 2px dashed var(--color-text-primary-disable);
 
 			&.active {
 				background-color: transparent;
-				border-bottom-color: var(--color-primary-700);
+				border-bottom-color: var(--color-text-primary);
 			}
 
 			&:hover {
-				border-bottom-color: var(--color-primary-700);
+				border-bottom-color: var(--color-text-primary);
 			}
 		}
 

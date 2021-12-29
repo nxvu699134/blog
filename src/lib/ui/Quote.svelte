@@ -1,10 +1,17 @@
 <script lang="ts">
+	import { colorScheme } from '$lib/states/global';
+
 	let outsideClass = '';
 	export { outsideClass as class };
 	export let author: string = '';
+	export let accent: string = 'primary';
 </script>
 
-<blockquote class={`${outsideClass}`}>
+<blockquote
+	class={`${outsideClass}`}
+	class:primary={accent === 'primary'}
+	class:dark={$colorScheme === 'dark'}
+>
 	<i class="fas fa-quote-left quotetick" />
 	<slot />
 	<i class="fas fa-quote-right quotetick" />
@@ -18,24 +25,34 @@
 	@use '../css/responsive.scss' as *;
 
 	blockquote {
+		--quote-primary: var(--color-primary-400);
+
 		font-family: var(--font-heading);
 		font-size: var(--font-size-500);
 		padding-left: var(--spacing-500);
-		border-left: 6px solid var(--color-primary-400);
+		border-left: 6px solid transparent;
 		font-style: italic;
-		color: var(--color-grey-700);
+		color: var(--color-text);
 		margin: var(--spacing-400) var(--spacing-600);
 
 		i.quotetick {
-			color: var(--color-grey-200);
+			color: var(--color-text-disable);
 		}
+	}
+
+	blockquote.dark {
+		--quote-primary: var(--color-primary-600);
+	}
+
+	blockquote.primary {
+		border-left-color: var(--quote-primary);
 	}
 
 	cite {
 		font-family: var(--font-article);
 		font-size: var(--font-size-300);
 		font-style: normal;
-		color: var(--color-grey-500);
+		color: var(--color-text-alt);
 
 		&:before {
 			content: '\2015';

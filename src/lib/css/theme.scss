@@ -9,6 +9,7 @@
 	--color-grey-700: hsl(209, 34%, 30%);
 	--color-grey-800: hsl(211, 39%, 23%);
 	--color-grey-900: hsl(209, 61%, 16%);
+	--color-grey-1000: hsl(209, 55%, 8%);
 
 	--color-primary-000: hsl(205, 79%, 92%);
 	--color-primary-100: hsl(205, 97%, 85%);
@@ -20,6 +21,7 @@
 	--color-primary-700: hsl(205, 82%, 33%);
 	--color-primary-800: hsl(205, 87%, 29%);
 	--color-primary-900: hsl(205, 100%, 21%);
+	--color-primary-1000: hsl(205, 90%, 10%);
 
 	--color-yellow-000: hsl(49, 100%, 96%);
 	--color-yellow-100: hsl(48, 100%, 88%);
@@ -54,16 +56,6 @@
 	--color-red-800: hsl(360, 85%, 25%);
 	--color-red-900: hsl(360, 92%, 20%);
 
-	--color-main-bg: var(--color-grey-000);
-
-	--color-border: var(--color-grey-200);
-
-	--color-text-bold: var(--color-grey-700);
-	--color-text: var(--color-grey-600);
-	--color-text-alt: var(--color-grey-500);
-
-	--border-radius: 8px;
-
 	--font-heading: Adelle, san-serif;
 	--font-article: Roboto, san-serif;
 
@@ -88,4 +80,44 @@
 	--font-size-900: 3rem;
 	--font-size-1000: 3.75rem;
 	--font-size-1100: 4.5rem;
+
+	--border-radius: 6px;
+}
+
+:root {
+	--color-main-bg: var(--color-grey-000);
+
+	--color-text: var(--color-grey-600);
+	--color-text-alt: var(--color-grey-500);
+	--color-text-disable: var(--color-grey-200);
+
+	--color-highlight: var(--color-grey-100);
+	--color-backdrop: var(--color-grey-400);
+
+	--color-text-primary: var(--color-primary-700);
+	--color-text-primary-alt: var(--color-primary-700);
+	--color-text-primary-disable: var(--color-primary-200);
+
+	//banner wave
+	--color-bg1: var(--color-primary-100);
+	--color-bg2: var(--color-primary-000);
+}
+
+[color-scheme='dark'] {
+	--color-main-bg: var(--color-grey-1000);
+
+	--color-text: var(--color-grey-000);
+	--color-text-alt: var(--color-grey-100);
+	--color-text-disable: var(--color-grey-800);
+
+	--color-highlight: var(--color-grey-800);
+	--color-backdrop: var(--color-grey-700);
+
+	--color-text-primary: var(--color-primary-000);
+	--color-text-primary-alt: var(--color-primary-100);
+	--color-text-primary-disable: var(--color-primary-800);
+
+	//banner
+	--color-bg1: var(--color-primary-900);
+	--color-bg2: var(--color-primary-1000);
 }

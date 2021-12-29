@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { colorScheme } from '$lib/states/global';
+
 	let outsideClass = '';
 	export { outsideClass as class };
 
@@ -10,7 +12,13 @@
 	const classNames = `${outsideClass}`;
 </script>
 
-<a {href} class={classNames} class:outline class:primary={!outline}>
+<a
+	{href}
+	class={classNames}
+	class:outline
+	class:primary={!outline}
+	class:dark={$colorScheme === 'dark'}
+>
 	{#if leftIcon}
 		<i class={`left-icon ${leftIcon}`} />
 	{/if}
@@ -25,6 +33,12 @@
 	@use '../css/responsive.scss' as *;
 
 	a {
+		--btn-bg-primary: var(--color-primary-700);
+		--btn-highlight-primary: var(--color-primary-500);
+
+		--btn-bg-primary-outline: var(--color-primary-000);
+		--btn-highlight-primary-outline: var(--color-primary-100);
+
 		border-radius: 100px;
 		width: 220px;
 		display: flex;
@@ -32,26 +46,35 @@
 		align-items: center;
 		padding: var(--spacing-200) 0;
 		font-size: var(--font-size-600);
-		border: 1px solid var(--color-primary-700);
+		border: 1px solid var(--color-text-primary);
+		transition: background-color 0.2s ease-in-out;
+	}
+
+	a.dark {
+		--btn-bg-primary: var(--color-primary-600);
+		--btn-highlight-primary: var(--color-primary-500);
+
+		--btn-bg-primary-outline: var(--color-primary-1000);
+		--btn-highlight-primary-outline: var(--color-primary-900);
 	}
 
 	a.primary {
-		color: white;
-		background: linear-gradient(65deg, var(--color-primary-500) 0%, var(--color-primary-300) 100%);
-		box-shadow: 0px 1px 2px var(--color-primary-400), inset 0 1px 0 0 var(--color-primary-300);
+		color: var(--color-primary-000);
+		background-color: var(--btn-bg-primary);
+		box-shadow: 0px 1px 2px var(--btn-bg-primary), inset 0 1px 0 0 var(--btn-highlight-primary);
 
 		&:hover {
-			background: var(--color-primary-300);
+			background: var(--btn-highlight-primary);
 		}
 	}
 
 	a.outline {
-		color: var(--color-primary-700);
-		background: var(--color-primary-000);
-		box-shadow: 0px 1px 2px var(--color-primary-400);
+		color: var(--color-text-primary);
+		background: var(--btn-bg-primary-outline);
+		box-shadow: 0px 1px 2px var(--btn-bg-primary);
 
 		&:hover {
-			background: var(--color-primary-100);
+			background: var(--btn-highlight-primary-outline);
 		}
 	}
 

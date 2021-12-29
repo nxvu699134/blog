@@ -37,7 +37,7 @@
 		left: 0;
 		height: 460px;
 		width: 100%;
-		background: linear-gradient(45deg, var(--color-primary-100) 0%, var(--color-primary-000) 100%);
+		background: linear-gradient(45deg, var(--color-bg1) 0%, var(--color-bg2) 100%);
 		z-index: -1;
 	}
 

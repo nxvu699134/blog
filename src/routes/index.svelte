@@ -67,12 +67,12 @@
 
 	.greeting {
 		text-align: center;
-		color: var(--color-primary-800);
+		color: var(--color-text-primary);
 	}
 
 	.quote {
 		margin-top: var(--spacing-400);
-		color: var(--color-primary-700);
+		color: var(--color-text-primary);
 		text-align: center;
 	}
 
@@ -113,7 +113,7 @@
 
 		:global(.blob) {
 			width: $blobSize;
-			fill: var(--color-primary-200);
+			fill: var(--color-text-primary-disable);
 			position: absolute;
 			z-index: -1;
 
