@@ -75,15 +75,16 @@
 		top: 0;
 		right: 0;
 		padding: min(10vh, 10rem) var(--spacing-400);
-		display: flex;
-		flex-direction: column;
-		gap: 0.75em;
 		min-width: 10rem;
 		width: min(48%, 12rem);
 		height: 100%;
 		margin: 0;
 		transition: transform 0.3s ease-in-out;
 		transform: translateX(0);
+		display: flex;
+		flex-direction: column;
+
+		@include tmp-flex-row-gap(var(--spacing-200));
 
 		&.hide {
 			transform: translateX(100%);
@@ -102,7 +103,7 @@
 
 	.social-links {
 		display: flex;
-		column-gap: var(--spacing-200);
+		@include tmp-flex-column-gap(var(--spacing-200));
 
 		a {
 			width: 1.75em;
@@ -156,7 +157,7 @@
 		#navigation.hide {
 			all: unset;
 			display: flex;
-			column-gap: var(--spacing-400);
+			@include tmp-flex-column-gap(var(--spacing-400));
 		}
 
 		#navigation a {

@@ -80,8 +80,8 @@
 		display: flex;
 		flex-flow: column;
 		align-items: center;
-		row-gap: var(--spacing-400);
 		margin-top: var(--spacing-600);
+		@include tmp-flex-row-gap(var(--spacing-400));
 	}
 
 	.introduction {
@@ -152,7 +152,7 @@
 		.action-container {
 			flex-flow: row;
 			justify-content: center;
-			column-gap: var(--spacing-400);
+			@include tmp-flex-column-gap(var(--spacing-400));
 		}
 
 		#profile {
