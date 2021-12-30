@@ -1,4 +1,8 @@
-<div class="background-container">
+<script lang="ts">
+	import { colorScheme } from '$lib/states/global';
+</script>
+
+<div class="background-container" class:dark={$colorScheme === 'dark'}>
 	<svg
 		viewBox="0 0 800 88.7"
 		xmlns="http://www.w3.org/2000/svg"
@@ -32,6 +36,8 @@
 	@use '../css/responsive.scss' as *;
 
 	.background-container {
+		--color-bg1: var(--color-primary-100);
+		--color-bg2: var(--color-primary-000);
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -39,6 +45,11 @@
 		width: 100%;
 		background: linear-gradient(45deg, var(--color-bg1) 0%, var(--color-bg2) 100%);
 		z-index: -1;
+	}
+
+	.background-container.dark {
+		--color-bg1: var(--color-primary-900);
+		--color-bg2: var(--color-primary-1000);
 	}
 
 	svg {
