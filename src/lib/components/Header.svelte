@@ -17,6 +17,7 @@
 </script>
 
 <header>
+	<div class="blur-filter" />
 	<i class={`${isToggled ? 'fas fa-times' : 'fas fa-bars'} toggle-btn`} on:click={onToggle} />
 	<nav>
 		<ul id="navigation" class:hide={!isToggled}>
@@ -55,6 +56,16 @@
 		position: sticky;
 		top: 0;
 		z-index: 9000;
+	}
+
+	header .blur-filter {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		backdrop-filter: blur(2rem);
+		z-index: -1;
 	}
 
 	.page-logo {
