@@ -107,6 +107,7 @@
 		position: relative;
 		width: $blobSize;
 		height: $blobSize;
+		min-width: $blobSize;
 		display: flex;
 		justify-content: center;
 		align-items: center;
