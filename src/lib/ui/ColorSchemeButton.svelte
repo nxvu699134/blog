@@ -3,6 +3,7 @@
 
 	const toggleMode = () => {
 		$colorScheme = $colorScheme === 'light' ? 'dark' : 'light';
+		localStorage.setItem('color-scheme', $colorScheme);
 	};
 </script>
 
