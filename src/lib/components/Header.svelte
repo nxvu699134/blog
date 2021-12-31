@@ -57,9 +57,9 @@
 	}
 
 	header .blur-filter {
-		height: 100%;
+		height: var(--header-height);
 		width: 100%;
-		position: absolute;
+		position: fixed;
 		top: 0;
 		left: 0;
 		backdrop-filter: blur(2rem);
