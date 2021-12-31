@@ -24,6 +24,8 @@
 </a>
 
 <style lang="scss">
+	@use '../css/responsive.scss' as *;
+
 	a {
 		display: block;
 		cursor: pointer;
@@ -72,6 +74,6 @@
 
 	.tags-container {
 		display: flex;
-		column-gap: var(--spacing-300);
+		@include tmp-flex-column-gap(var(--spacing-300));
 	}
 </style>
