@@ -1,11 +1,12 @@
 <script lang="ts">
+	import { colorScheme } from '$lib/states/global';
 	let outsideClass = '';
 	export { outsideClass as class };
 </script>
 
-<div class={`tag soft-down-200 ${outsideClass}`}>
+<span class={`tag ${outsideClass}`} class:dark={$colorScheme === 'dark'}>
 	<slot />
-</div>
+</span>
 
 <style>
 	.tag {
@@ -14,5 +15,10 @@
 		font-size: var(--font-size-300);
 		font-family: var(--font-heading);
 		color: var(--color-text-alt);
+		background-color: var(--color-grey-100);
+	}
+
+	.tag.dark {
+		background-color: var(--color-grey-800);
 	}
 </style>

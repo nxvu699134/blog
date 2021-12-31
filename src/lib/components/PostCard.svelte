@@ -1,39 +1,52 @@
 <script lang="ts">
 	import { formatDate } from '$lib/utils/time';
-	import Hoverable from '$lib/components/Hoverable.svelte';
 	import Tag from '$lib/ui/Tag.svelte';
+	import { colorScheme } from '$lib/states/global';
 
-	export let data: IMetaPost = null;
+	export let data: IPostMeta = null;
 
 	let outsideClass = '';
 	export { outsideClass as class };
-
-	const className = `${outsideClass}`;
 </script>
 
-<Hoverable start="up-200" end="up-100" shape="square">
-	<a href={data.href} class={`post-card ${className}`}>
-		<h5 class="title">{data.title}</h5>
-		<div class="date">
-			<i class="far fa-calendar-minus" />
-			<span> {formatDate(data.date)} </span>
-		</div>
-		<div class="description">{data.desc}</div>
-		<div class="tags">
-			{#each data.tags as tag}
-				<Tag>{tag}</Tag>
-			{/each}
-		</div>
-	</a>
-</Hoverable>
+<a href={data.href} class={`${outsideClass}`} class:dark={$colorScheme === 'dark'}>
+	<h4 class="title">{data.title}</h4>
+	<div class="date">
+		<i class="far fa-calendar-minus" />
+		<span> {formatDate(data.date)} </span>
+	</div>
+	<div class="description">{data.desc}</div>
+	<div class="tags-container">
+		{#each data.tags as tag}
+			<Tag>{tag}</Tag>
+		{/each}
+	</div>
+</a>
 
-<style>
-	.post-card {
+<style lang="scss">
+	a {
+		--color-shadow: var(--color-grey-200);
 		display: block;
 		cursor: pointer;
 		border-radius: var(--border-radius);
 		text-align: left;
 		padding: var(--spacing-400);
+		box-shadow: 1px 1px 6px 1px var(--color-shadow);
+		transition: box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
+		border: 1px solid transparent;
+
+		&:hover {
+			box-shadow: 1px 1px 10px 4px var(--color-shadow);
+		}
+	}
+
+	a.dark {
+		--color-shadow: var(--color-grey-1100);
+		background-color: var(--color-grey-900);
+
+		&:hover {
+			border-color: var(--color-grey-700);
+		}
 	}
 
 	.title {
@@ -42,12 +55,13 @@
 
 	.date {
 		display: flex;
+		align-items: baseline;
 		font-size: var(--font-size-300);
 		margin-bottom: var(--spacing-400);
-	}
 
-	.date i {
-		margin-right: var(--spacing-100);
+		i {
+			margin-right: var(--spacing-100);
+		}
 	}
 
 	.description {
@@ -58,14 +72,8 @@
 		margin-bottom: var(--spacing-400);
 	}
 
-	.tags {
+	.tags-container {
 		display: flex;
 		column-gap: var(--spacing-300);
-	}
-
-	@media only screen and (min-width: 60em) {
-		.post-card {
-			padding: var(--spacing-400);
-		}
 	}
 </style>
