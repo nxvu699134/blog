@@ -88,7 +88,7 @@
 :root {
 	--color-main-bg: var(--color-grey-000);
 
-	--color-text: var(--color-grey-700);
+	--color-text: var(--color-grey-600);
 	--color-text-alt: var(--color-grey-500);
 	--color-text-disable: var(--color-grey-200);
 
@@ -98,6 +98,11 @@
 	--color-text-primary: var(--color-primary-700);
 	--color-text-primary-alt: var(--color-primary-400);
 	--color-text-primary-disable: var(--color-primary-200);
+
+	--color-shadow: var(--color-grey-200);
+
+	--shadow: 0px 0px 6px 1px var(--color-shadow);
+	--shadow-hl: 0px 0px 10px 4px var(--color-shadow);
 }
 
 [color-scheme='dark'] {
@@ -111,6 +116,8 @@
 	--color-backdrop: var(--color-grey-700);
 
 	--color-text-primary: var(--color-primary-000);
-	--color-text-primary-alt: var(--color-primary-200);
+	--color-text-primary-alt: var(--color-primary-400);
 	--color-text-primary-disable: var(--color-primary-800);
+
+	--color-shadow: var(--color-grey-1100);
 }

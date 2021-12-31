@@ -1,26 +1,24 @@
 <script context="module">
-	/* export async function load({ fetch }) { */
-	/*   const res = await fetch('/api/posts.json?limit=4'); */
-	/*  */
-	/*   if (res.status == 200) { */
-	/*     return { */
-	/*       props: { */
-	/*         posts: await res.json() */
-	/*       } */
-	/*     }; */
-	/*   } */
-	/*  */
-	/*   return { */
-	/*     status: res.status, */
-	/*     error: new Error(await res.json()) */
-	/*   }; */
-	/* } */
+	import { postMetas } from '$lib/data/internalResource';
+	export function load() {
+		return {
+			props: {
+				posts: postMetas
+			}
+		};
+	}
 </script>
 
 <script lang="ts">
 	import LandingButton from '$lib/ui/LandingButton.svelte';
 	import Quote from '$lib/ui/Quote.svelte';
 	import Blob from '$lib/ui/Blob.svelte';
+	import CardsLayout from '$lib/components/CardsLayout.svelte';
+	import PostCard from '$lib/components/PostCard.svelte';
+	import Section from '$lib/ui/Section.svelte';
+	import Button from '$lib/ui/Button.svelte';
+
+	export let posts: IPostMeta[] = [];
 </script>
 
 <div class="banner">
@@ -34,11 +32,10 @@
 	</div>
 </div>
 
-<div class="introduction">
+<section class="introduction">
 	<Quote author="Abathur">
 		Never perfect. Perfection goal that changes. Never stops moving. Can chase, cannot catch.
 	</Quote>
-
 	<div id="profile">
 		<div class="content">
 			<h4>I'm a Full-stuck developer, who aim to build things that perfect</h4>
@@ -55,7 +52,16 @@
 			<img src="/assets/imgs/avatar.png" alt="avatar" />
 		</div>
 	</div>
-</div>
+</section>
+
+<Section title="Recent posts">
+	<CardsLayout class="post-list">
+		{#each posts as post}
+			<PostCard data={post} />
+		{/each}
+	</CardsLayout>
+	<Button href="/blog" size="lg" rightIcon="fas fa-angle-double-right">More Posts</Button>
+</Section>
 
 <style lang="scss">
 	@use '../lib/css/responsive.scss' as *;
@@ -136,13 +142,8 @@
 		}
 	}
 
-	@keyframes spin {
-		from {
-			transform: rotate(0deg);
-		}
-		to {
-			transform: rotate(360deg);
-		}
+	:global(.post-list) {
+		margin-bottom: var(--spacing-600);
 	}
 
 	@include for-tablet-and-desktop {

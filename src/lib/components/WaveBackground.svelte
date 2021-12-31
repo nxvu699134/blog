@@ -34,6 +34,7 @@
 
 <style lang="scss">
 	@use '../css/responsive.scss' as *;
+	@use '../css/animation.scss' as *;
 
 	.background-container {
 		--color-bg1: var(--color-primary-100);
@@ -65,27 +66,18 @@
 	}
 
 	.wave-group-0 {
-		animation: wave 8s linear infinite;
+		animation: slide-to-right 8s linear infinite;
 		z-index: 1;
 	}
 
 	.wave-group-1 {
-		animation: wave 13s linear reverse infinite;
+		animation: slide-to-right 13s linear reverse infinite;
 		z-index: 0;
 	}
 
 	.wave-group-2 {
-		animation: wave 21s linear infinite;
+		animation: slide-to-right 21s linear infinite;
 		z-index: 0;
-	}
-
-	@keyframes wave {
-		0% {
-			transform: translateX(0);
-		}
-		100% {
-			transform: translateX(100%);
-		}
 	}
 
 	@include for-tablet-and-desktop {

@@ -25,23 +25,21 @@
 
 <style lang="scss">
 	a {
-		--color-shadow: var(--color-grey-200);
 		display: block;
 		cursor: pointer;
 		border-radius: var(--border-radius);
 		text-align: left;
 		padding: var(--spacing-400);
-		box-shadow: 1px 1px 6px 1px var(--color-shadow);
+		box-shadow: var(--shadow);
 		transition: box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
 		border: 1px solid transparent;
 
 		&:hover {
-			box-shadow: 1px 1px 10px 4px var(--color-shadow);
+			box-shadow: var(--shadow-hl);
 		}
 	}
 
 	a.dark {
-		--color-shadow: var(--color-grey-1100);
 		background-color: var(--color-grey-900);
 
 		&:hover {
