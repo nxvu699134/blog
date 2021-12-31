@@ -35,6 +35,7 @@
 		box-shadow: var(--shadow);
 		transition: box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
 		border: 1px solid transparent;
+		background-color: var(--color-main-bg);
 
 		&:hover {
 			box-shadow: var(--shadow-hl);
