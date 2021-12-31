@@ -13,10 +13,10 @@
 
 <style lang="scss">
 	section {
-		padding: var(--spacing-400);
 		display: flex;
 		flex-flow: column;
 		align-items: center;
+		padding: var(--spacing-400) 0;
 	}
 
 	.title {

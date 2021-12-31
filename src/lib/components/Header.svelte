@@ -48,11 +48,9 @@
 
 	header {
 		--header-height: 4rem;
-		--padding-x: var(--spacing-400);
 		display: flex;
 		align-items: center;
 		height: var(--header-height);
-		padding: 0 var(--padding-x);
 		position: sticky;
 		top: 0;
 		z-index: 9000;
@@ -76,7 +74,7 @@
 		position: absolute;
 		top: auto;
 		bottom: auto;
-		right: var(--padding-x);
+		right: 0;
 		font-size: var(--font-size-700);
 		color: var(--color-text-primary);
 		z-index: 9999;

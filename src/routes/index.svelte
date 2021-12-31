@@ -32,7 +32,7 @@
 	</div>
 </div>
 
-<section class="introduction">
+<Section>
 	<Quote author="Abathur">
 		Never perfect. Perfection goal that changes. Never stops moving. Can chase, cannot catch.
 	</Quote>
@@ -52,7 +52,7 @@
 			<img src="/assets/imgs/avatar.png" alt="avatar" />
 		</div>
 	</div>
-</section>
+</Section>
 
 <Section title="Recent posts">
 	<CardsLayout class="post-list">
@@ -90,19 +90,11 @@
 		@include tmp-flex-row-gap(var(--spacing-400));
 	}
 
-	.introduction {
-		display: flex;
-		flex-flow: column;
-		align-items: center;
-		margin-top: var(--spacing-400);
-	}
-
 	#profile {
 		display: flex;
 		flex-flow: column;
 		align-items: center;
-		margin: var(--spacing-400) 0;
-		padding: 0 var(--spacing-400);
+		margin-top: var(--spacing-400);
 		width: 100%;
 		overflow: hidden; /* cuz when avatar spin thats overflow the profile container */
 	}
