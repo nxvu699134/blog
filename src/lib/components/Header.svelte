@@ -63,6 +63,7 @@
 		top: 0;
 		left: 0;
 		backdrop-filter: blur(2rem);
+		-webkit-backdrop-filter: blur(2rem);
 		z-index: -1;
 	}
 
