@@ -59,7 +59,7 @@
 	}
 
 	a.primary {
-		color: var(--color-primary-000);
+		color: white;
 		background-color: var(--btn-bg-primary);
 		box-shadow: 0px 1px 2px var(--btn-bg-primary), inset 0 1px 0 0 var(--btn-highlight-primary);
 

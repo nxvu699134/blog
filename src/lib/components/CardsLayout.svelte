@@ -7,7 +7,9 @@
 	<slot />
 </div>
 
-<style>
+<style lang="scss">
+	@use '../css/responsive.scss' as *;
+
 	.content {
 		display: grid;
 		grid-template-columns: 1fr;
@@ -15,7 +17,7 @@
 		row-gap: var(--spacing-500);
 	}
 
-	@media only screen and (min-width: 60em) {
+	@include for-desktop {
 		.content {
 			grid-template-columns: 1fr 1fr;
 			column-gap: var(--spacing-500);
