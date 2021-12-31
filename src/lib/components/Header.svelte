@@ -22,7 +22,7 @@
 	<nav>
 		<ul id="navigation" class:hide={!isToggled}>
 			{#each items as { path, label }}
-				<a class:active={$page.path == path} on:click={onToggle} href={path}>
+				<a class:active={$page.url.pathname == path} on:click={onToggle} href={path}>
 					{label}
 				</a>
 			{/each}
