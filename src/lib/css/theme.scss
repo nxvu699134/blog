@@ -8,8 +8,9 @@
 	--color-grey-600: hsl(209, 28%, 39%);
 	--color-grey-700: hsl(209, 34%, 30%);
 	--color-grey-800: hsl(211, 39%, 23%);
-	--color-grey-900: hsl(209, 61%, 16%);
-	--color-grey-1000: hsl(209, 55%, 8%);
+	--color-grey-900: hsl(209, 44%, 16%);
+	--color-grey-1000: hsl(209, 41%, 8%);
+	--color-grey-1100: hsl(211, 30%, 4%);
 
 	--color-primary-000: hsl(205, 79%, 92%);
 	--color-primary-100: hsl(205, 97%, 85%);
@@ -102,8 +103,8 @@
 [color-scheme='dark'] {
 	--color-main-bg: var(--color-grey-1000);
 
-	--color-text: var(--color-grey-000);
-	--color-text-alt: var(--color-grey-200);
+	--color-text: var(--color-grey-100);
+	--color-text-alt: var(--color-grey-300);
 	--color-text-disable: var(--color-grey-800);
 
 	--color-highlight: var(--color-grey-800);
