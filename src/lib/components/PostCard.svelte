@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { formatDate } from '$lib/utils/time';
 	import Tag from '$lib/ui/Tag.svelte';
-	import { colorScheme } from '$lib/states/global';
+	import Card from '$lib/ui/Card.svelte';
 
 	export let data: IPostMeta = null;
 
@@ -9,47 +9,24 @@
 	export { outsideClass as class };
 </script>
 
-<a href={data.href} class={`${outsideClass}`} class:dark={$colorScheme === 'dark'}>
-	<h4 class="title">{data.title}</h4>
-	<div class="date">
-		<i class="far fa-calendar-minus" />
-		<span> {formatDate(data.date)} </span>
-	</div>
-	<div class="description">{data.desc}</div>
-	<div class="tags-container">
-		{#each data.tags as tag}
-			<Tag>{tag}</Tag>
-		{/each}
-	</div>
+<a href={data.href} class={`${outsideClass}`}>
+	<Card hoverable>
+		<h4 class="title">{data.title}</h4>
+		<div class="date">
+			<i class="far fa-calendar-minus" />
+			<span> {formatDate(data.date)} </span>
+		</div>
+		<div class="description">{data.desc}</div>
+		<div class="tags-container">
+			{#each data.tags as tag}
+				<Tag>{tag}</Tag>
+			{/each}
+		</div>
+	</Card>
 </a>
 
 <style lang="scss">
 	@use '../css/responsive.scss' as *;
-
-	a {
-		display: block;
-		cursor: pointer;
-		border-radius: var(--border-radius);
-		text-align: left;
-		padding: var(--spacing-400);
-		box-shadow: var(--shadow);
-		transition: box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
-		border: 1px solid transparent;
-		background-color: var(--color-main-bg);
-
-		&:hover {
-			box-shadow: var(--shadow-hl);
-			border-color: var(--color-grey-200);
-		}
-	}
-
-	a.dark {
-		background-color: var(--color-grey-900);
-
-		&:hover {
-			border-color: var(--color-grey-700);
-		}
-	}
 
 	.title {
 		margin-bottom: var(--spacing-200);
