@@ -50,7 +50,10 @@
 		--header-height: 4rem;
 		display: flex;
 		align-items: center;
+		width: 100%;
+		max-width: 1080px;
 		height: var(--header-height);
+		padding: 0 var(--spacing-400);
 		position: sticky;
 		top: 0;
 		z-index: 9000;
@@ -75,7 +78,7 @@
 		position: absolute;
 		top: auto;
 		bottom: auto;
-		right: 0;
+		right: var(--spacing-400);
 		font-size: var(--font-size-700);
 		color: var(--color-text-primary);
 		z-index: 9999;

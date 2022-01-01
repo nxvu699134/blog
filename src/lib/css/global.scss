@@ -11,16 +11,18 @@ html,
 body {
 	width: 100%;
 	height: fit-content;
+	min-height: 100vh;
 }
 
 body {
 	color: var(--color-text);
 	box-sizing: border-box;
-	font-family: var(--font-article);
-	max-width: 1080px;
 	margin: 0 auto;
+	font-family: var(--font-article);
 	line-height: 1.5;
-	padding: 0 var(--spacing-400);
+	display: flex;
+	flex-flow: column;
+	align-items: center;
 }
 
 * {

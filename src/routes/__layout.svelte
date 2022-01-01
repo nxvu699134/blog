@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import Header from '$lib/components/Header.svelte';
 	import WaveBackground from '$lib/components/WaveBackground.svelte';
+	import Footer from '$lib/components/Footer.svelte';
 	import { colorScheme } from '$lib/states/global';
 	import type { ColorScheme } from '$lib/states/global';
 	import '$lib/css/global.scss';
@@ -21,3 +22,12 @@
 <main>
 	<slot />
 </main>
+<Footer />
+
+<style lang="scss">
+	main {
+		padding: 0 var(--spacing-400);
+		max-width: 1080px;
+		flex: 1;
+	}
+</style>
