@@ -9,7 +9,6 @@
 
 	onMount(() => {
 		$colorScheme = (localStorage.getItem('color-scheme') as ColorScheme) || 'light';
-		console.log($colorScheme);
 		colorScheme.subscribe((value) => {
 			document.documentElement.setAttribute('color-scheme', value);
 			localStorage.setItem('color-scheme', value);
