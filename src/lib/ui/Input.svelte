@@ -28,12 +28,13 @@
 		border-radius: var(--border-radius);
 		border: 1px solid var(--color-grey-200);
 		overflow: hidden;
-		box-shadow: 0 0 0 10px transparent;
+		box-shadow: 0 0 0 16px transparent;
 		transition: box-shadow 0.2s ease-out;
+		outline-offset: -2px;
 
 		&:focus-within {
 			box-shadow: 0 0 4px 2px var(--color-primary-200);
-			border-color: var(--color-primary-300);
+			outline: 2px solid var(--color-primary-300);
 		}
 	}
 
@@ -41,7 +42,7 @@
 		border-color: var(--color-grey-700);
 		&:focus-within {
 			box-shadow: 0 0 4px 2px var(--color-primary-900);
-			border-color: var(--color-primary-700);
+			outline: 2px solid var(--color-primary-600);
 		}
 	}
 

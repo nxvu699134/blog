@@ -21,7 +21,7 @@
 
 <Section title="all posts">
 	<div class="search-bar">
-		<Input preIcon="fas fa-search" value={searchText} class="search-input" />
+		<Input preIcon="fas fa-search" value={searchText} />
 	</div>
 	<CardsLayout>
 		{#each posts as post}
