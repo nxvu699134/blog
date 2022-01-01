@@ -1,8 +1,8 @@
 <script context="module">
 	import { postMetas } from '$lib/data/internalResource';
 
-	export function load({ page }) {
-		const { id } = page.params;
+	export function load({ params }) {
+		const { id } = params;
 		const post = postMetas.find((p) => p.id === id);
 		if (post) {
 			return {

@@ -6,7 +6,7 @@ for (const postPath in postFiles) {
 	const fileName = postPath.split('/').pop().split('.')[0];
 	postMetas.push({
 		...post.metadata,
-		href: '/posts/' + fileName,
+		href: '/blog/' + fileName,
 		id: fileName,
 		component: post.default
 	});
