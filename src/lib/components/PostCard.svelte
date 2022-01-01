@@ -39,6 +39,7 @@
 
 		&:hover {
 			box-shadow: var(--shadow-hl);
+			border-color: var(--color-grey-200);
 		}
 	}
 
