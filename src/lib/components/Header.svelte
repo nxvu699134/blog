@@ -22,20 +22,22 @@
 	<nav>
 		<ul id="navigation" class:hide={!isToggled}>
 			{#each items as { path, label }}
-				<a class:active={$page.url.pathname == path} on:click={onToggle} href={path}>
-					{label}
-				</a>
+				<li>
+					<a class:active={$page.url.pathname == path} on:click={onToggle} href={path}>
+						{label}
+					</a>
+				</li>
 			{/each}
 		</ul>
 	</nav>
 	<div class="social-links">
-		<a href={`mailto:${meta.email}`}>
+		<a href={`mailto:${meta.email}`} aria-label="Vu's email">
 			<i class="far fa-envelope" />
 		</a>
-		<a href={meta.github}>
+		<a href={meta.github} aria-label="Vu's github">
 			<i class="fab fa-github" />
 		</a>
-		<a href={meta.facebook}>
+		<a href={meta.facebook} aria-label="Vu's facbook">
 			<i class="fab fa-facebook-f" />
 		</a>
 		<ColorSchemeButton />
@@ -98,6 +100,11 @@
 		transform: translateX(0);
 		display: flex;
 		flex-direction: column;
+
+		li {
+			list-style-type: none;
+			display: contents;
+		}
 
 		@include tmp-flex-row-gap(var(--spacing-200));
 

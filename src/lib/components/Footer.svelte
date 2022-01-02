@@ -24,13 +24,13 @@
 	</svg>
 	<div class="container">
 		<div class="social-links">
-			<a href={`mailto:${meta.email}`}>
+			<a href={`mailto:${meta.email}`} aria-label="Vu's email">
 				<i class="far fa-envelope" />
 			</a>
-			<a href={meta.github}>
+			<a href={meta.github} aria-label="Vu's github">
 				<i class="fab fa-github" />
 			</a>
-			<a href={meta.facebook}>
+			<a href={meta.facebook} aria-label="Vu's facbook">
 				<i class="fab fa-facebook-f" />
 			</a>
 		</div>
