@@ -47,7 +47,6 @@
 		--color-bg1: var(--color-primary-100);
 		--color-bg2: var(--color-primary-000);
 		width: 100%;
-		padding-top: var(--spacing-400);
 	}
 
 	footer.dark {
