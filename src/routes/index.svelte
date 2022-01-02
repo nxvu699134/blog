@@ -23,9 +23,9 @@
 
 <div class="banner">
 	<h2 class="greeting">Hi there, I'm Vu !</h2>
-	<h4 class="quote">
+	<p class="quote">
 		I like coding. I like beauty. <br /> I like coding to make beautiful things.
-	</h4>
+	</p>
 	<div class="action-container">
 		<LandingButton href="/blog" leftIcon="fas fa-pencil-alt">Blog</LandingButton>
 		<LandingButton href="/about" leftIcon="fas fa-user-secret" outline>About</LandingButton>
@@ -69,17 +69,19 @@
 	.banner {
 		margin-top: var(--spacing-600);
 		margin-bottom: var(--spacing-900);
-	}
 
-	.greeting {
-		text-align: center;
-		color: var(--color-text-primary);
-	}
+		.greeting {
+			text-align: center;
+			color: var(--color-text-primary);
+		}
 
-	.quote {
-		margin-top: var(--spacing-400);
-		color: var(--color-text-primary);
-		text-align: center;
+		.quote {
+			margin-top: var(--spacing-400);
+			color: var(--color-text-primary);
+			text-align: center;
+			font-size: var(--font-size-600);
+			font-family: var(--font-heading);
+		}
 	}
 
 	.action-container {
@@ -141,6 +143,10 @@
 	@include for-tablet-and-desktop {
 		.banner {
 			margin-top: var(--spacing-800);
+
+			.quote {
+				font-size: var(--font-size-700);
+			}
 		}
 
 		.action-container {
