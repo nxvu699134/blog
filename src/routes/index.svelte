@@ -38,7 +38,7 @@
 	</Quote>
 	<div id="profile">
 		<div class="content">
-			<h4>I'm a Full-stuck developer, who aim to build things that perfect</h4>
+			<h3>I'm a Full-stuck developer, who aim to build things that perfect</h3>
 			<p>
 				Maybe I just looks like a cat chasing my damn "perfection" tail. I'm a Vimmer also a
 				Starcraft player. Feel free to contact me!<br />
