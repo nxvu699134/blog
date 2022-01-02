@@ -61,11 +61,11 @@
 
 		&.primary {
 			color: white;
-			background-color: var(--color-primary-500);
+			background-color: var(--color-primary-600);
 		}
 
 		&:not(:disabled):hover {
-			background-color: var(--color-primary-600);
+			background-color: var(--color-primary-500);
 		}
 
 		& i.left-icon {
