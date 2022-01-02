@@ -4,7 +4,7 @@
 	export let preIcon: string = '';
 	export let postIcon: string = '';
 	export let value: string;
-	let outsideClass = '';
+	let outsideClass: string = '';
 	export { outsideClass as class };
 </script>
 
