@@ -13,7 +13,7 @@
 		padding: var(--spacing-100) var(--spacing-200);
 		border-radius: var(--border-radius);
 		font-size: var(--font-size-300);
-		font-family: var(--font-heading);
+		/* font-family: var(--font-heading); */
 		color: var(--color-text);
 		background-color: var(--color-grey-100);
 	}
