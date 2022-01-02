@@ -69,7 +69,7 @@
 
 		p {
 			margin: 0 0 var(--spacing-200) 0;
-			color: var(--color-text-alt);
+			color: var(--color-text-primary-alt);
 		}
 	}
 
