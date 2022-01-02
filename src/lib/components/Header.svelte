@@ -103,7 +103,7 @@
 
 		li {
 			list-style-type: none;
-			display: contents;
+			display: grid;
 		}
 
 		@include tmp-flex-row-gap(var(--spacing-200));
@@ -145,7 +145,7 @@
 	}
 
 	.backdrop {
-		position: absolute;
+		position: fixed;
 		top: 0;
 		left: 0;
 		width: 100%;
