@@ -11,6 +11,7 @@
 	on:click={toggleMode}
 	class:light={$colorScheme === 'light'}
 	class:dark={$colorScheme === 'dark'}
+	aria-label="Button toggle dark and light mode"
 >
 	<i class="fas fa-cloud-moon moon" />
 	<i class="fas fa-sun sun" />
