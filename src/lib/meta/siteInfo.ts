@@ -1,6 +1,6 @@
 export default {
 	siteUrl: 'https://codelmao.dev',
-	siteName: "My Code Don't lie - Vu's personal notes",
+	siteName: "Code LMAO - Vu's personal website",
 	github: 'https://github.com/nxvu699134',
 	facebook: 'https://www.facebook.com/4Euyen58uan56u/',
 	email: 'nxvu699134@gmail.com',
