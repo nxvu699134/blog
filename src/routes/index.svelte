@@ -17,10 +17,12 @@
 	import PostCard from '$lib/components/PostCard.svelte';
 	import Section from '$lib/ui/Section.svelte';
 	import Button from '$lib/ui/Button.svelte';
+	import SeoTag from '$lib/components/SeoTag.svelte';
 
 	export let posts: IPostMeta[] = [];
 </script>
 
+<SeoTag title="Home" />
 <div class="banner">
 	<h2 class="greeting">Hi there, I'm Vu !</h2>
 	<p class="quote">

@@ -14,6 +14,7 @@
 	import PostCard from '$lib/components/PostCard.svelte';
 	import CardsLayout from '$lib/components/CardsLayout.svelte';
 	import Section from '$lib/ui/Section.svelte';
+	import SeoTag from '$lib/components/SeoTag.svelte';
 	import { debounce } from '$lib/utils/debounce';
 
 	export let posts: IPostMeta[] = [];
@@ -30,6 +31,7 @@
 	$: onSearch(searchText);
 </script>
 
+<SeoTag title="Blog" />
 <Section title="all posts">
 	<div class="search-bar">
 		<Input preIcon="fas fa-search" bind:value={searchText} />

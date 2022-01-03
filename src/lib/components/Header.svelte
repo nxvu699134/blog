@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import meta from '$lib/meta/site_info';
+	import siteInfo from '$lib/meta/siteInfo';
 	import ColorSchemeButton from '$lib/ui/ColorSchemeButton.svelte';
 
 	let isToggled = false;
@@ -31,13 +31,13 @@
 		</ul>
 	</nav>
 	<div class="social-links">
-		<a href={`mailto:${meta.email}`} aria-label="Vu's email">
+		<a href={`mailto:${siteInfo.email}`} aria-label="Vu's email">
 			<i class="far fa-envelope" />
 		</a>
-		<a href={meta.github} aria-label="Vu's github">
+		<a href={siteInfo.github} aria-label="Vu's github">
 			<i class="fab fa-github" />
 		</a>
-		<a href={meta.facebook} aria-label="Vu's facbook">
+		<a href={siteInfo.facebook} aria-label="Vu's facbook">
 			<i class="fab fa-facebook-f" />
 		</a>
 		<ColorSchemeButton />

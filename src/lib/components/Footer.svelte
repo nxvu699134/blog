@@ -1,5 +1,5 @@
 <script lang="ts">
-	import meta from '$lib/meta/site_info';
+	import siteInfo from '$lib/meta/siteInfo';
 	import Link from '$lib/ui/Link.svelte';
 	import { colorScheme } from '$lib/states/global';
 </script>
@@ -24,20 +24,20 @@
 	</svg>
 	<div class="container">
 		<div class="social-links">
-			<a href={`mailto:${meta.email}`} aria-label="Vu's email">
+			<a href={`mailto:${siteInfo.email}`} aria-label="Vu's email">
 				<i class="far fa-envelope" />
 			</a>
-			<a href={meta.github} aria-label="Vu's github">
+			<a href={siteInfo.github} aria-label="Vu's github">
 				<i class="fab fa-github" />
 			</a>
-			<a href={meta.facebook} aria-label="Vu's facbook">
+			<a href={siteInfo.facebook} aria-label="Vu's facbook">
 				<i class="fab fa-facebook-f" />
 			</a>
 		</div>
 		<p class="credit">
 			Powered by <Link href="https://kit.svelte.dev">SvelteKit</Link>
 		</p>
-		<p class="copyright">Copyright &copy; 2021 <Link href={meta.github}>Nx.Vu</Link></p>
+		<p class="copyright">Copyright &copy; 2021 <Link href={siteInfo.github}>Nx.Vu</Link></p>
 	</div>
 </footer>
 
