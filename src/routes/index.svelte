@@ -49,7 +49,7 @@
 			<Blob option={1} opacity={0.3} class="blob" />
 			<Blob option={3} opacity={0.3} class="blob" />
 			<Blob option={5} opacity={0.3} class="blob" />
-			<img src="/assets/imgs/avatar.png" alt="avatar" />
+			<img width="116" height="128" src="/assets/imgs/avatar.png" alt="avatar" />
 		</div>
 	</div>
 </Section>
@@ -129,10 +129,6 @@
 			&:nth-of-type(1) {
 				animation: spin 4s reverse linear infinite;
 			}
-		}
-
-		img {
-			height: calc($blobSize/2);
 		}
 	}
 
