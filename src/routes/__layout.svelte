@@ -6,6 +6,7 @@
 	import { colorScheme } from '$lib/states/global';
 	import type { ColorScheme } from '$lib/states/global';
 	import '$lib/css/global.scss';
+	import '$lib/css/font-awesome-icons/css/all.css';
 
 	onMount(() => {
 		$colorScheme = (localStorage.getItem('color-scheme') as ColorScheme) || 'light';
