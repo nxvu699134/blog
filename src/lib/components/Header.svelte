@@ -137,10 +137,6 @@
 			justify-content: center;
 			align-items: center;
 			border: 2px dashed transparent;
-
-			&:hover {
-				border-color: var(--color-text-primary);
-			}
 		}
 	}
 
@@ -196,6 +192,12 @@
 
 			&:hover {
 				border-bottom-color: var(--color-text-primary);
+			}
+		}
+
+		.social-links {
+			a:hover {
+				border-color: var(--color-text-primary);
 			}
 		}
 

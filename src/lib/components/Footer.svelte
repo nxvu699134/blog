@@ -43,6 +43,7 @@
 
 <style lang="scss">
 	@use '../css/responsive' as *;
+
 	footer {
 		--color-bg1: var(--color-primary-100);
 		--color-bg2: var(--color-primary-000);
@@ -87,8 +88,12 @@
 			justify-content: center;
 			align-items: center;
 			border: 2px dashed transparent;
+		}
+	}
 
-			&:hover {
+	@include for-tablet-and-desktop {
+		.social-links {
+			a:hover {
 				border-color: var(--color-text-primary);
 			}
 		}
