@@ -23,12 +23,3 @@
 	<slot />
 </main>
 <Footer />
-
-<style lang="scss">
-	main {
-		padding: 0 var(--spacing-400);
-		max-width: 1080px;
-		flex: 1;
-		width: 100%;
-	}
-</style>
