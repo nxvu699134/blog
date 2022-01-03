@@ -1,5 +1,5 @@
 export default {
-	siteUrl: '/',
+	siteUrl: 'https://codelmao.dev',
 	siteName: "My Code Don't lie - Vu's personal notes",
 	github: 'https://github.com/nxvu699134',
 	facebook: 'https://www.facebook.com/4Euyen58uan56u/',
