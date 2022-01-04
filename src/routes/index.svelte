@@ -160,14 +160,16 @@
 		#profile {
 			flex-flow: row;
 			justify-content: space-between;
-
-			.avatar img {
-				filter: brightness(90%);
-			}
 		}
 
 		#profile .content {
 			max-width: 512px;
+		}
+	}
+
+	:global([color-scheme='dark']) {
+		#profile .avatar img {
+			filter: brightness(90%);
 		}
 	}
 </style>
