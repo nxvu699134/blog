@@ -51,7 +51,7 @@
 			<Blob option={1} opacity={0.3} class="blob" />
 			<Blob option={3} opacity={0.3} class="blob" />
 			<Blob option={5} opacity={0.3} class="blob" />
-			<img width="116" height="128" src="/assets/imgs/avatar.png" alt="avatar" />
+			<img width="200" height="200" src="/assets/imgs/avatar.png" alt="avatar" />
 		</div>
 	</div>
 </Section>
@@ -132,6 +132,10 @@
 				animation: spin 4s reverse linear infinite;
 			}
 		}
+
+		img {
+			border-radius: 50%;
+		}
 	}
 
 	:global(.post-list) {
@@ -156,6 +160,10 @@
 		#profile {
 			flex-flow: row;
 			justify-content: space-between;
+
+			.avatar img {
+				filter: brightness(90%);
+			}
 		}
 
 		#profile .content {
