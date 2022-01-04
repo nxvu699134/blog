@@ -11,6 +11,8 @@ export default {
 		'Nguyen Xuan Vu',
 		'Software Engineer',
 		'Web Developer',
-		'Svelte Developer'
+		'Front-end Developer',
+		'codelmao',
+		'code lmao'
 	]
 };
