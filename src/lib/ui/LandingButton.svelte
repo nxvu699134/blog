@@ -32,7 +32,9 @@
 		--btn-highlight-primary-outline: var(--color-primary-100);
 
 		border-radius: 100px;
-		width: 220px;
+		width: 100%;
+		max-width: 220px;
+		min-width: fit-content;
 		display: flex;
 		justify-content: center;
 		align-items: center;
