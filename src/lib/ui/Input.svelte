@@ -65,7 +65,7 @@
 		padding: var(--spacing-200) var(--spacing-300);
 		font-size: var(--font-size-400);
 		background-color: var(--color-primary-400);
-		color: white;
+		color: var(--color-white);
 	}
 
 	.input-group.dark .pre-icon,

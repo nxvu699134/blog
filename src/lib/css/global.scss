@@ -1,7 +1,6 @@
 @use './theme.scss';
 @use './fonts.scss';
 @use './responsive.scss' as *;
-@use './animation.scss' as *;
 
 html {
 	background-color: var(--color-main-bg);
