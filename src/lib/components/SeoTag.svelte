@@ -9,7 +9,7 @@
 </script>
 
 <svelte:head>
-	<title>{`${title} • ${siteInfo.siteName}`}</title>
+	<title>{`${title} || ${siteInfo.siteName}`}</title>
 	<meta name="description" content={desc || siteInfo.desc} />
 	<meta
 		name="keywords"
