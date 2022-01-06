@@ -8,11 +8,11 @@
 	export let href: string = null;
 	export let leftIcon: string = null;
 	export let rightIcon: string = null;
-	export let accent: Accent = 'primary';
+	export let variant: Accent = 'primary';
 	export let shape: Shape = 'square';
 	const dispatch = createEventDispatcher();
 	const onClick = () => dispatch('click');
-	const classNames = `${size} ${accent} ${shape} ${outsideClass}`;
+	const classNames = `${size} ${variant} ${shape} ${outsideClass}`;
 </script>
 
 {#if !href}
