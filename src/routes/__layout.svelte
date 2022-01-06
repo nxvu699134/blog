@@ -7,7 +7,7 @@
 	import '$lib/css/font-awesome-icons/css/all.css';
 
 	onMount(() => {
-		const colorScheme = localStorage.getItem('color-scheme') || 'light';
+		const colorScheme = localStorage.getItem('color-scheme') || 'dark';
 		document.documentElement.setAttribute('color-scheme', colorScheme);
 	});
 </script>
