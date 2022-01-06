@@ -17,6 +17,7 @@
 	import Section from '$lib/ui/Section.svelte';
 	import Button from '$lib/ui/Button.svelte';
 	import SeoTag from '$lib/components/SeoTag.svelte';
+	import LandingButton from '$lib/ui/LandingButton.svelte';
 
 	export let posts: IPostMeta[] = [];
 </script>
@@ -28,19 +29,8 @@
 		I like coding. I like beauty. <br /> I like coding to make beautiful things.
 	</p>
 	<div class="action-container">
-		<Button
-			class="btn-landing"
-			href="/blog"
-			variant="primary"
-			size="lg"
-			leftIcon="fas fa-pencil-alt"
-			rounded
-		>
-			Blog
-		</Button>
-		<Button class="btn-landing" href="/about" size="lg" leftIcon="fas fa-user-secret" rounded>
-			About
-		</Button>
+		<LandingButton href="/blog" leftIcon="fas fa-pencil-alt">Blog</LandingButton>
+		<LandingButton href="/about" leftIcon="fas fa-user-secret" outline>About</LandingButton>
 	</div>
 </div>
 
@@ -105,12 +95,6 @@
 		align-items: center;
 		margin-top: var(--spacing-600);
 		@include tmp-flex-row-gap(var(--spacing-400));
-
-		:global(.btn-landing) {
-			width: 100%;
-			max-width: 256px;
-			min-width: fit-content;
-		}
 	}
 
 	#profile {
