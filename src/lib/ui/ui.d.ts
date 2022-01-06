@@ -1,3 +1,3 @@
 export type Size = 'sm' | 'md' | 'lg' | 'xl';
-export type Accent = 'primary' | 'secondary' | 'outline';
+export type Variant = 'primary' | 'secondary' | 'accent' | 'none';
 export type Shape = 'rounded' | 'square';

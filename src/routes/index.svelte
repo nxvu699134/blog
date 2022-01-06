@@ -10,7 +10,6 @@
 </script>
 
 <script lang="ts">
-	import LandingButton from '$lib/ui/LandingButton.svelte';
 	import Quote from '$lib/ui/Quote.svelte';
 	import Blob from '$lib/ui/Blob.svelte';
 	import CardsLayout from '$lib/components/CardsLayout.svelte';
@@ -29,8 +28,19 @@
 		I like coding. I like beauty. <br /> I like coding to make beautiful things.
 	</p>
 	<div class="action-container">
-		<LandingButton href="/blog" leftIcon="fas fa-pencil-alt">Blog</LandingButton>
-		<LandingButton href="/about" leftIcon="fas fa-user-secret" outline>About</LandingButton>
+		<Button
+			class="btn-landing"
+			href="/blog"
+			variant="primary"
+			size="lg"
+			leftIcon="fas fa-pencil-alt"
+			rounded
+		>
+			Blog
+		</Button>
+		<Button class="btn-landing" href="/about" size="lg" leftIcon="fas fa-user-secret" rounded>
+			About
+		</Button>
 	</div>
 </div>
 
@@ -62,7 +72,9 @@
 			<PostCard data={post} />
 		{/each}
 	</CardsLayout>
-	<Button href="/blog" size="lg" rightIcon="fas fa-angle-double-right">More Posts</Button>
+	<Button href="/blog" variant="primary" size="lg" rightIcon="fas fa-angle-double-right"
+		>More Posts</Button
+	>
 </Section>
 
 <style lang="scss">
@@ -93,6 +105,12 @@
 		align-items: center;
 		margin-top: var(--spacing-600);
 		@include tmp-flex-row-gap(var(--spacing-400));
+
+		:global(.btn-landing) {
+			width: 100%;
+			max-width: 256px;
+			min-width: fit-content;
+		}
 	}
 
 	#profile {

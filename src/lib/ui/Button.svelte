@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
-	import type { Size, Accent, Shape } from '$lib/ui/ui';
+	import type { Size, Variant } from '$lib/ui/ui';
 
 	let outsideClass = '';
 	export { outsideClass as class };
@@ -8,11 +8,11 @@
 	export let href: string = null;
 	export let leftIcon: string = null;
 	export let rightIcon: string = null;
-	export let variant: Accent = 'primary';
-	export let shape: Shape = 'square';
+	export let variant: Variant = 'none';
+	export let rounded: boolean = false;
 	const dispatch = createEventDispatcher();
 	const onClick = () => dispatch('click');
-	const classNames = `${size} ${variant} ${shape} ${outsideClass}`;
+	const classNames = `${size} ${variant} ${rounded ? 'rounded' : ''} ${outsideClass}`;
 </script>
 
 {#if !href}
@@ -46,15 +46,25 @@
 
 	button,
 	a {
-		--btn-border-color: var(--color-grey-700);
 		width: fit-content;
 		display: flex;
 		justify-content: center;
 		align-items: baseline;
-		transition: box-shadow 0.2s ease-out;
+		border-radius: var(--border-radius);
+		transition: background-color 0.2s ease-out;
 
-		&.square {
-			border-radius: var(--border-radius);
+		border: 1px solid var(--btn-border);
+		background-color: var(--btn-bg);
+		color: var(--btn-color);
+		box-shadow: 0 1px 2px var(--color-shadow), 0 0.1em 0 var(--btn-shadow-inset) inset;
+
+		&:not(:disabled):hover {
+			background-color: var(--btn-bg-hl);
+		}
+
+		&:not(:disabled):active {
+			box-shadow: 0 1px 2px var(--color-shadow);
+			background-color: var(--btn-bg-active);
 		}
 
 		&.rounded {
@@ -76,34 +86,29 @@
 			font-size: var(--font-size-800);
 		}
 
+		&.none {
+			--btn-bg: var(--color-grey-100);
+			--btn-bg-hl: var(--color-grey-000);
+			--btn-bg-active: var(--color-grey-200);
+			--btn-color: var(--color-text);
+			--btn-border: var(--color-grey-200);
+			--btn-shadow-inset: var(--color-grey-000);
+		}
+
 		&.primary {
 			--btn-bg: var(--color-primary-500);
-			--btn-bg-1: var(--color-primary-400);
-			--btn-border-color: var(--color-primary-700);
-			--btn-shadow-outset-color: var(--color-primary-800);
-			--btn-shadow-inset-color-1: var(--color-primary-300);
-			--btn-shadow-inset-color-2: var(--color-primary-700);
-			color: var(--color-white);
-			background-color: var(--btn-bg);
-			border: 1px solid var(--btn-border-color);
-			box-shadow: 0 0 0.2em 0px var(--btn-shadow-outset-color),
-				0 0.1em 0.1em 0px var(--btn-shadow-inset-color-1) inset,
-				0 -0.1em 0.2em 0px var(--btn-shadow-inset-color-2) inset;
+			--btn-bg-hl: var(--color-primary-400);
+			--btn-bg-active: var(--color-primary-600);
+			--btn-color: var(--color-white);
+			--btn-border: var(--color-primary-600);
+			--btn-shadow-inset: var(--color-primary-400);
 		}
 
-		&:not(:disabled):hover {
-			box-shadow: 0 0 2px 0px var(--btn-shadow-outset-color);
-		}
-
-		&:not(:disabled):active {
-			background: linear-gradient(var(--btn-bg), var(--btn-bg-1));
-		}
-
-		& i.left-icon {
+		i.left-icon {
 			margin-right: var(--spacing-200);
 		}
 
-		& i.right-icon {
+		i.right-icon {
 			margin-left: var(--spacing-200);
 		}
 	}
@@ -111,9 +116,17 @@
 	@include for-dark-mode {
 		a,
 		button {
+			&.none {
+				--btn-bg: var(--color-grey-900);
+				--btn-bg-hl: var(--color-grey-800);
+				--btn-color: var(--color-text);
+				--btn-border: var(--color-black);
+				--btn-shadow-inset: var(--color-grey-800);
+			}
+
 			&.primary {
-				--btn-border-color: var(--color-primary-900);
-				--btn-shadow-outset-color: var(--color-grey-1100);
+				--btn-color: var(--color-white);
+				--btn-border: var(--color-black);
 			}
 		}
 	}
