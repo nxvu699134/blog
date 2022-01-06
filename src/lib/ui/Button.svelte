@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
 	import type { Size, Accent, Shape } from '$lib/ui/ui';
-	import { colorScheme } from '$lib/states/global';
 
 	let outsideClass = '';
 	export { outsideClass as class };
@@ -17,7 +16,7 @@
 </script>
 
 {#if !href}
-	<button class={classNames} on:click={onClick} class:dark={$colorScheme === 'dark'}>
+	<button class={classNames} on:click={onClick}>
 		{#if leftIcon}
 			<i class={`left-icon ${leftIcon}`} />
 		{/if}
@@ -27,7 +26,7 @@
 		{/if}
 	</button>
 {:else}
-	<a {href} class={classNames} class:dark={$colorScheme === 'dark'}>
+	<a {href} class={classNames}>
 		{#if leftIcon}
 			<i class={`left-icon ${leftIcon}`} />
 		{/if}
@@ -39,6 +38,8 @@
 {/if}
 
 <style lang="scss">
+	@use '../css/utils.scss' as *;
+
 	button:focus {
 		outline: 0;
 	}
@@ -107,11 +108,13 @@
 		}
 	}
 
-	a.dark,
-	button.dark {
-		&.primary {
-			--btn-border-color: var(--color-primary-900);
-			--btn-shadow-outset-color: var(--color-grey-1100);
+	@include for-dark-mode {
+		a,
+		button {
+			&.primary {
+				--btn-border-color: var(--color-primary-900);
+				--btn-shadow-outset-color: var(--color-grey-1100);
+			}
 		}
 	}
 </style>

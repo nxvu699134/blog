@@ -1,10 +1,9 @@
 <script lang="ts">
 	import siteInfo from '$lib/meta/siteInfo';
 	import Link from '$lib/ui/Link.svelte';
-	import { colorScheme } from '$lib/states/global';
 </script>
 
-<footer class:dark={$colorScheme === 'dark'}>
+<footer>
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		viewBox="0 0 1440 320"
@@ -50,11 +49,6 @@
 		width: 100%;
 	}
 
-	footer.dark {
-		--color-bg1: var(--color-primary-900);
-		--color-bg2: var(--color-primary-1000);
-	}
-
 	svg {
 		width: 100%;
 		display: block;
@@ -96,6 +90,13 @@
 			a:hover {
 				border-color: var(--color-text-primary);
 			}
+		}
+	}
+
+	@include for-dark-mode {
+		footer {
+			--color-bg1: var(--color-primary-900);
+			--color-bg2: var(--color-primary-1000);
 		}
 	}
 </style>

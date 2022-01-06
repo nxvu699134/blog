@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { colorScheme } from '$lib/states/global';
-
 	let outsideClass = '';
 	export { outsideClass as class };
 
@@ -12,13 +10,7 @@
 	const classNames = `${outsideClass}`;
 </script>
 
-<a
-	{href}
-	class={classNames}
-	class:outline
-	class:primary={!outline}
-	class:dark={$colorScheme === 'dark'}
->
+<a {href} class={classNames} class:outline class:primary={!outline}>
 	{#if leftIcon}
 		<i class={`left-icon ${leftIcon}`} />
 	{/if}
@@ -50,12 +42,14 @@
 		transition: background-color 0.2s ease-in-out;
 	}
 
-	a.dark {
-		--btn-bg-primary: var(--color-primary-600);
-		--btn-highlight-primary: var(--color-primary-500);
+	@include for-dark-mode {
+		a {
+			--btn-bg-primary: var(--color-primary-600);
+			--btn-highlight-primary: var(--color-primary-500);
 
-		--btn-bg-primary-outline: var(--color-primary-1000);
-		--btn-highlight-primary-outline: var(--color-primary-900);
+			--btn-bg-primary-outline: var(--color-primary-1000);
+			--btn-highlight-primary-outline: var(--color-primary-900);
+		}
 	}
 
 	a.primary {

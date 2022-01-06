@@ -1,23 +1,20 @@
 <script lang="ts">
-	import { colorScheme } from '$lib/states/global';
-
 	const toggleMode = () => {
-		$colorScheme = $colorScheme === 'light' ? 'dark' : 'light';
-		localStorage.setItem('color-scheme', $colorScheme);
+		const curScheme = document.documentElement.getAttribute('color-scheme');
+		const nextScheme = curScheme === 'light' ? 'dark' : 'light';
+		document.documentElement.setAttribute('color-scheme', nextScheme);
+		localStorage.setItem('color-scheme', nextScheme);
 	};
 </script>
 
-<button
-	on:click={toggleMode}
-	class:light={$colorScheme === 'light'}
-	class:dark={$colorScheme === 'dark'}
-	aria-label="Button toggle dark and light mode"
->
+<button on:click={toggleMode} aria-label="Button toggle dark and light mode">
 	<i class="fas fa-cloud-moon moon" />
 	<i class="fas fa-sun sun" />
 </button>
 
 <style lang="scss">
+	@use '../css/utils.scss' as *;
+
 	button {
 		background: transparent;
 		display: flex;
@@ -36,31 +33,25 @@
 
 			&.sun {
 				color: var(--color-yellow-300);
+				transform: translateY(-200%);
 			}
 
 			&.moon {
 				color: var(--color-primary-900);
+				transform: translateY(0);
 			}
 		}
 	}
 
-	button.light {
-		i.moon {
-			transform: translateY(0);
-		}
+	@include for-dark-mode {
+		button {
+			i.moon {
+				transform: translateY(200%);
+			}
 
-		i.sun {
-			transform: translateY(-200%);
-		}
-	}
-
-	button.dark {
-		i.moon {
-			transform: translateY(200%);
-		}
-
-		i.sun {
-			transform: translateY(0);
+			i.sun {
+				transform: translateY(0);
+			}
 		}
 	}
 </style>

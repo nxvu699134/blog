@@ -1,8 +1,7 @@
 <script lang="ts">
-	import { colorScheme } from '$lib/states/global';
 </script>
 
-<div class="background-container" class:dark={$colorScheme === 'dark'}>
+<div class="background-container">
 	<svg
 		viewBox="0 0 800 88.7"
 		xmlns="http://www.w3.org/2000/svg"
@@ -48,11 +47,6 @@
 		z-index: -1;
 	}
 
-	.background-container.dark {
-		--color-bg1: var(--color-primary-900);
-		--color-bg2: var(--color-primary-1000);
-	}
-
 	svg {
 		position: absolute;
 		bottom: -2px;
@@ -83,6 +77,13 @@
 	@include for-tablet-and-desktop {
 		.background-container {
 			height: 512px;
+		}
+	}
+
+	@include for-dark-mode {
+		.background-container {
+			--color-bg1: var(--color-primary-900);
+			--color-bg2: var(--color-primary-1000);
 		}
 	}
 </style>

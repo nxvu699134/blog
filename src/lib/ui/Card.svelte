@@ -1,12 +1,10 @@
 <script lang="ts">
-	import { colorScheme } from '$lib/states/global';
-
 	let outsideClass = '';
 	export { outsideClass as class };
 	export let hoverable = false;
 </script>
 
-<div class={`card-container ${outsideClass}`} class:dark={$colorScheme === 'dark'} class:hoverable>
+<div class={`card-container ${outsideClass}`} class:hoverable>
 	<slot />
 </div>
 
@@ -34,8 +32,10 @@
 		}
 	}
 
-	.card-container.dark {
-		--card-bg: var(--color-grey-900);
-		--card-border-hl: var(--color-grey-700);
+	@include for-dark-mode {
+		.card-container {
+			--card-bg: var(--color-grey-900);
+			--card-border-hl: var(--color-grey-700);
+		}
 	}
 </style>

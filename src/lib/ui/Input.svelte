@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { colorScheme } from '$lib/states/global';
 	/* export let label: string = ''; */
 	export let preIcon: string = '';
 	export let postIcon: string = '';
@@ -8,7 +7,7 @@
 	export { outsideClass as class };
 </script>
 
-<div class={`input-group ${outsideClass}`} class:dark={$colorScheme === 'dark'}>
+<div class={`input-group ${outsideClass}`}>
 	{#if preIcon}
 		<span class="pre-icon">
 			<i class={preIcon} />
@@ -23,6 +22,8 @@
 </div>
 
 <style lang="scss">
+	@use '../css/utils.scss' as *;
+
 	.input-group {
 		display: flex;
 		border-radius: var(--border-radius);
@@ -35,14 +36,6 @@
 		&:focus-within {
 			box-shadow: 0 0 4px 2px var(--color-primary-200);
 			outline: 2px solid var(--color-primary-300);
-		}
-	}
-
-	.input-group.dark {
-		border-color: var(--color-grey-700);
-		&:focus-within {
-			box-shadow: 0 0 4px 2px var(--color-primary-900);
-			outline: 2px solid var(--color-primary-600);
 		}
 	}
 
@@ -68,8 +61,18 @@
 		color: var(--color-white);
 	}
 
-	.input-group.dark .pre-icon,
-	.input-group.dark .post-icon {
-		background-color: var(--color-primary-600);
+	@include for-dark-mode {
+		.input-group {
+			border-color: var(--color-grey-700);
+			&:focus-within {
+				box-shadow: 0 0 4px 2px var(--color-primary-900);
+				outline: 2px solid var(--color-primary-600);
+			}
+		}
+
+		.input-group .pre-icon,
+		.input-group .post-icon {
+			background-color: var(--color-primary-600);
+		}
 	}
 </style>

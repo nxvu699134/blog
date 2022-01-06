@@ -1,17 +1,11 @@
 <script lang="ts">
-	import { colorScheme } from '$lib/states/global';
-
 	let outsideClass = '';
 	export { outsideClass as class };
 	export let author: string = '';
 	export let accent: string = 'primary';
 </script>
 
-<blockquote
-	class={`${outsideClass}`}
-	class:primary={accent === 'primary'}
-	class:dark={$colorScheme === 'dark'}
->
+<blockquote class={`${outsideClass}`} class:primary={accent === 'primary'}>
 	<i class="fas fa-quote-left quotetick" />
 	<slot />
 	<i class="fas fa-quote-right quotetick" />
@@ -40,10 +34,6 @@
 		}
 	}
 
-	blockquote.dark {
-		--quote-primary: var(--color-primary-600);
-	}
-
 	blockquote.primary {
 		border-left-color: var(--quote-primary);
 	}
@@ -57,6 +47,12 @@
 		&:before {
 			content: '\2015';
 			margin-right: var(--spacing-200);
+		}
+	}
+
+	@include for-dark-mode {
+		blockquote {
+			--quote-primary: var(--color-primary-600);
 		}
 	}
 
