@@ -168,7 +168,7 @@
 		}
 	}
 
-	:global([color-scheme='dark']) {
+	@include for-dark-mode {
 		#profile .avatar img {
 			filter: brightness(90%);
 		}
