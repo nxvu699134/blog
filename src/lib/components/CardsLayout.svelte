@@ -8,7 +8,7 @@
 </div>
 
 <style lang="scss">
-	@use '../css/responsive.scss' as *;
+	@use '../css/utils.scss' as *;
 
 	.content {
 		display: grid;

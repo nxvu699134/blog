@@ -42,7 +42,7 @@
 </footer>
 
 <style lang="scss">
-	@use '../css/responsive' as *;
+	@use '../css/utils' as *;
 
 	footer {
 		--color-bg1: var(--color-primary-100);

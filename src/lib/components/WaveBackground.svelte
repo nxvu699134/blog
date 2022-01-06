@@ -33,7 +33,7 @@
 </div>
 
 <style lang="scss">
-	@use '../css/responsive.scss' as *;
+	@use '../css/utils.scss' as *;
 	@use '../css/animation.scss' as *;
 
 	.background-container {

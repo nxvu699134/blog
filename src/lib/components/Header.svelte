@@ -46,7 +46,7 @@
 <div class="backdrop" class:hide={!isToggled} on:click={onToggle} />
 
 <style lang="scss">
-	@use '../css/responsive' as *;
+	@use '../css/utils' as *;
 
 	header {
 		--header-height: 4rem;

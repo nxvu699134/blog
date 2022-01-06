@@ -30,7 +30,7 @@
 
 <style lang="scss">
 	@use 'sass:color';
-	@use '../css/responsive.scss' as *;
+	@use '../css/utils.scss' as *;
 
 	a {
 		--btn-bg-primary: var(--color-primary-700);

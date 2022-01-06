@@ -22,7 +22,7 @@
 </blockquote>
 
 <style lang="scss">
-	@use '../css/responsive.scss' as *;
+	@use '../css/utils.scss' as *;
 
 	blockquote {
 		--quote-primary: var(--color-primary-400);

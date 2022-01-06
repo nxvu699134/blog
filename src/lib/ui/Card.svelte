@@ -11,7 +11,7 @@
 </div>
 
 <style lang="scss">
-	@use '../css/responsive.scss' as *;
+	@use '../css/utils.scss' as *;
 
 	.card-container {
 		--card-bg: var(--color-main-bg);

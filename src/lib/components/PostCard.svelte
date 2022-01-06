@@ -26,7 +26,7 @@
 </a>
 
 <style lang="scss">
-	@use '../css/responsive.scss' as *;
+	@use '../css/utils.scss' as *;
 
 	.title {
 		margin-bottom: var(--spacing-200);

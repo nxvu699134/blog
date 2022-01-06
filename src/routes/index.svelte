@@ -66,7 +66,7 @@
 </Section>
 
 <style lang="scss">
-	@use '../lib/css/responsive.scss' as *;
+	@use '../lib/css/utils.scss' as *;
 	@use '../lib/css/animation.scss' as *;
 
 	.banner {
