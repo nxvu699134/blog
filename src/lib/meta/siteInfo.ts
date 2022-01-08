@@ -3,6 +3,7 @@ export default {
 	siteName: "Code LMAO - Vu's personal website",
 	github: 'https://github.com/nxvu699134',
 	facebook: 'https://www.facebook.com/4Euyen58uan56u/',
+	linkedin: 'https://www.linkedin.com/in/nxvu699134/',
 	email: 'nxvu699134@gmail.com',
 	desc: "Vu's peronal website. I like coding. I like beauty. I like coding to make beautiful things.",
 	keywords: [

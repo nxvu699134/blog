@@ -3,6 +3,7 @@
 	import Card from '$lib/ui/Card.svelte';
 	import Link from '$lib/ui/Link.svelte';
 	import Tag from '$lib/ui/Tag.svelte';
+	import siteInfo from '$lib/meta/siteInfo';
 </script>
 
 <SeoTag title="Résumé" />
@@ -23,19 +24,19 @@
 			<ul class="contact-list">
 				<li>
 					<i class="fas fa-envelope-square" />
-					<Link>Email</Link>
+					<Link href="mailto:{siteInfo.email}">Email</Link>
 				</li>
 				<li>
 					<i class="fab fa-github-square" />
-					<Link>Github</Link>
+					<Link href={siteInfo.github}>Github</Link>
 				</li>
 				<li>
 					<i class="fab fa-linkedin" />
-					<Link>LinkedIn</Link>
+					<Link href={siteInfo.linkedin}>LinkedIn</Link>
 				</li>
 				<li>
 					<i class="fab fa-facebook-square" />
-					<Link>FB</Link>
+					<Link href={siteInfo.facebook}>FB</Link>
 				</li>
 			</ul>
 		</section>

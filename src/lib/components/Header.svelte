@@ -37,6 +37,9 @@
 		<a href={siteInfo.github} aria-label="Vu's github">
 			<i class="fab fa-github" />
 		</a>
+		<a href={siteInfo.linkedin} aria-label="Vu's linkedin">
+			<i class="fab fa-linkedin-in" />
+		</a>
 		<a href={siteInfo.facebook} aria-label="Vu's facbook">
 			<i class="fab fa-facebook-f" />
 		</a>
