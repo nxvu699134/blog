@@ -23,20 +23,20 @@
 			<p class="role">Web Developer</p>
 			<ul class="contact-list">
 				<li>
-					<i class="fas fa-envelope-square" />
+					<i class="far fa-envelope" />
 					<Link href="mailto:{siteInfo.email}">Email</Link>
 				</li>
 				<li>
-					<i class="fab fa-github-square" />
+					<i class="fab fa-github" />
 					<Link href={siteInfo.github}>Github</Link>
 				</li>
 				<li>
-					<i class="fab fa-linkedin" />
+					<i class="fab fa-linkedin-in" />
 					<Link href={siteInfo.linkedin}>LinkedIn</Link>
 				</li>
 				<li>
-					<i class="fab fa-facebook-square" />
-					<Link href={siteInfo.facebook}>FB</Link>
+					<i class="fab fa-facebook-f" />
+					<Link href={siteInfo.facebook}>Facebook</Link>
 				</li>
 			</ul>
 		</section>
@@ -202,7 +202,8 @@
 	.contact-list {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		column-gap: var(--spacing-100);
+		column-gap: var(--spacing-200);
+		row-gap: var(--spacing-200);
 		padding: 0;
 		width: fit-content;
 		margin: 0 auto;
