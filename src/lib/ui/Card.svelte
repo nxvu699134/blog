@@ -2,11 +2,18 @@
 	let outsideClass = '';
 	export { outsideClass as class };
 	export let hoverable = false;
+	export let article = false;
 </script>
 
-<div class={`card-container ${outsideClass}`} class:hoverable>
-	<slot />
-</div>
+{#if article}
+	<article class={`card-container ${outsideClass}`} class:hoverable>
+		<slot />
+	</article>
+{:else}
+	<div class={`card-container ${outsideClass}`} class:hoverable>
+		<slot />
+	</div>
+{/if}
 
 <style lang="scss">
 	@use '../css/utils.scss' as *;
