@@ -17,13 +17,19 @@
 }
 
 @mixin tmp-flex-column-gap($value) {
-	& > :global(* + *) {
-		margin: 0 0 0 $value;
+	& > :global(*) {
+		margin: 0 $value 0 0;
 	}
 }
 
 @mixin tmp-flex-row-gap($value) {
-	& > :global(* + *) {
-		margin: $value 0 0 0;
+	& > :global(*) {
+		margin: 0 0 $value 0;
+	}
+}
+
+@mixin tmp-flex-column-row-gap($value) {
+	& > :global(*) {
+		margin: 0 $value $value 0;
 	}
 }
