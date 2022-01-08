@@ -12,7 +12,7 @@
 	const items = [
 		{ path: '/', label: 'Home' },
 		{ path: '/blog', label: 'Blog' },
-		{ path: '/about', label: 'About' }
+		{ path: '/resume', label: 'Résumé' }
 	];
 </script>
 
