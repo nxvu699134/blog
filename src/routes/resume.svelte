@@ -337,7 +337,11 @@
 
 	@include for-dark-mode {
 		.wrapper :global(.cv-container) {
-			--color-text-highlight: hsl(205, 72%, 48%);
+			--color-text-highlight: var(--color-primary-400);
+		}
+
+		.avatar img {
+			filter: brightness(90%);
 		}
 	}
 </style>
