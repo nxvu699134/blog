@@ -178,14 +178,7 @@
 		.tags {
 			display: flex;
 			flex-wrap: wrap;
-			gap: var(--spacing-200);
-			@supports not (gap: var(--spacing-200)) {
-				& > :global(*) {
-					margin-right: var(--spacing-200);
-					margin-bottom: var(--spacing-200);
-				}
-			}
-			margin-bottom: var(--spacing-200);
+			@include tmp-flex-column-row-gap(var(--spacing-200));
 		}
 	}
 
