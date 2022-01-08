@@ -12,6 +12,7 @@
 		<section class="avatar">
 			<img width="128" height="128" src="/assets/imgs/avatar.png" alt="avatar" />
 		</section>
+
 		<section class="contact-info">
 			<h1>Nguyen <span style="white-space: pre">Xuan Vu</span></h1>
 			<p class="role">Web Developer</p>
@@ -35,7 +36,7 @@
 			</ul>
 		</section>
 
-		<section class="skills formatted">
+		<section class="skills">
 			<h3>Skills</h3>
 			<div class="entry">
 				<ul>
@@ -64,7 +65,7 @@
 			</div>
 		</section>
 
-		<section class="experience formatted">
+		<section class="experience">
 			<h3>Experience</h3>
 			<div class="entry">
 				<h4 class="company">Goldeneye Technology</h4>
@@ -109,7 +110,7 @@
 				</ul>
 			</div>
 		</section>
-		<section class="education formatted">
+		<section class="education">
 			<h3>Education</h3>
 			<div class="entry">
 				<h4>University of Science</h4>
@@ -120,7 +121,7 @@
 				</ul>
 			</div>
 		</section>
-		<section class="projects formatted">
+		<section class="projects ">
 			<h3>Projects</h3>
 			<div class="entry">
 				<h4>Personal Blog</h4>
@@ -134,6 +135,20 @@
 				<p>Editor</p>
 				<ul>
 					<li>A Neovim plugin provides a fancy dark colorscheme.</li>
+				</ul>
+			</div>
+		</section>
+		<section class="outside-of-work">
+			<h3>Outside of work</h3>
+			<div class="entry">
+				<ul>
+					<li>I recently started my blog website, where I write about my learning.</li>
+					<li>I’m a CFA candidate, who like to research about financial stuff (gambling)</li>
+					<li>
+						Swimming is my favorite sport. I like to just relax and do nothing on water, it feels
+						like flying.
+					</li>
+					<li>I’m also a 10-years Starcraft player. Please connect to play with me :)</li>
 				</ul>
 			</div>
 		</section>
@@ -175,14 +190,6 @@
 			}
 		}
 
-		.tags {
-			display: flex;
-			flex-wrap: wrap;
-			@include tmp-flex-column-row-gap(var(--spacing-200));
-		}
-	}
-
-	section.formatted {
 		.entry {
 			margin-bottom: var(--spacing-400);
 
@@ -199,6 +206,12 @@
 				margin: 0;
 				padding-left: var(--spacing-500);
 			}
+		}
+
+		.tags {
+			display: flex;
+			flex-wrap: wrap;
+			@include tmp-flex-column-row-gap(var(--spacing-200));
 		}
 	}
 
@@ -232,6 +245,48 @@
 				font-size: var(--font-size-600);
 				margin-right: var(--spacing-200);
 				color: var(--color-text-highlight);
+			}
+		}
+	}
+
+	@include for-desktop {
+		.wrapper :global(.cv-container) {
+			--color-text-highlight: var(--color-primary-500);
+			display: grid;
+			grid-template-columns: 0.2fr 2fr 1fr 0.2fr;
+			column-gap: var(--spacing-600);
+			grid-template-areas:
+				'. contact-info avatar .'
+				'. experience skills .'
+				'. experience tech-stack .'
+				'. experience education .'
+				'. projects outside-of-work .';
+		}
+
+		section {
+			&.avatar {
+				grid-area: avatar;
+			}
+			&.contact-info {
+				grid-area: contact-info;
+			}
+			&.skills {
+				grid-area: skills;
+			}
+			&.tech-stack {
+				grid-area: tech-stack;
+			}
+			&.experience {
+				grid-area: experience;
+			}
+			&.education {
+				grid-area: education;
+			}
+			&.projects {
+				grid-area: projects;
+			}
+			&.outside-of-work {
+				grid-area: outside-of-work;
 			}
 		}
 	}
