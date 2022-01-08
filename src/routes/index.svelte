@@ -30,7 +30,7 @@
 	</p>
 	<div class="action-container">
 		<LandingButton href="/blog" leftIcon="fas fa-pencil-alt">Blog</LandingButton>
-		<LandingButton href="/about" leftIcon="fas fa-user-secret" outline>About</LandingButton>
+		<LandingButton href="/resume" leftIcon="fas fa-user-secret" outline>My Résumé</LandingButton>
 	</div>
 </div>
 
