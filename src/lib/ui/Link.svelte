@@ -1,8 +1,11 @@
 <script lang="ts">
 	export let href: string = undefined;
+	export let download: string = '';
+	let outsideClass = '';
+	export { outsideClass as class };
 </script>
 
-<a {href}>
+<a {href} class={outsideClass} {download}>
 	<slot />
 </a>
 
