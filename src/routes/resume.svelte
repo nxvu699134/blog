@@ -9,6 +9,10 @@
 
 <div class="wrapper">
 	<Card class="cv-container" article>
+		<Link href="/assets/files/resume.pdf" class="download-pdf" download="Nguyen_Xuan_Vu_Resume">
+			Download PDF
+		</Link>
+
 		<section class="avatar">
 			<img width="128" height="128" src="/assets/imgs/avatar.png" alt="avatar" />
 		</section>
@@ -159,9 +163,20 @@
 	@use '../lib/css/utils.scss' as *;
 
 	.wrapper :global(.cv-container) {
+		--color-text-highlight: var(--color-primary-500);
 		width: 100%;
 		margin-top: var(--spacing-600);
-		--color-text-highlight: var(--color-primary-500);
+		padding-top: var(--spacing-800);
+		display: flex;
+		flex-flow: column;
+		align-items: center;
+		position: relative;
+	}
+
+	.wrapper :global(.download-pdf) {
+		position: absolute;
+		top: var(--spacing-400);
+		right: var(--spacing-600);
 	}
 
 	h1,
@@ -170,9 +185,48 @@
 		text-align: center;
 	}
 
+	.role {
+		font-size: var(--font-size-600);
+		color: var(--color-text-alt);
+		margin-top: var(--spacing-200);
+	}
+
+	.avatar {
+		img {
+			border-radius: 50%;
+			border: 4px solid var(--color-text-highlight);
+		}
+	}
+
+	.contact-list {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		column-gap: var(--spacing-100);
+		padding: 0;
+		width: fit-content;
+		margin: 0 auto;
+
+		li {
+			list-style-type: none;
+			width: 96px;
+			margin-bottom: var(--spacing-200); /* no use 'gap' here since its not support on safari */
+			margin-right: var(--spacing-300);
+			display: flex;
+			align-items: center;
+
+			i {
+				font-size: var(--font-size-600);
+				margin-right: var(--spacing-200);
+				color: var(--color-text-highlight);
+			}
+		}
+	}
+
 	section {
 		margin-bottom: var(--spacing-600);
 		text-align: left;
+		width: 100%;
+		max-width: 520px;
 
 		h3 {
 			position: relative;
@@ -219,42 +273,12 @@
 		color: var(--color-text-highlight);
 	}
 
-	.avatar {
-		img {
-			border-radius: 50%;
-			border: 4px solid var(--color-text-highlight);
-		}
-	}
-
-	.contact-list {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		padding: 0;
-		width: fit-content;
-		margin: 0 auto;
-
-		li {
-			list-style-type: none;
-			width: 96px;
-			margin-bottom: var(--spacing-200); /* no use 'gap' here since its not support on safari */
-			margin-right: var(--spacing-300);
-			display: flex;
-			align-items: center;
-
-			i {
-				font-size: var(--font-size-600);
-				margin-right: var(--spacing-200);
-				color: var(--color-text-highlight);
-			}
-		}
-	}
-
 	@include for-desktop {
 		.wrapper :global(.cv-container) {
-			--color-text-highlight: var(--color-primary-500);
 			display: grid;
+			align-items: unset;
 			grid-template-columns: 0.2fr 2fr 1fr 0.2fr;
-			column-gap: var(--spacing-600);
+			column-gap: var(--spacing-400);
 			grid-template-areas:
 				'. contact-info avatar .'
 				'. experience skills .'
@@ -263,31 +287,57 @@
 				'. projects outside-of-work .';
 		}
 
+		.contact-list {
+			column-gap: var(--spacing-500);
+		}
+
 		section {
 			&.avatar {
 				grid-area: avatar;
+				display: flex;
+				flex-flow: column;
+				justify-content: center;
+				align-items: center;
+
+				img {
+					width: 156px;
+					height: 156px;
+				}
 			}
+
 			&.contact-info {
 				grid-area: contact-info;
 			}
+
 			&.skills {
 				grid-area: skills;
 			}
+
 			&.tech-stack {
 				grid-area: tech-stack;
 			}
+
 			&.experience {
 				grid-area: experience;
 			}
+
 			&.education {
 				grid-area: education;
 			}
+
 			&.projects {
 				grid-area: projects;
 			}
+
 			&.outside-of-work {
 				grid-area: outside-of-work;
 			}
+		}
+	}
+
+	@include for-dark-mode {
+		.wrapper :global(.cv-container) {
+			--color-text-highlight: hsl(205, 72%, 48%);
 		}
 	}
 </style>
