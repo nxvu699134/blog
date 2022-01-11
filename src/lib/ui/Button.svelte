@@ -97,9 +97,9 @@
 		}
 
 		&.primary {
-			--btn-bg: var(--color-primary-500);
+			--btn-bg: var(--color-primary-600);
 			--btn-bg-hl: var(--color-primary-400);
-			--btn-bg-active: var(--color-primary-600);
+			--btn-bg-active: var(--color-primary-700);
 			--btn-color: var(--color-white);
 			--btn-border: var(--color-primary-600);
 			--btn-shadow-inset: var(--color-primary-400);

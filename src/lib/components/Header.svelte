@@ -20,7 +20,7 @@
 
 <header>
 	<div class="blur-filter" />
-	<button class="toggle-btn" on:click={onToggle}>
+	<button class="toggle-btn" on:click={onToggle} aria-label="Toggle menu button">
 		{#if isToggled}
 			<IconClose />
 		{:else}
