@@ -1,7 +1,10 @@
 <script lang="ts">
+	import type { SvelteComponentDev } from 'svelte/internal';
+
 	/* export let label: string = ''; */
-	export let preIcon: string = '';
-	export let postIcon: string = '';
+	/* https://github.com/sveltejs/language-tools/issues/486 */
+	export let preIcon: typeof SvelteComponentDev = null;
+	export let postIcon: typeof SvelteComponentDev = null;
 	export let value: string;
 	let outsideClass: string = '';
 	export { outsideClass as class };
@@ -9,14 +12,14 @@
 
 <div class={`input-group ${outsideClass}`}>
 	{#if preIcon}
-		<span class="pre-icon">
-			<i class={preIcon} />
+		<span class="input-icon">
+			<svelte:component this={preIcon} />
 		</span>
 	{/if}
 	<input bind:value />
 	{#if postIcon}
-		<span class="post-icon">
-			<i class={postIcon} />
+		<span class="input-icon">
+			<svelte:component this={postIcon} />
 		</span>
 	{/if}
 </div>
@@ -53,12 +56,14 @@
 		}
 	}
 
-	.input-group .pre-icon,
-	.input-group .post-icon {
+	.input-group .input-icon {
 		padding: var(--spacing-200) var(--spacing-300);
 		font-size: var(--font-size-400);
 		background-color: var(--color-primary-400);
 		color: var(--color-white);
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 
 	@include for-dark-mode {
@@ -70,8 +75,7 @@
 			}
 		}
 
-		.input-group .pre-icon,
-		.input-group .post-icon {
+		.input-group .input-icon {
 			background-color: var(--color-primary-600);
 		}
 	}

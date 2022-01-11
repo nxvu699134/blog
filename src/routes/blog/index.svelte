@@ -16,6 +16,7 @@
 	import Section from '$lib/ui/Section.svelte';
 	import SeoTag from '$lib/components/SeoTag.svelte';
 	import { debounce } from '$lib/utils/debounce';
+	import IconSearch from '~icons/ri/search-line';
 
 	export let posts: IPostMeta[] = [];
 	let filteredPosts = posts;
@@ -34,7 +35,7 @@
 <SeoTag title="Blog" />
 <Section title="all posts">
 	<div class="search-bar">
-		<Input preIcon="fas fa-search" bind:value={searchText} />
+		<Input preIcon={IconSearch} bind:value={searchText} />
 	</div>
 	<CardsLayout>
 		{#each filteredPosts as post}

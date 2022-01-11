@@ -10,6 +10,8 @@
 </script>
 
 <script lang="ts">
+	import IconBlog from '~icons/ri/draft-line';
+	import IconResume from '~icons/ri/file-user-line';
 	import Quote from '$lib/ui/Quote.svelte';
 	import Blob from '$lib/ui/Blob.svelte';
 	import CardsLayout from '$lib/components/CardsLayout.svelte';
@@ -29,8 +31,8 @@
 		I like coding. I like beauty. <br /> I like coding to make beautiful things.
 	</p>
 	<div class="action-container">
-		<LandingButton href="/blog" leftIcon="fas fa-pencil-alt">Blog</LandingButton>
-		<LandingButton href="/resume" leftIcon="fas fa-user-secret" outline>Résumé</LandingButton>
+		<LandingButton href="/blog" preIcon={IconBlog}>Blog</LandingButton>
+		<LandingButton href="/resume" preIcon={IconResume} outline>Résumé</LandingButton>
 	</div>
 </div>
 

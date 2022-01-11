@@ -1,13 +1,14 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
+	import type { SvelteComponentDev } from 'svelte/internal';
 	import type { Size, Variant } from '$lib/ui/ui';
 
 	let outsideClass = '';
 	export { outsideClass as class };
 	export let size: Size = 'md';
 	export let href: string = null;
-	export let leftIcon: string = null;
-	export let rightIcon: string = null;
+	export let preIcon: typeof SvelteComponentDev = null;
+	export let postIcon: typeof SvelteComponentDev = null;
 	export let variant: Variant = 'none';
 	export let rounded: boolean = false;
 	const dispatch = createEventDispatcher();
@@ -17,22 +18,22 @@
 
 {#if !href}
 	<button class={classNames} on:click={onClick}>
-		{#if leftIcon}
-			<i class={`left-icon ${leftIcon}`} />
+		{#if preIcon}
+			<svelte:component this={preIcon} class="pre-icon" />
 		{/if}
 		<slot />
-		{#if rightIcon}
-			<i class={`right-icon ${rightIcon}`} />
+		{#if postIcon}
+			<svelte:component this={postIcon} class="post-icon" />
 		{/if}
 	</button>
 {:else}
 	<a {href} class={classNames}>
-		{#if leftIcon}
-			<i class={`left-icon ${leftIcon}`} />
+		{#if preIcon}
+			<svelte:component this={preIcon} class="pre-icon" />
 		{/if}
 		<slot />
-		{#if rightIcon}
-			<i class={`right-icon ${rightIcon}`} />
+		{#if postIcon}
+			<svelte:component this={postIcon} class="post-icon" />
 		{/if}
 	</a>
 {/if}
@@ -102,14 +103,6 @@
 			--btn-color: var(--color-white);
 			--btn-border: var(--color-primary-600);
 			--btn-shadow-inset: var(--color-primary-400);
-		}
-
-		i.left-icon {
-			margin-right: var(--spacing-200);
-		}
-
-		i.right-icon {
-			margin-left: var(--spacing-200);
 		}
 	}
 

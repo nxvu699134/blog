@@ -1,15 +1,11 @@
 <script lang="ts">
 	import siteInfo from '$lib/meta/siteInfo';
 	import Link from '$lib/ui/Link.svelte';
+	import SocialLink from '$lib/components/SocialLink.svelte';
 </script>
 
 <footer>
-	<svg
-		xmlns="http://www.w3.org/2000/svg"
-		viewBox="0 0 1440 320"
-		preserveAspectRatio="none"
-		height="128px"
-	>
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
 		<defs>
 			<linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
 				<stop offset="0%" stop-color="var(--color-bg1)" />
@@ -23,18 +19,10 @@
 	</svg>
 	<div class="container">
 		<div class="social-links">
-			<a href={`mailto:${siteInfo.email}`} aria-label="Vu's email">
-				<i class="far fa-envelope" />
-			</a>
-			<a href={siteInfo.github} aria-label="Vu's github">
-				<i class="fab fa-github" />
-			</a>
-			<a href={siteInfo.linkedin} aria-label="Vu's linkedin">
-				<i class="fab fa-linkedin-in" />
-			</a>
-			<a href={siteInfo.facebook} aria-label="Vu's facbook">
-				<i class="fab fa-facebook-f" />
-			</a>
+			<SocialLink name="email" hasLabel={false} />
+			<SocialLink name="github" hasLabel={false} />
+			<SocialLink name="linkedin" hasLabel={false} />
+			<SocialLink name="facebook" hasLabel={false} />
 		</div>
 		<p class="credit">
 			Powered by <Link href="https://kit.svelte.dev">SvelteKit</Link>
@@ -55,6 +43,7 @@
 	svg {
 		width: 100%;
 		display: block;
+		max-height: 128px;
 	}
 
 	.container {
@@ -74,26 +63,6 @@
 		display: flex;
 		@include tmp-flex-column-gap(var(--spacing-200));
 		margin-bottom: var(--spacing-300);
-
-		a {
-			width: 1.75em;
-			height: 1.75em;
-			transition: border-color 0.3s ease-in-out;
-			color: var(--color-text-primary);
-			font-size: var(--font-size-600);
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			border: 2px dashed transparent;
-		}
-	}
-
-	@include for-tablet-and-desktop {
-		.social-links {
-			a:hover {
-				border-color: var(--color-text-primary);
-			}
-		}
 	}
 
 	@include for-dark-mode {

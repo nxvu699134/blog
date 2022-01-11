@@ -1,22 +1,24 @@
 <script lang="ts">
+	import type { SvelteComponentDev } from 'svelte/internal';
+
 	let outsideClass = '';
 	export { outsideClass as class };
 
 	export let href: string = null;
-	export let leftIcon: string = null;
-	export let rightIcon: string = null;
+	export let preIcon: typeof SvelteComponentDev = null;
+	export let postIcon: typeof SvelteComponentDev = null;
 	export let outline: boolean = false;
 
 	const classNames = `${outsideClass}`;
 </script>
 
 <a {href} class={classNames} class:outline class:primary={!outline}>
-	{#if leftIcon}
-		<i class={`left-icon ${leftIcon}`} />
+	{#if preIcon}
+		<svelte:component this={preIcon} class="pre-icon" />
 	{/if}
 	<slot />
-	{#if rightIcon}
-		<i class={`right-icon ${rightIcon}`} />
+	{#if postIcon}
+		<svelte:component this={postIcon} class="pre-icon" />
 	{/if}
 </a>
 
@@ -72,14 +74,6 @@
 		&:hover {
 			background: var(--btn-highlight-primary-outline);
 		}
-	}
-
-	a i.left-icon {
-		margin-right: var(--spacing-200);
-	}
-
-	a i.right-icon {
-		margin-left: var(--spacing-200);
 	}
 
 	@include for-tablet-and-desktop {

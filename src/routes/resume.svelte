@@ -3,7 +3,7 @@
 	import Card from '$lib/ui/Card.svelte';
 	import Link from '$lib/ui/Link.svelte';
 	import Tag from '$lib/ui/Tag.svelte';
-	import siteInfo from '$lib/meta/siteInfo';
+	import SocialLink from '$lib/components/SocialLink.svelte';
 </script>
 
 <SeoTag title="Résumé" />
@@ -23,20 +23,16 @@
 			<p class="role">Web Developer</p>
 			<ul class="contact-list">
 				<li>
-					<i class="far fa-envelope" />
-					<Link href="mailto:{siteInfo.email}">Email</Link>
+					<SocialLink name="email" hasLabel />
 				</li>
 				<li>
-					<i class="fab fa-github" />
-					<Link href={siteInfo.github}>Github</Link>
+					<SocialLink name="github" hasLabel />
 				</li>
 				<li>
-					<i class="fab fa-linkedin-in" />
-					<Link href={siteInfo.linkedin}>LinkedIn</Link>
+					<SocialLink name="linkedin" hasLabel />
 				</li>
 				<li>
-					<i class="fab fa-facebook-f" />
-					<Link href={siteInfo.facebook}>Facebook</Link>
+					<SocialLink name="facebook" hasLabel />
 				</li>
 			</ul>
 		</section>
@@ -213,14 +209,6 @@
 			width: 96px;
 			margin-bottom: var(--spacing-200); /* no use 'gap' here since its not support on safari */
 			margin-right: var(--spacing-300);
-			display: flex;
-			align-items: center;
-
-			i {
-				font-size: var(--font-size-600);
-				margin-right: var(--spacing-200);
-				color: var(--color-text-highlight);
-			}
 		}
 	}
 

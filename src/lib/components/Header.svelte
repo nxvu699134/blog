@@ -1,7 +1,9 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import siteInfo from '$lib/meta/siteInfo';
+	import IconMenu from '~icons/ri/menu-fill';
+	import IconClose from '~icons/ri/close-fill';
 	import ColorSchemeButton from '$lib/ui/ColorSchemeButton.svelte';
+	import SocialLink from '$lib/components/SocialLink.svelte';
 
 	let isToggled = false;
 
@@ -18,7 +20,13 @@
 
 <header>
 	<div class="blur-filter" />
-	<i class={`${isToggled ? 'fas fa-times' : 'fas fa-bars'} toggle-btn`} on:click={onToggle} />
+	<button class="toggle-btn" on:click={onToggle}>
+		{#if isToggled}
+			<IconClose />
+		{:else}
+			<IconMenu />
+		{/if}
+	</button>
 	<nav>
 		<ul id="navigation" class:hide={!isToggled}>
 			{#each items as { path, label }}
@@ -31,18 +39,10 @@
 		</ul>
 	</nav>
 	<div class="social-links">
-		<a href={`mailto:${siteInfo.email}`} aria-label="Vu's email">
-			<i class="far fa-envelope" />
-		</a>
-		<a href={siteInfo.github} aria-label="Vu's github">
-			<i class="fab fa-github" />
-		</a>
-		<a href={siteInfo.linkedin} aria-label="Vu's linkedin">
-			<i class="fab fa-linkedin-in" />
-		</a>
-		<a href={siteInfo.facebook} aria-label="Vu's facbook">
-			<i class="fab fa-facebook-f" />
-		</a>
+		<SocialLink name="email" hasLabel={false} />
+		<SocialLink name="github" hasLabel={false} />
+		<SocialLink name="linkedin" hasLabel={false} />
+		<SocialLink name="facebook" hasLabel={false} />
 		<ColorSchemeButton />
 	</div>
 </header>
@@ -75,10 +75,6 @@
 		z-index: -1;
 	}
 
-	.page-logo {
-		display: none;
-	}
-
 	header .toggle-btn {
 		position: absolute;
 		top: auto;
@@ -86,6 +82,9 @@
 		right: var(--spacing-400);
 		font-size: var(--font-size-700);
 		color: var(--color-text-primary);
+		background-color: transparent;
+		padding: 0;
+		display: flex;
 		z-index: 9999;
 	}
 
@@ -129,18 +128,6 @@
 	.social-links {
 		display: flex;
 		@include tmp-flex-column-gap(var(--spacing-200));
-
-		a {
-			width: 1.75em;
-			height: 1.75em;
-			transition: border-color 0.3s ease-in-out;
-			color: var(--color-text-primary);
-			font-size: var(--font-size-600);
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			border: 2px dashed transparent;
-		}
 	}
 
 	.backdrop {
@@ -166,12 +153,8 @@
 			justify-content: space-between;
 		}
 
-		header :global(.toggle-btn) {
+		header .toggle-btn {
 			display: none;
-		}
-
-		.page-logo {
-			display: block;
 		}
 
 		#navigation,
@@ -195,12 +178,6 @@
 
 			&:hover {
 				border-bottom-color: var(--color-text-primary);
-			}
-		}
-
-		.social-links {
-			a:hover {
-				border-color: var(--color-text-primary);
 			}
 		}
 

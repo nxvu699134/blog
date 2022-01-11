@@ -1,4 +1,7 @@
 <script lang="ts">
+	import IconMoon from '~icons/ri/moon-clear-fill';
+	import IconSun from '~icons/ri/sun-fill';
+
 	const toggleMode = () => {
 		const curScheme = document.documentElement.getAttribute('color-scheme');
 		const nextScheme = curScheme === 'light' ? 'dark' : 'light';
@@ -8,8 +11,8 @@
 </script>
 
 <button on:click={toggleMode} aria-label="Button toggle dark and light mode">
-	<i class="fas fa-cloud-moon moon" />
-	<i class="fas fa-sun sun" />
+	<IconMoon class="moon" />
+	<IconSun class="sun" />
 </button>
 
 <style lang="scss">
@@ -26,30 +29,31 @@
 		width: 1.75em;
 		height: 1.75em;
 
-		i {
+		:global(.moon),
+		:global(.sun) {
 			transition: transform 0.4s ease-in;
 			position: absolute;
-			text-shadow: 0 0 10px currentcolor;
+			filter: drop-shadow(0 0 4px currentcolor) brightness(1.2);
+		}
 
-			&.sun {
-				color: var(--color-yellow-300);
-				transform: translateY(-200%);
-			}
+		:global(.moon) {
+			color: var(--color-primary-900);
+			transform: translateY(0);
+		}
 
-			&.moon {
-				color: var(--color-primary-900);
-				transform: translateY(0);
-			}
+		:global(.sun) {
+			color: var(--color-yellow-300);
+			transform: translateY(-200%);
 		}
 	}
 
 	@include for-dark-mode {
 		button {
-			i.moon {
+			:global(.moon) {
 				transform: translateY(200%);
 			}
 
-			i.sun {
+			:global(.sun) {
 				transform: translateY(0);
 			}
 		}

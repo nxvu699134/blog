@@ -1,4 +1,6 @@
 <script lang="ts">
+	import IconQuoteLeft from '~icons/ri/double-quotes-l';
+	import IconQuoteRight from '~icons/ri/double-quotes-r';
 	let outsideClass = '';
 	export { outsideClass as class };
 	export let author: string = '';
@@ -6,9 +8,13 @@
 </script>
 
 <blockquote class={`${outsideClass}`} class:primary={accent === 'primary'}>
-	<i class="fas fa-quote-left quotetick" />
+	<span class="quotetick">
+		<IconQuoteLeft />
+	</span>
 	<slot />
-	<i class="fas fa-quote-right quotetick" />
+	<span class="quotetick">
+		<IconQuoteRight />
+	</span>
 	<br />
 	{#if author}
 		<cite>{author}</cite>
@@ -29,8 +35,9 @@
 		color: var(--color-text);
 		margin: var(--spacing-400) var(--spacing-600);
 
-		i.quotetick {
+		.quotetick {
 			color: var(--color-text-disable);
+			display: contents;
 		}
 	}
 

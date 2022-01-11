@@ -1,4 +1,5 @@
 <script lang="ts">
+	import IconCalendar from '~icons/ri/calendar-line';
 	import { formatDate } from '$lib/utils/time';
 	import Tag from '$lib/ui/Tag.svelte';
 	import Card from '$lib/ui/Card.svelte';
@@ -13,7 +14,7 @@
 	<Card hoverable>
 		<h4 class="title">{data.title}</h4>
 		<div class="date">
-			<i class="far fa-calendar-minus" />
+			<IconCalendar class="pre-icon" />
 			<span> {formatDate(data.date)} </span>
 		</div>
 		<div class="description">{data.desc}</div>
@@ -34,13 +35,9 @@
 
 	.date {
 		display: flex;
-		align-items: baseline;
+		align-items: center;
 		font-size: var(--font-size-300);
 		margin-bottom: var(--spacing-400);
-
-		i {
-			margin-right: var(--spacing-100);
-		}
 	}
 
 	.description {

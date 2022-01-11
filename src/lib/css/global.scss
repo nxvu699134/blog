@@ -54,11 +54,6 @@ label {
 	display: block;
 }
 
-i {
-	width: 1em;
-	height: 1em;
-}
-
 h1,
 h2,
 h3,
@@ -141,4 +136,12 @@ h6 {
 	&:hover {
 		background-color: var(--color-primary-600);
 	}
+}
+
+.pre-icon {
+	margin-right: var(--spacing-200);
+}
+
+.post-icon {
+	margin-left: var(--spacing-200);
 }
