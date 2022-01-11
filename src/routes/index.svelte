@@ -12,6 +12,7 @@
 <script lang="ts">
 	import IconBlog from '~icons/ri/draft-line';
 	import IconResume from '~icons/ri/file-user-line';
+	import IconNext from '~icons/ri/arrow-right-line';
 	import Quote from '$lib/ui/Quote.svelte';
 	import Blob from '$lib/ui/Blob.svelte';
 	import CardsLayout from '$lib/components/CardsLayout.svelte';
@@ -64,9 +65,7 @@
 			<PostCard data={post} />
 		{/each}
 	</CardsLayout>
-	<Button href="/blog" variant="primary" size="lg" rightIcon="fas fa-angle-double-right"
-		>More Posts</Button
-	>
+	<Button href="/blog" variant="primary" size="lg" postIcon={IconNext}>More Posts</Button>
 </Section>
 
 <style lang="scss">
