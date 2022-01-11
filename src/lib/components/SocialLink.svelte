@@ -44,7 +44,7 @@
 		<Link href={ins.href}>{ins.label}</Link>
 	</span>
 {:else}
-	<a class="icon-link" href={ins.href} aria-label="Vu's {ins.label}">
+	<a class="icon-link" href={ins.href} aria-label="Vu's {ins.label}" target="_blank" rel="noopener">
 		<svelte:component this={ins.icon} />
 	</a>
 {/if}

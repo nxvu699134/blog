@@ -5,7 +5,7 @@
 	export { outsideClass as class };
 </script>
 
-<a {href} class={outsideClass} {download}>
+<a {href} class={outsideClass} {download} target="_blank" rel="noopener">
 	<slot />
 </a>
 
