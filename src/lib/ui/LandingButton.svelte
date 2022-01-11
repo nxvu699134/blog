@@ -27,11 +27,11 @@
 	@use '../css/utils.scss' as *;
 
 	a {
-		--btn-bg-primary: var(--color-primary-700);
-		--btn-highlight-primary: var(--color-primary-500);
+		--btn-bg-primary: var(--color-primary-600);
+		--btn-highlight-primary: var(--color-primary-400);
 
 		--btn-bg-primary-outline: var(--color-primary-000);
-		--btn-highlight-primary-outline: var(--color-primary-100);
+		--btn-highlight-primary-outline: var(--color-white);
 
 		border-radius: 100px;
 		width: 100%;
