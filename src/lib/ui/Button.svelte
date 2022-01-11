@@ -50,7 +50,7 @@
 		width: fit-content;
 		display: flex;
 		justify-content: center;
-		align-items: baseline;
+		align-items: center;
 		border-radius: var(--border-radius);
 		transition: background-color 0.2s ease-out;
 
