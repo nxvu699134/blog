@@ -56,7 +56,6 @@
 		display: flex;
 		align-items: center;
 		width: 100%;
-		max-width: 1080px;
 		height: var(--header-height);
 		padding: 0 var(--spacing-400);
 		position: sticky;
