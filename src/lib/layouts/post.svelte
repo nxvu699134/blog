@@ -4,11 +4,18 @@
 </script>
 
 <Card class="mdsvex-layout">
-	<slot />
+	<div class="mdsvex-content">
+		<slot />
+	</div>
 </Card>
 
 <style lang="scss">
 	:global(.mdsvex-layout) {
 		margin-top: var(--spacing-600);
+	}
+
+	.mdsvex-content {
+		max-width: 600px;
+		margin: 0 auto;
 	}
 </style>
