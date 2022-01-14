@@ -6,7 +6,7 @@
 
 <section class={`${outsideClass}`}>
 	{#if title}
-		<h3 class="title">{title}</h3>
+		<h2 class="title">{title}</h2>
 	{/if}
 	<slot />
 </section>

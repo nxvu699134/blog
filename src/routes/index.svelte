@@ -27,7 +27,7 @@
 
 <SeoTag title="Home" />
 <div class="banner">
-	<h2 class="greeting">Hi there, I'm Vu !</h2>
+	<h1 class="greeting">Hi there, I'm Vu !</h1>
 	<p class="quote">
 		I like coding. I like beauty. <br /> I like coding to make beautiful things.
 	</p>
@@ -43,7 +43,7 @@
 	</Quote>
 	<div id="profile">
 		<div class="content">
-			<h3>I'm a Full-stuck developer, who aim to build things that perfect</h3>
+			<h2>I'm a Full-stuck developer, who aim to build things that perfect</h2>
 			<p>
 				Maybe I just looks like a cat chasing my damn "perfection" tail. I'm a Vimmer also a
 				Starcraft player. Feel free to contact me!<br />

@@ -70,23 +70,23 @@ h6 {
 }
 
 h1 {
-	font-size: var(--font-size-900);
-}
-
-h2 {
 	font-size: var(--font-size-800);
 }
 
-h3 {
+h2 {
 	font-size: var(--font-size-700);
 }
 
-h4 {
+h3 {
 	font-size: var(--font-size-600);
 }
 
-h5 {
+h4 {
 	font-size: var(--font-size-500);
+}
+
+h5 {
+	font-size: var(--font-size-400);
 }
 
 h6 {
@@ -95,27 +95,27 @@ h6 {
 
 @include for-tablet-and-desktop {
 	h1 {
-		font-size: var(--font-size-1000);
-	}
-
-	h2 {
 		font-size: var(--font-size-900);
 	}
 
-	h3 {
+	h2 {
 		font-size: var(--font-size-800);
 	}
 
-	h4 {
+	h3 {
 		font-size: var(--font-size-700);
 	}
 
-	h5 {
+	h4 {
 		font-size: var(--font-size-600);
 	}
 
-	h6 {
+	h5 {
 		font-size: var(--font-size-500);
+	}
+
+	h6 {
+		font-size: var(--font-size-400);
 	}
 }
 
