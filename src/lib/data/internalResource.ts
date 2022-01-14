@@ -1,4 +1,4 @@
-const postFiles = import.meta.globEager('./posts/*.md');
+const postFiles = import.meta.globEager('./posts/*/*.md');
 
 const postMetas: IPostMeta[] = [];
 for (const postPath in postFiles) {
