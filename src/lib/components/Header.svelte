@@ -69,8 +69,7 @@
 		position: fixed;
 		top: 0;
 		left: 0;
-		backdrop-filter: blur(2rem);
-		-webkit-backdrop-filter: blur(2rem);
+		background: var(--color-gradient-bg);
 		z-index: -1;
 	}
 

@@ -36,14 +36,12 @@
 	@use '../css/animation.scss' as *;
 
 	.background-container {
-		--color-bg1: var(--color-primary-100);
-		--color-bg2: var(--color-primary-000);
 		position: absolute;
 		top: 0;
 		left: 0;
 		height: 460px;
 		width: 100%;
-		background: linear-gradient(45deg, var(--color-bg1) 0%, var(--color-bg2) 100%);
+		background: var(--color-gradient-bg);
 		z-index: -1;
 	}
 
@@ -77,13 +75,6 @@
 	@include for-tablet-and-desktop {
 		.background-container {
 			height: 512px;
-		}
-	}
-
-	@include for-dark-mode {
-		.background-container {
-			--color-bg1: var(--color-primary-900);
-			--color-bg2: var(--color-primary-1000);
 		}
 	}
 </style>

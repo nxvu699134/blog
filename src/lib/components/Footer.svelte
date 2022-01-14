@@ -50,7 +50,7 @@
 		display: flex;
 		flex-flow: column;
 		align-items: center;
-		background: linear-gradient(90deg, var(--color-bg1) 0%, var(--color-bg2) 100%);
+		background: var(--color-gradient-bg);
 		padding-bottom: var(--spacing-600);
 
 		p {

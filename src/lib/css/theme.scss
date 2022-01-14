@@ -102,9 +102,14 @@
 	--color-text-primary-disable: var(--color-primary-200);
 
 	--color-shadow: rgba(0, 0, 0, 0.2);
-
 	--shadow: 0px 0px 6px 1px var(--color-shadow);
 	--shadow-hl: 0px 0px 10px 4px var(--color-shadow);
+
+	--color-gradient-bg: linear-gradient(
+		90deg,
+		var(--color-primary-100) 0%,
+		var(--color-primary-000) 100%
+	);
 }
 
 [color-scheme='dark'] {
@@ -122,4 +127,10 @@
 	--color-text-primary-disable: var(--color-primary-800);
 
 	--color-shadow: rgba(0, 0, 0, 0.6);
+
+	--color-gradient-bg: linear-gradient(
+		90deg,
+		var(--color-primary-900) 0%,
+		var(--color-primary-1000) 100%
+	);
 }
