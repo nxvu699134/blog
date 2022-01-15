@@ -9,14 +9,14 @@
 	{#each colors as c}
 		<div class="color-item">
 			{#if c !== null}
-				<div style="background: {hslToString(c)}" class="color-sample" aria-label="color sample" />
+				<div style="background: {hslToString(c)}" class="color-sample" />
 				{#if withLabel}
 					<div style="min-width: 48px">H {c.h}</div>
 					<div style="min-width: 48px">S {c.s}%</div>
 					<div style="min-width: 48px">L {c.l}%</div>
 				{/if}
 			{:else}
-				<div class="color-sample" aria-label="color sample" />
+				<div class="color-sample" />
 				<div style="text-align: center;">?</div>
 			{/if}
 		</div>

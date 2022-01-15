@@ -17,7 +17,6 @@
 	{:else}
 		<div
 			style="background: hsl({color.h}, {color.s}%, {color.l}%); width: 48px; height: 48px; margin: 0 auto;"
-			aria-label="color sample"
 		/>
 	{/if}
 </div>
