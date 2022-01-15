@@ -1,7 +1,7 @@
 ---
 title: The easiest way to pick colors
 desc: RGB is the most common formats for representing color on website. But it's not useful in some cases.
-date: 2021-07-08
+date: 2021-09-17
 tags:
   - website
   - design
@@ -15,8 +15,6 @@ tags:
   import DemoButton from './DemoButton.svelte';
   import Link from '$lib/ui/Link.svelte';
 </script>
-
-# {title}
 
 RGB is the most common formats for representing color on website. But it's not useful in most cases.
 
