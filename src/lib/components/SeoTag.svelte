@@ -3,7 +3,7 @@
 	import siteInfo from '$lib/meta/siteInfo';
 
 	export let title: string;
-	export let desc: string = null;
+	export let desc: string = '';
 	export let keywords: string[] = [];
 	export let isArticle = false;
 </script>
