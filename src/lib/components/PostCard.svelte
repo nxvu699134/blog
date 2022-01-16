@@ -12,7 +12,7 @@
 
 <a href={data.href} class={`${outsideClass}`}>
 	<Card hoverable>
-		<h4 class="title">{data.title}</h4>
+		<h3 class="title">{data.title}</h3>
 		<div class="date">
 			<IconCalendar class="pre-icon" />
 			<span> {formatDate(data.date)} </span>
