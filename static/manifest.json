@@ -1,7 +1,8 @@
 {
     "name":"CodeLMAO - Vu's Blog",
     "short_name":"CodeLMAO",
-    "start_url": "https://codelmao.dev/",
+    "start_url": "/",
+    "scope":"/",
     "icons":[
         {
             "src":"/android-chrome-192x192.png",
