@@ -13,7 +13,6 @@ const config = {
 
 	kit: {
 		adapter: vercel(),
-		target: '#main-body',
 		vite: {
 			plugins: [Icons({ compiler: 'svelte' })]
 		}
