@@ -1,0 +1,136 @@
+:root {
+	--color-white: white;
+	--color-black: black;
+
+	--color-grey-000: hsl(210, 36%, 96%);
+	--color-grey-100: hsl(212, 33%, 89%);
+	--color-grey-200: hsl(210, 31%, 80%);
+	--color-grey-300: hsl(211, 27%, 70%);
+	--color-grey-400: hsl(209, 23%, 60%);
+	--color-grey-500: hsl(210, 22%, 49%);
+	--color-grey-600: hsl(209, 28%, 39%);
+	--color-grey-700: hsl(209, 34%, 30%);
+	--color-grey-800: hsl(211, 39%, 23%);
+	--color-grey-900: hsl(209, 44%, 16%);
+	--color-grey-1000: hsl(209, 41%, 8%);
+
+	--color-primary-000: hsl(208, 79%, 92%);
+	--color-primary-100: hsl(208, 97%, 85%);
+	--color-primary-200: hsl(208, 84%, 74%);
+	--color-primary-300: hsl(208, 74%, 65%);
+	--color-primary-400: hsl(208, 65%, 55%);
+	--color-primary-500: hsl(208, 67%, 45%);
+	--color-primary-600: hsl(208, 76%, 39%);
+	--color-primary-700: hsl(208, 82%, 33%);
+	--color-primary-800: hsl(208, 87%, 29%);
+	--color-primary-900: hsl(208, 100%, 21%);
+	--color-primary-1000: hsl(208, 90%, 10%);
+
+	--color-yellow-000: hsl(49, 100%, 96%);
+	--color-yellow-100: hsl(48, 100%, 88%);
+	--color-yellow-200: hsl(48, 95%, 76%);
+	--color-yellow-300: hsl(48, 94%, 68%);
+	--color-yellow-400: hsl(44, 92%, 63%);
+	--color-yellow-500: hsl(42, 87%, 55%);
+	--color-yellow-600: hsl(36, 77%, 49%);
+	--color-yellow-700: hsl(29, 80%, 44%);
+	--color-yellow-800: hsl(22, 82%, 39%);
+	--color-yellow-900: hsl(15, 86%, 30%);
+
+	--color-cyan-000: hsl(186, 100%, 94%);
+	--color-cyan-100: hsl(185, 94%, 87%);
+	--color-cyan-200: hsl(184, 80%, 74%);
+	--color-cyan-300: hsl(184, 65%, 59%);
+	--color-cyan-400: hsl(185, 57%, 50%);
+	--color-cyan-500: hsl(185, 62%, 45%);
+	--color-cyan-600: hsl(184, 77%, 34%);
+	--color-cyan-700: hsl(185, 81%, 29%);
+	--color-cyan-800: hsl(185, 84%, 25%);
+	--color-cyan-900: hsl(184, 91%, 17%);
+
+	--color-red-000: hsl(360, 100%, 97%);
+	--color-red-100: hsl(360, 82%, 89%);
+	--color-red-200: hsl(360, 77%, 78%);
+	--color-red-300: hsl(360, 71%, 66%);
+	--color-red-400: hsl(360, 64%, 55%);
+	--color-red-500: hsl(360, 67%, 44%);
+	--color-red-600: hsl(360, 72%, 38%);
+	--color-red-700: hsl(360, 79%, 32%);
+	--color-red-800: hsl(360, 85%, 25%);
+	--color-red-900: hsl(360, 92%, 20%);
+
+	--font-heading: Adelle, san-serif;
+	--font-article: Roboto, san-serif;
+
+	/* Keep normal is 400 to consistent with font-weight default  */
+	--spacing-100: 0.25rem;
+	--spacing-200: 0.5rem;
+	--spacing-300: 0.75rem;
+	--spacing-400: 1rem;
+	--spacing-500: 1.5rem;
+	--spacing-600: 2rem;
+	--spacing-700: 3rem;
+	--spacing-800: 4rem;
+	--spacing-900: 6rem;
+
+	--font-size-200: 0.75rem;
+	--font-size-300: 0.875rem;
+	--font-size-400: 1rem;
+	--font-size-500: 1.125rem;
+	--font-size-600: 1.25rem;
+	--font-size-700: 1.5rem;
+	--font-size-800: 2rem;
+	--font-size-900: 3rem;
+	--font-size-1000: 3.75rem;
+	--font-size-1100: 4.5rem;
+
+	--border-radius: 6px;
+}
+
+:root {
+	--color-main-bg: var(--color-grey-000);
+
+	--color-text: var(--color-grey-700);
+	--color-text-alt: var(--color-grey-600);
+	--color-text-disable: var(--color-grey-200);
+
+	--color-highlight: var(--color-grey-100);
+	--color-backdrop: var(--color-grey-400);
+
+	--color-text-primary: var(--color-primary-700);
+	--color-text-primary-alt: var(--color-primary-400);
+	--color-text-primary-disable: var(--color-primary-200);
+
+	--color-shadow: rgba(0, 0, 0, 0.2);
+	--shadow: 0px 0px 6px 1px var(--color-shadow);
+	--shadow-hl: 0px 0px 10px 4px var(--color-shadow);
+
+	--color-gradient-bg: linear-gradient(
+		90deg,
+		var(--color-primary-100) 0%,
+		var(--color-primary-000) 100%
+	);
+}
+
+[color-scheme='dark'] {
+	--color-main-bg: var(--color-grey-1000);
+
+	--color-text: var(--color-grey-100);
+	--color-text-alt: var(--color-grey-200);
+	--color-text-disable: var(--color-grey-800);
+
+	--color-highlight: var(--color-grey-800);
+	--color-backdrop: var(--color-grey-700);
+
+	--color-text-primary: var(--color-primary-000);
+	--color-text-primary-alt: var(--color-primary-400);
+	--color-text-primary-disable: var(--color-primary-800);
+
+	--color-shadow: rgba(0, 0, 0, 0.6);
+
+	--color-gradient-bg: linear-gradient(
+		90deg,
+		var(--color-primary-900) 0%,
+		var(--color-primary-1000) 100%
+	);
+}
