@@ -6,12 +6,13 @@
 	import Link from '$lib/ui/Link.svelte';
 	let i = 0;
 	const errorTxt = 'Sorry, something went wrong successfully. Wanna back';
+	let shownErrorTxt = '';
 	const speed = 72;
 	let showHome = false;
 	let timerId: ReturnType<typeof setTimeout>;
 	const typeWriter = () => {
 		if (i < errorTxt.length) {
-			document.getElementById('errorTxt').innerHTML += errorTxt.charAt(i);
+			shownErrorTxt += errorTxt.charAt(i);
 			i++;
 		} else {
 			showHome = true;
@@ -35,7 +36,7 @@
 <div class="error-container">
 	<img src="/assets/imgs/megaman.gif" alt="Megaman said" />
 	<Card class="error-message">
-		<span id="errorTxt" />
+		<span id="errorTxt">{shownErrorTxt}</span>
 		{#if showHome}
 			<Link>Home?</Link>
 		{/if}
@@ -79,6 +80,7 @@
 			}
 		}
 	}
+
 	@include for-dark-mode {
 		.error-container {
 			:global(.error-message) {
