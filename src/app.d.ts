@@ -2,10 +2,18 @@
 // for information about these interfaces
 declare global {
 	namespace App {
-		// interface Error {}
-		// interface Locals {}
-		// interface PageData {}
-		// interface Platform {}
+		type IPost = {
+			title: string;
+			desc: string;
+			date: string;
+			tags: Array<string>;
+			href: string;
+			id: string;
+		};
+
+		interface IPostMeta extends IPost {
+			component: SvelteComponent;
+		}
 	}
 }
 

@@ -12,7 +12,6 @@
 
 <svelte:head>
 	<script>
-		console.log('voday');
 		const colorScheme = localStorage.getItem('color-scheme') || 'dark';
 		document.documentElement.setAttribute('color-scheme', colorScheme);
 	</script>
