@@ -1,15 +1,5 @@
-<script context="module">
-	import { postMetas } from '$lib/data/internalResource';
-	export function load() {
-		return {
-			props: {
-				posts: postMetas
-			}
-		};
-	}
-</script>
-
 <script lang="ts">
+	import type { PageData } from './$types';
 	import IconBlog from '~icons/ri/draft-line';
 	import IconResume from '~icons/ri/file-user-line';
 	import IconNext from '~icons/ri/arrow-right-line';
@@ -22,7 +12,7 @@
 	import SeoTag from '$lib/components/SeoTag.svelte';
 	import LandingButton from '$lib/ui/LandingButton.svelte';
 
-	export let posts: IPostMeta[] = [];
+	export let data: PageData;
 </script>
 
 <SeoTag title="Home" />
@@ -61,7 +51,7 @@
 
 <Section title="Recent posts">
 	<CardsLayout class="post-list">
-		{#each posts as post}
+		{#each data.posts as post}
 			<PostCard data={post} />
 		{/each}
 	</CardsLayout>
