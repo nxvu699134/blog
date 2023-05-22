@@ -27,7 +27,10 @@
 		<p class="credit">
 			Powered by <Link href="https://kit.svelte.dev">SvelteKit</Link>
 		</p>
-		<p class="copyright">Copyright &copy; 2021 <Link href={siteInfo.github}>Nx.Vu</Link></p>
+		<p class="copyright">
+			Copyright &copy; {new Date().getFullYear()}
+			<Link href={siteInfo.github}>Nx.Vu</Link>
+		</p>
 	</div>
 </footer>
 

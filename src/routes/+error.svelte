@@ -1,26 +1,19 @@
-<script context="module">
-	export function load({ status }) {
-		return {
-			props: { status }
-		};
-	}
-</script>
-
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { page } from '$app/stores';
+	import { onMount, onDestroy } from 'svelte';
 	import Card from '$lib/ui/Card.svelte';
 	import siteInfo from '$lib/meta/siteInfo';
 	import Link from '$lib/ui/Link.svelte';
-	export let status: number;
 	let i = 0;
 	const errorTxt = 'Sorry, something went wrong successfully. Wanna back';
+	let shownErrorTxt = '';
 	const speed = 72;
 	let showHome = false;
+	let timerId: ReturnType<typeof setTimeout>;
 	const typeWriter = () => {
 		if (i < errorTxt.length) {
-			document.getElementById('errorTxt').innerHTML += errorTxt.charAt(i);
+			shownErrorTxt += errorTxt.charAt(i);
 			i++;
-			setTimeout(typeWriter, speed);
 		} else {
 			showHome = true;
 		}
@@ -28,18 +21,22 @@
 
 	onMount(() => {
 		//Call this function here cuz document only ready in client's side
-		typeWriter();
+		timerId = setInterval(typeWriter, speed);
+	});
+
+	onDestroy(() => {
+		clearInterval(timerId);
 	});
 </script>
 
 <svelte:head>
-	<title>"{status} Error || {siteInfo.siteName}"</title>
+	<title>{$page.status} | {siteInfo.siteName}</title>
 </svelte:head>
 
 <div class="error-container">
 	<img src="/assets/imgs/megaman.gif" alt="Megaman said" />
 	<Card class="error-message">
-		<span id="errorTxt" />
+		<span id="errorTxt">{shownErrorTxt}</span>
 		{#if showHome}
 			<Link>Home?</Link>
 		{/if}
@@ -83,6 +80,7 @@
 			}
 		}
 	}
+
 	@include for-dark-mode {
 		.error-container {
 			:global(.error-message) {

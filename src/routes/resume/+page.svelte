@@ -122,7 +122,7 @@
 				</ul>
 			</div>
 		</section>
-		<section class="projects ">
+		<section class="projects">
 			<h3>Projects</h3>
 			<div class="entry">
 				<h4>Personal Blog</h4>
@@ -157,7 +157,7 @@
 </div>
 
 <style lang="scss">
-	@use '../lib/css/utils.scss' as *;
+	@use '../../lib/css/utils.scss' as *;
 
 	.wrapper :global(.cv-container) {
 		--color-text-highlight: var(--color-primary-500);

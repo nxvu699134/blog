@@ -1,15 +1,5 @@
-<script context="module">
-	import { postMetas } from '$lib/data/internalResource';
-	export function load() {
-		return {
-			props: {
-				posts: postMetas
-			}
-		};
-	}
-</script>
-
 <script lang="ts">
+	import type { PageData } from './$types';
 	import Input from '$lib/ui/Input.svelte';
 	import PostCard from '$lib/components/PostCard.svelte';
 	import CardsLayout from '$lib/components/CardsLayout.svelte';
@@ -18,14 +8,14 @@
 	import { debounce } from '$lib/utils/debounce';
 	import IconSearch from '~icons/ri/search-line';
 
-	export let posts: IPostMeta[] = [];
-	let filteredPosts = posts;
+	export let data: PageData;
+	let filteredPosts = data.posts;
 	let searchText: string;
 	const onSearch = debounce((query: string) => {
 		if (query) {
-			filteredPosts = posts.filter((p) => p.title.toLowerCase().includes(query.toLowerCase()));
+			filteredPosts = data.posts.filter((p) => p.title.toLowerCase().includes(query.toLowerCase()));
 		} else {
-			filteredPosts = posts;
+			filteredPosts = data.posts;
 		}
 	}, 500);
 

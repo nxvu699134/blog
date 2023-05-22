@@ -46,7 +46,7 @@
 		<ColorSchemeButton />
 	</div>
 </header>
-<div class="backdrop" class:hide={!isToggled} on:click={onToggle} />
+<div aria-hidden="true" id="backdrop" class:hide={!isToggled} on:click={onToggle} />
 
 <style lang="scss">
 	@use '../css/utils' as *;
@@ -61,29 +61,29 @@
 		position: sticky;
 		top: 0;
 		z-index: 9000;
-	}
 
-	header .blur-filter {
-		height: var(--header-height);
-		width: 100%;
-		position: fixed;
-		top: 0;
-		left: 0;
-		background: var(--color-gradient-bg);
-		z-index: -1;
-	}
+		.blur-filter {
+			height: var(--header-height);
+			width: 100%;
+			position: fixed;
+			top: 0;
+			left: 0;
+			background: var(--color-gradient-bg);
+			z-index: -1;
+		}
 
-	header .toggle-btn {
-		position: absolute;
-		top: auto;
-		bottom: auto;
-		right: var(--spacing-400);
-		font-size: var(--font-size-700);
-		color: var(--color-text-primary);
-		background-color: transparent;
-		padding: 0;
-		display: flex;
-		z-index: 9999;
+		.toggle-btn {
+			position: absolute;
+			top: auto;
+			bottom: auto;
+			right: var(--spacing-400);
+			font-size: var(--font-size-700);
+			color: var(--color-text-primary);
+			background-color: transparent;
+			padding: 0;
+			display: flex;
+			z-index: 9999;
+		}
 	}
 
 	#navigation {
@@ -111,15 +111,15 @@
 		&.hide {
 			transform: translateX(100%);
 		}
-	}
 
-	#navigation a {
-		padding: var(--spacing-300) var(--spacing-400);
-		border-radius: var(--border-radius);
-		font-size: var(--font-size-500);
+		a {
+			padding: var(--spacing-300) var(--spacing-400);
+			border-radius: var(--border-radius);
+			font-size: var(--font-size-500);
 
-		&.active {
-			background-color: var(--color-highlight);
+			&.active {
+				background-color: var(--color-highlight);
+			}
 		}
 	}
 
@@ -128,7 +128,7 @@
 		@include tmp-flex-column-gap(var(--spacing-200));
 	}
 
-	.backdrop {
+	#backdrop {
 		position: fixed;
 		top: 0;
 		left: 0;
@@ -179,7 +179,7 @@
 			}
 		}
 
-		.backdrop {
+		#backdrop {
 			display: none;
 		}
 	}
